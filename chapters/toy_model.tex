@@ -1,0 +1,203 @@
+\chapter{Toy Model: One-Loop Effective Potential and Renormalization}
+\label{ch:toy-model}
+
+We illustrate the general formalism of the previous chapter with an
+explicit computation in the simplest setting: a single real scalar field
+with Lagrangian
+\begin{equation}
+    \mathcal{L}(x) = \frac{1}{2}\,\partial_\mu\phi(x)\,\partial^\mu\phi(x)
+    - V(\phi(x)),
+    \label{eq:real_scalar_field}
+\end{equation}
+and classical potential
+\begin{equation}
+    V(\phi) = \frac{\alpha_0}{4!}\,\phi^4 - \frac{m_0^2}{2}\,\phi^2.
+\end{equation}
+We work in units $\hbar = c = 1$ throughout.
+
+\section{The Classical Field and the Effective Action}
+
+The classical minimum of $V(\phi)$ sits at some $\phi_0$, but the vacuum
+expectation value $\langle\phi\rangle$ of the quantum field need not
+coincide with it. It is defined by
+\begin{equation}
+    \langle\phi\rangle \equiv \lim_{J\to 0}
+    \frac{\langle 0^+|\phi_{\text{op}}|0^-\rangle_J}
+         {\langle 0^+|0^-\rangle_J},
+\end{equation}
+where the generating functional $W[J]$ encodes the full quantum theory via
+\begin{equation}
+    \exp\frac{i}{\hbar}W[J]
+    = \mathcal{N}\int(\mathcal{D}\phi)
+      \exp\frac{i}{\hbar}\left\{S[\phi] + (J,\phi)\right\},
+\end{equation}
+with $S[\phi] = \int d^4x\,\mathcal{L}(x)$ and
+$(J,\phi) = \int d^4x\,J(x)\,\phi(x)$.
+The classical field, the VEV in the presence of an external source $J(x)$,
+is
+\begin{equation}
+    \phi_c(x) \equiv
+    \frac{\langle 0^+|\phi_{\text{op}}(x)|0^-\rangle_J}
+         {\langle 0^+|0^-\rangle_J}
+    = \frac{\delta W[J]}{\delta J(x)},
+    \label{eq:phi_c}
+\end{equation}
+and $\langle\phi\rangle$ is recovered as $\lim_{J\to 0}\phi_c(x)$. The
+loop expansion is an expansion in powers of $\hbar\,c\,\alpha$, but it
+performs an infinite resummation of Feynman graphs rather than a
+perturbative truncation.
+
+The natural question is: given a desired profile $\phi_c$, what source
+$J$ produces it? To answer this, we trade $J$ for $\phi_c$ as the
+independent variable via the Legendre transform,
+\begin{equation}
+    \Gamma[\phi_c] \equiv W[J] - (J,\phi_c),
+    \label{eq:Gamma_def}
+\end{equation}
+where $J$ is eliminated in favour of $\phi_c$ by inverting
+\eqref{eq:phi_c}. The functional $\Gamma[\phi_c]$ is the effective action,
+so named because it is a functional of the classical field $\phi_c$ and
+thus plays the same role for the quantum theory as $S[\phi]$ does
+classically. Differentiating \eqref{eq:Gamma_def} and using
+\eqref{eq:phi_c},
+\begin{align}
+    \frac{\delta\Gamma[\phi_c]}{\delta\phi_c(x)}
+    &= \frac{\delta W[J]}{\delta\phi_c(x)} - J(x)
+    - \int d^4y\,\frac{\delta J(y)}{\delta\phi_c(x)}\,\phi_c(y), \notag\\
+    \frac{\delta W[J]}{\delta\phi_c(x)}
+    &= \int d^4y\,\frac{\delta W[J]}{\delta J(y)}
+       \frac{\delta J(y)}{\delta\phi_c(x)}
+     = \int d^4y\,\frac{\delta J(y)}{\delta\phi_c(x)}\,\phi_c(y),
+\end{align}
+so that
+\begin{equation}
+    \frac{\delta\Gamma[\phi_c]}{\delta\phi_c(x)} = -J(x).
+    \label{eq:eff_action_eom}
+\end{equation}
+At $J=0$, translational invariance forces $\phi_c$ to be a constant, so
+$\langle\phi\rangle$ is the root of
+\begin{equation}
+    \frac{d\Gamma[\phi_c]}{d\phi_c}\bigg|_{\phi_c=\langle\phi\rangle} = 0.
+\end{equation}
+
+\section{The Effective Action as a Generator of 1PI Green's Functions}
+
+Expanding $\Gamma[\phi_c]$ in powers of $\phi_c$,
+\begin{equation}
+    \Gamma[\phi_c] = \sum_{n=0}^{\infty} \frac{1}{n!}
+    \int d^4x_1\cdots d^4x_n\,
+    \Gamma_n(x_1,\ldots,x_n)\,\phi_c(x_1)\cdots\phi_c(x_n),
+    \label{eq:gamma_expansion}
+\end{equation}
+we claim that $\Gamma_n$ is the $n$-point 1PI Green function, the sum
+of all connected 1PI Feynman graphs with $n$ external legs. To see this,
+consider the functional integral
+\begin{equation}
+    \mathcal{N}\int(\mathcal{D}\phi)
+    \exp\frac{i}{\hbar}\left\{\Gamma[\phi] + (J,\phi)\right\}.
+\end{equation}
+In the limit $\hbar\to 0$ the integrand is dominated by its saddle point,
+which occurs at $\phi = \phi_c$ since \eqref{eq:eff_action_eom} is
+precisely the saddle-point condition. Thus
+\begin{equation}
+    \mathcal{N}\int(\mathcal{D}\phi)
+    \exp\frac{i}{\hbar}\left\{\Gamma[\phi] + (J,\phi)\right\}
+    \xrightarrow{\hbar\to 0}
+    \mathcal{N}\exp\frac{i}{\hbar}
+    \left\{\Gamma[\phi_c] + (J,\phi_c)\right\},
+\end{equation}
+and by \eqref{eq:Gamma_def} the right-hand side equals
+$\exp\frac{i}{\hbar}W[J]$, so
+\begin{equation}
+    \exp\frac{i}{\hbar}W[J]
+    \xrightarrow{\hbar\to 0}
+    \mathcal{N}\int(\mathcal{D}\phi)
+    \exp\frac{i}{\hbar}\left\{\Gamma[\phi] + (J,\phi)\right\}.
+\end{equation}
+In this limit the right-hand side is the sum of all tree graphs of a
+theory whose action is $\Gamma[\phi]$, with vertices given by the
+$\Gamma_n$ of \eqref{eq:gamma_expansion}. Since $W[J]$ generates all
+connected Green functions of the original theory, and any connected
+graph decomposes into 1PI components, it follows that $\Gamma_n$ is a
+1PI Green function of the original theory. \qed
+
+\section{The Effective Potential}
+
+Alternatively, $\Gamma[\phi_c]$ may be expanded in derivatives of
+$\phi_c$,
+\begin{equation}
+    \Gamma[\phi_c] = \int d^4x\left[
+        -U(\phi_c(x))
+        + \frac{1}{2}\,\partial_\mu\phi_c(x)\,\partial^\mu\phi_c(x)\,
+          Z(\phi_c(x))
+        + \cdots\right],
+\end{equation}
+where $U(\phi_c)$ is the effective potential. For a constant configuration
+$\phi_c(x) = \rho$ this reduces to
+\begin{equation}
+    \Gamma[\rho] = -\Omega\,U(\rho),
+\end{equation}
+where $\Omega$ is the total spacetime volume. To connect $U(\rho)$ to the
+1PI Green functions, we pass to momentum space. The Fourier transforms
+of $\phi_c$ and $\Gamma_n$ are defined by
+\begin{align}
+    \tilde{\phi}_c(k) &= \int d^4x\,e^{ik\cdot x}\,\phi_c(x), \\
+    \phi_c(x) &= \int\frac{d^4k}{(2\pi)^4}\,e^{-ik\cdot x}\,\tilde{\phi}_c(k),
+\end{align}
+\begin{equation}
+    \tilde{\Gamma}_n(k_1,\ldots,k_n)\,(2\pi)^4\,\delta^4(k_1+\cdots+k_n)
+    = \int d^4x_1\cdots d^4x_n\,\Gamma_n(x_1,\ldots,x_n)\,
+      e^{i(k_1 x_1+\cdots+k_n x_n)}.
+\end{equation}
+Substituting these into \eqref{eq:gamma_expansion},
+\begin{multline}
+    \Gamma[\phi_c]
+    = \sum_{n=0}^{\infty}\frac{1}{n!}
+      \int d^4x_1\cdots d^4x_n\,
+      \Gamma_n(x_1,\ldots,x_n)\,\phi_c(x_1)\cdots\phi_c(x_n) \\
+    = \sum_{n=0}^{\infty}\frac{1}{n!}
+      \int\frac{d^4k_1}{(2\pi)^4}\cdots\frac{d^4k_n}{(2\pi)^4}
+      \int d^4x_1\cdots d^4x_n\,
+      \Gamma_n(x_1,\ldots,x_n)\,
+      e^{-i(k_1 x_1+\cdots+k_n x_n)}
+      \,\tilde{\phi}(k_1)\cdots\tilde{\phi}(k_n) \\
+    = \sum_{n=0}^{\infty}\frac{1}{n!}
+      \int\frac{d^4k_1}{(2\pi)^4}\cdots\frac{d^4k_n}{(2\pi)^4}\,
+      (2\pi)^4\,\delta^4(k_1+\cdots+k_n)\,
+      \tilde{\Gamma}_n(k_1,\ldots,k_n)\,
+      \tilde{\phi}(k_1)\cdots\tilde{\phi}(k_n).
+      \label{eq:rewriting_Gamma}
+\end{multline}
+Setting $\phi_c(x) = \rho$ gives $\tilde{\phi}_c(k) =
+(2\pi)^4\delta^4(k)\,\rho$, so each momentum integral collapses,
+\begin{multline}
+    \Gamma[\rho]
+    = \sum_{n=0}^{\infty}\frac{1}{n!}
+      \int\frac{d^4k_1}{(2\pi)^4}\cdots\frac{d^4k_n}{(2\pi)^4}\,
+      (2\pi)^4\,\delta^4(k_1+\cdots+k_n)\,
+      \tilde{\Gamma}_n(k_1,\ldots,k_n) \\
+      \cdot\,(2\pi)^4\delta^4(k_1)\,\rho\cdots(2\pi)^4\delta^4(k_n)\,\rho \\
+    = \sum_{n=0}^{\infty}\frac{1}{n!}
+      \underbrace{(2\pi)^4\delta^4(0)}_{\Omega}\,
+      \rho^n\,\tilde{\Gamma}_n(0,\ldots,0),
+\end{multline}
+and therefore
+\begin{equation}
+    \Gamma[\rho] = \Omega\sum_{n=0}^{\infty}
+    \frac{\rho^n}{n!}\,\tilde{\Gamma}_n(0),
+    \label{eq:Gamma_rho}
+\end{equation}
+where $\tilde{\Gamma}_n(0)\equiv\tilde{\Gamma}_n(0,\ldots,0)$ and
+$\Omega = (2\pi)^4\delta^4(0)$ is the total spacetime volume. Comparing
+\eqref{eq:Gamma_rho} with $\Gamma[\rho]=-\Omega\,U(\rho)$,
+\begin{equation}
+    U(\rho) = -\sum_{n=0}^{\infty}\frac{\rho^n}{n!}\,\tilde{\Gamma}_n(0),
+\end{equation}
+which is simply the statement that the Taylor coefficients of $U$ are the
+zero-momentum 1PI Green functions,
+\begin{equation}
+    -\frac{d^n U(\rho)}{d\rho^n}\bigg|_{\rho=0} = \tilde{\Gamma}_n(0).
+\end{equation}
+The effective potential is thus entirely determined by the 1PI Green
+functions of the original theory evaluated at vanishing external momenta.
+In the next section we compute it explicitly at one loop.

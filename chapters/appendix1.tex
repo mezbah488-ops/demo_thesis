@@ -1,0 +1,101 @@
+\chapter{Derivation of \texorpdfstring{$\delta W(J)/\delta J = \varphi$}{dW/dJ = phi}}
+\label{app:delta-W-delta-J}
+
+This appendix supplies the step used in the proof of Theorem~3, following
+Jackiw and Kerman (1979). The two equivalent expressions for $W(J)$ are
+\begin{align}
+    e^{\frac{i}{\hbar}W(J)} &= \langle-,t|+,t\rangle, \\
+    e^{\frac{i}{\hbar}W(J)} &= \langle 0|\,T\exp\!\left(\frac{i}{\hbar}
+    \int(dx)\,J(x)\,\Phi(x)\right)|0\rangle.
+\end{align}
+The states $|\pm,t\rangle$ solve the time-dependent Schr\"odinger equation
+\begin{equation}
+    i\hbar\,\partial_t|\pm,t\rangle
+    = H|\pm,t\rangle
+    - \int d\mathbf{x}\,J(t,\mathbf{x})\,\Phi(\mathbf{x})|\pm,t\rangle,
+\end{equation}
+with boundary conditions $\lim_{t\to\mp\infty}|\pm,t\rangle = |0\rangle$,
+where $|0\rangle$ is the ground state of $H$ with $H|0\rangle = 0$. The
+states $|\psi_\pm,t\rangle$ are related to $|\pm,t\rangle$ by
+\begin{align}
+    |+,t\rangle &= \exp\frac{i}{\hbar}\!\left(\int_{-\infty}^{t}dt'\,w(t')\right)|\psi_+,t\rangle, \\
+    |-,t\rangle &= \exp\frac{i}{\hbar}\!\left(-\int_{t}^{\infty}dt'\,w^*(t')\right)|\psi_-,t\rangle,
+\end{align}
+and satisfy $\left(i\hbar\,\partial_t - H + \int J\Phi\,dx\right)|\pm,t\rangle
+= 0$ with the same boundary conditions. Their overlap gives
+\begin{equation}
+    \langle-,t|+,t\rangle = e^{\frac{i}{\hbar}W(J)}.
+\end{equation}
+Expanding this explicitly,
+\begin{align}
+    &\langle\psi_-,t|\left[\exp\frac{i}{\hbar}\!\left(-\int_t^{\infty}dt'\,w^*(t')\right)\right]^*
+    \exp\frac{i}{\hbar}\!\left(\int_{-\infty}^{t}w(t')\,dt'\right)|\psi_+,t\rangle \notag\\
+    &= \langle\psi_-,t|\exp\frac{i}{\hbar}\!\left(\int_t^{\infty}dt'\,w(t')
+    + \int_{-\infty}^{t}dt'\,w(t')\right)|\psi_+,t\rangle \notag\\
+    &= \langle\psi_-,t|\exp\frac{i}{\hbar}\int_{-\infty}^{\infty}dt'\,w(t')\,|\psi_+,t\rangle \notag\\
+    &= \exp\frac{i}{\hbar}\int_{-\infty}^{\infty}dt'\,w(t')
+    \underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1} \notag\\
+    &= \exp\frac{i}{\hbar}\left(\int_{-\infty}^{\infty}dt'\,w(t')\right),
+\end{align}
+so that $W = \int_{-\infty}^{\infty}dt\,w(t)$. Using the eigenvalue
+equation for $|\psi_+,t\rangle$,
+\begin{equation}
+    \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
+    \left(i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\right)|\psi_+,t\rangle
+    = \int_{-\infty}^{\infty}dt\,w(t)
+    \underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1},
+\end{equation}
+which gives
+\begin{equation}
+    W(J) = \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|\,
+    i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\,|\psi_+,t\rangle.
+\end{equation}
+Taking the functional derivative,
+\begin{align}
+    \frac{\delta W(J)}{\delta J} &=
+    \int_{-\infty}^{\infty}dt\,\frac{\delta\langle\psi_-,t|}{\delta J}
+    \underbrace{\left(i\hbar\,\partial_t - H + \int J\Phi\right)|\psi_+,t\rangle}_{w(t)|\psi_+,t\rangle} \notag\\
+    &+ \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
+    \frac{\delta}{\delta J}\left(i\hbar\,\partial_t - H
+    + \int d\mathbf{x}\,J\Phi\right)|\psi_+,t\rangle \notag\\
+    &+ \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
+    \left(i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\right)
+    \frac{\delta|\psi_+,t\rangle}{\delta J},
+\end{align}
+where the constraint $\langle\psi_-,t|\Phi(\mathbf{x})|\psi_+,t\rangle =
+\phi(t,\mathbf{x})$ was used for the second term. Integrating the third
+term by parts,
+\begin{equation}
+    i\hbar\left\langle\psi_-,t\Big|\frac{\delta|\psi_+,t\rangle}{\delta J}
+    \right\rangle\bigg|_{-\infty}^{\infty}
+    + \left\langle\psi_-,t\left|
+    \underbrace{\left(-i\hbar\,\partial_t - H
+    + \int d\mathbf{x}\,J\Phi\right)}_{\langle\psi_-,t|w(t)}
+    \frac{\delta|\psi_+,t\rangle}{\delta J}\right.\right\rangle,
+\end{equation}
+so that
+\begin{align}
+    \frac{\delta W(J)}{\delta J} &= \phi
+    + i\hbar\left\langle\psi_-,t\Big|
+    \frac{\delta}{\delta J}|\psi_+,t\rangle\right\rangle\bigg|_{-\infty}^{\infty} \notag\\
+    &+ \int_{-\infty}^{\infty}dt\,w(t)\left[
+    \frac{\delta\langle\psi_-,t|}{\delta J}|\psi_+,t\rangle
+    + \langle\psi_-,t|\frac{\delta}{\delta J}|\psi_+,t\rangle\right],
+\end{align}
+where the expression inside the brackets vanishes upon differentiating the
+normalization constraint $\langle\psi_-,t|\psi_+,t\rangle = 1$. It
+remains to show that the boundary term also vanishes. At $t\to-\infty$,
+$|\psi_+,t\rangle\to|0\rangle$ independently of $J$, so
+$\delta|\psi_+,t\rangle/\delta J = 0$ at the lower limit. For the upper
+limit, rewrite it as
+\begin{equation}
+    i\hbar\,\frac{\delta}{\delta J}
+    \underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1}
+    - i\hbar\left(\frac{\delta\langle\psi_-,t|}{\delta J}\right)|\psi_+,t\rangle,
+\end{equation}
+where the second term vanishes because at $t\to\infty$,
+$\langle\psi_-,t|\to\langle 0|$, also independently of $J$. The boundary
+term therefore vanishes at both limits, and
+\begin{equation}
+    \therefore\quad\boxed{\frac{\delta W(J)}{\delta J} = \phi.}
+\end{equation}

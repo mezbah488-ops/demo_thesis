@@ -1,0 +1,244 @@
+\chapter{Physical Meaning of the Effective Action and Effective Potential}
+\label{ch:physical-meaning}
+
+We have defined $\Gamma[\varphi_c]$ and $V_{\text{eff}}(\bar\varphi)$
+formally in the previous chapter. Here we give them concrete physical
+meaning.
+
+\section{The Effective Potential as a Generator of 1PI Graphs}
+
+For a constant classical field $\bar{\varphi}$, inserting the Fourier
+representation of $\Gamma^{(n)}$ into the expansion
+\eqref{eq:gamma-1PI-expansion} gives
+\begin{align}
+    \Gamma(\bar{\varphi}) &= \sum_{n=2}^{\infty} \frac{1}{n!}\,
+    \bar{\varphi}^n \int \prod_{i=1}^{n} d^4x_i\;
+    \Gamma^{(n)}(x_1, \ldots, x_n) \\
+    &= \sum_{n=2}^{\infty} \frac{1}{n!}\, \bar{\varphi}^n
+    \int \prod_{i=1}^{n} \left( d^4x_i\, \frac{d^4k_i}{(2\pi)^4}\,
+    e^{ik_i x_i} \right) \tilde{\Gamma}^{(n)}(k_1, \ldots, k_n) \cdot
+    (2\pi)^4\, \delta^{(4)}\!\left(\sum_{i=1}^{n} k_i\right),
+\end{align}
+where $\int d^4x\, e^{ikx} = (2\pi)^4\delta^{(4)}(k)$ was used. Setting
+$k=0$ gives $\int d^4x = (2\pi)^4\delta^{(4)}(0)$, so that
+\begin{equation}
+    \Gamma(\bar{\varphi}) = \sum_{n=2}^{\infty} \frac{1}{n!}\,
+    \bar{\varphi}^n \int d^4x\; \tilde{\Gamma}^{(n)}(0, \ldots, 0).
+\end{equation}
+Comparing this with $\Gamma(\bar{\varphi}) =
+\int d^4x\,[-V_{\text{eff}}(\bar{\varphi})]$ gives
+\begin{equation}
+    V_{\text{eff}}(\bar{\varphi}) = -\sum_{n=2}^{\infty}
+    \frac{1}{n!}\,\bar{\varphi}^n\,\tilde{\Gamma}^{(n)}(0, \ldots, 0).
+\end{equation}
+Thus $V_{\text{eff}}(\bar\varphi)$ is the generating functional for 1PI
+graphs at vanishing external momenta, computed by summing all such graphs
+and inserting a factor $\bar\varphi$ for each external line.
+
+To lowest order in $\hbar$, only tree-level graphs contribute. For a
+Lagrangian of the form
+\begin{equation}
+    \mathcal{L}(\varphi, \partial_\mu \varphi) = \frac{1}{2}\,\partial_\mu
+    \varphi\, \partial^\mu \varphi - U(\varphi),
+\end{equation}
+each term $g_i\varphi^i/i!$ in $U(\varphi)$ contributes exactly one
+tree-level 1PI graph, since all tree graphs with more than one vertex are
+not 1PI. Each term gives a contribution $-g_i\bar\varphi^i$, where $-g_i$
+is the vertex factor and $\bar\varphi^i$ comes from the $i$ external
+lines. The minus signs cancel and one recovers
+\begin{equation}
+    V_{\text{eff}}(\bar{\varphi}) = U(\bar{\varphi}) + \mathcal{O}(\hbar),
+\end{equation}
+confirming that the classical potential is the leading-order approximation
+to the effective potential.
+
+\section{The Effective Potential as a Minimum Energy Density}
+
+A deeper interpretation follows from the variational principle.
+
+\begin{theorem}
+$V_{\mathrm{eff}}(\bar{\varphi})$ is the minimum of the energy density
+expectation value over all normalized states $|a\rangle$ satisfying
+$\langle a|\varphi|a\rangle = \bar{\varphi}$. That is,
+\begin{equation}
+    V_{\text{eff}}(\bar{\varphi}) = \langle a|\mathcal{H}|a\rangle,
+\end{equation}
+for $|a\rangle$ which obeys $\delta\langle a|\mathcal{H}|a\rangle = 0$
+subject to the constraints $\langle a|a\rangle = 1$,
+$\langle a|\varphi|a\rangle = \bar{\varphi}$.
+\end{theorem}
+
+\begin{proof}
+We first solve the analogous problem in quantum mechanics, then translate
+to field theory. In QM the problem is to find a state $|a\rangle$ such
+that $\langle a|H|a\rangle$ is stationary subject to $\langle a|a\rangle
+= 1$ and $\langle a|A|a\rangle = A_c$ for some self-adjoint operator $A$.
+Introducing Lagrange multipliers $E$ and $J$ for each constraint, the
+problem becomes
+\begin{align}
+    \delta\langle a|(H - E - JA)|a\rangle &= 0 \quad \text{(unconstrained)} \\
+    \langle a|a\rangle &= 1 \\
+    \langle a|A|a\rangle &= A_c.
+\end{align}
+Since $H$ is self-adjoint, this yields
+\begin{equation}
+    (H - E - JA)|a\rangle = 0,
+\end{equation}
+with solution $|a\rangle = |a(E,J)\rangle$. Using $\langle a|a\rangle=1$,
+$E$ is solved as a function of $J$, i.e.\ $E = E(J)$, and
+$\langle a|A|a\rangle = A_c$ gives $J = J(A_c)$. Thus
+\begin{equation}
+    (H - JA)|a(J)\rangle = E(J)|a(J)\rangle,
+\end{equation}
+where $|a(J)\rangle$ is a normalized eigenstate of $(H-JA)$. Taking the
+expectation value with $\langle a(J)|$ and differentiating with respect
+to $J$,
+\begin{align}
+    \left(\frac{\delta}{\delta J}\langle a(J)|\right)
+    \underbrace{(H-E(J)-JA)|a(J)\rangle}_{0}
+    &+ \langle a(J)|\frac{\delta}{\delta J}
+    (H - E(J) - JA)|a(J)\rangle \notag\\
+    &+ \langle a(J)|(H-E(J)-JA)
+    \underbrace{\frac{\delta}{\delta J}|a(J)\rangle}_{0} = 0,
+\end{align}
+which gives
+\begin{equation}
+    -\frac{\delta E}{\delta J} -
+    \underbrace{\langle a(J)|A|a(J)\rangle}_{A_c} = 0
+    \qquad \Rightarrow \qquad
+    \frac{\delta E}{\delta J} = -A_c.
+\end{equation}
+Substituting back into the expectation value of the eigenvalue equation,
+\begin{equation}
+    \langle a(J)|H|a(J)\rangle = E(J) - J\frac{\delta E}{\delta J},
+\end{equation}
+which is the energy of the ground state of $H$ in the space of states
+satisfying $\langle a(J)|A|a(J)\rangle = A_c$.
+
+We now translate this to field theory. In field theory the only
+normalizable eigenstate of a Hamiltonian is the vacuum, so $|a(J)\rangle$
+is identified with the vacuum of the sourced theory. Adding a source
+$J(x)\varphi(x)$ to the Hamiltonian density, adiabatically switched on
+at $t=0$ and off at $t=T$ over spatial volume $V$, the adiabatic theorem
+gives
+\begin{equation}
+    e^{iW(J)} = \langle 0^+|0^-\rangle
+    = \exp\left[-iVT\,\varepsilon(J)\right],
+\end{equation}
+so $-W(J)$ is the ground state action of the sourced theory. The Legendre
+transform structure,
+\begin{equation}
+    \Gamma(\bar{\varphi}) = W(J) - J\frac{\delta W}{\delta J},
+    \qquad \frac{\delta W}{\delta J} = \bar{\varphi},
+\end{equation}
+is formally identical to the quantum-mechanical result above, identifying
+$-\Gamma(\bar\varphi)$ as the ground state action of the sourceless
+theory in the sector with $\langle a|\varphi|a\rangle = \bar\varphi$.
+That is,
+\begin{align}
+    -\Gamma(\bar{\varphi}) &= \langle a|H|a\rangle, \\
+    -\frac{\Gamma(\bar{\varphi})}{VT} &= \frac{\langle a|H|a\rangle}{VT},
+\end{align}
+and therefore
+\begin{equation}
+    V_{\text{eff}}(\bar{\varphi}) = \langle a|\mathcal{H}|a\rangle
+\end{equation}
+for the lowest-energy state satisfying $\langle a|a\rangle=1$ and
+$\langle a|\varphi|a\rangle = \bar\varphi$.
+\end{proof}
+
+This result has an important consequence: since $V_{\text{eff}}(\bar\varphi)$
+is defined as a minimum of energy over a convex set of states, it is
+convex. Its minima therefore correspond to the stable equilibrium
+configurations of the quantum field theory, a fact that will be central
+to the analysis of phase transitions in later chapters.
+
+\section{Variational Definition of the Full Effective Action}
+
+The variational interpretation of $V_{\text{eff}}$ established above can
+be generalized to the full effective action.
+
+\begin{theorem}
+$\Gamma(\varphi)$ is the stationary value of
+\begin{equation}
+    \Gamma(\varphi) = \int_{-\infty}^{\infty} dt\,
+    \langle\psi_-,t|\,i\partial_t - H\,|\psi_+,t\rangle
+\end{equation}
+subject to the constraints
+\begin{equation}
+    \langle\psi_-,t|\Phi(\mathbf{x})|\psi_+,t\rangle = \varphi(t,\mathbf{x}),
+    \qquad
+    \langle\psi_-,t|\psi_+,t\rangle = 1,
+    \qquad
+    \lim_{t\to\pm\infty}|\psi_\pm,t\rangle = |0\rangle.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The proof follows the same structure as Theorem~2. Introducing Lagrange
+multipliers $J(t,\mathbf{x})$ and $w(t)$ for the two constraints,
+\begin{multline}
+    \Gamma_m(\varphi) = \int dt\,\langle\psi_-,t|i\partial_t -
+    H|\psi_+,t\rangle
+    + \int d^4x\,J(t,\mathbf{x})\left(\langle\psi_-,t|\Phi|\psi_+,t\rangle
+    - \varphi(t,\mathbf{x})\right) \\
+    - w(t)\left(\langle\psi_-,t|\psi_+,t\rangle - 1\right).
+\end{multline}
+Varying with respect to $\langle\psi_-,t|$, the last term drops out and
+since $\langle\delta\psi_-,t|$ is arbitrary,
+\begin{equation}
+    \boxed{\left(i\partial_t - H
+    + \int d^3x\,J(t,\mathbf{x})\,\Phi(\mathbf{x})\right)|\psi_+,t\rangle
+    = w(t)|\psi_+,t\rangle.}
+\end{equation}
+Varying with respect to $|\psi_+,t\rangle$ and integrating by parts,
+\begin{equation}
+    \int dt\,\langle\psi_-,t|i\partial_t|\delta\psi_+,t\rangle
+    = \left[\langle\psi_-,t|\delta\psi_+,t\rangle\right]_{-\infty}^{\infty}
+    - \int dt\,i\left(\partial_t\langle\psi_-,t|\right)|\delta\psi_+,t\rangle,
+\end{equation}
+where the boundary term vanishes because
+$\lim_{t\to\pm\infty}|\psi_\pm,t\rangle = |0\rangle$. Hence
+\begin{equation}
+    \int dt\,\langle\psi_-,t|i\partial_t|\delta\psi_+,t\rangle
+    = -\int dt\,i\left(\partial_t\langle\psi_-,t|\right)|\delta\psi_+,t\rangle.
+\end{equation}
+Since $|\delta\psi_+,t\rangle$ is arbitrary,
+\begin{equation}
+    \delta_{|\psi_+,t\rangle}\Gamma_m(\varphi) = \int dt\,\langle\psi_-,t|
+    \left(-i\overleftarrow{\partial_t} + H
+    + \int d^3x\,J(\mathbf{x})\,\Phi(\mathbf{x})
+    + w(t)\right)|\delta\psi_+,t\rangle = 0,
+\end{equation}
+and taking the Hermitian conjugate,
+\begin{equation}
+    \boxed{\left[i\partial_t - H
+    + \int d^3x\,J(\mathbf{x})\,\Phi(\mathbf{x})\right]|\psi_-,t\rangle
+    = w^*(t)|\psi_-,t\rangle.}
+\end{equation}
+Defining the rescaled states
+\begin{align}
+    |+,t\rangle &= e^{\,i\int_{-\infty}^{t}dt'\,w(t')}\,|\psi_+,t\rangle, \\
+    |-,t\rangle &= e^{-i\int_{t}^{\infty}dt'\,w^*(t')}\,|\psi_-,t\rangle,
+\end{align}
+these are asymptotic ground states satisfying the sourced Schr\"odinger
+equation with no inhomogeneous term. Their overlap gives
+\begin{equation}
+    \langle-,t|+,t\rangle = e^{iW(J)}
+    = \exp\!\left[i\int_{-\infty}^{\infty}dt\,w(t)\right],
+\end{equation}
+from which
+\begin{equation}
+    W(J) = \int_{-\infty}^{\infty}dt\,
+    \langle\psi_-,t|\,i\partial_t - H
+    + \int d^3x\,J\cdot\Phi\,|\psi_+,t\rangle.
+\end{equation}
+As shown in Appendix~\ref{app:delta-W-delta-J},
+$\delta W(J)/\delta J = \varphi$, so the Legendre transform gives
+\begin{equation}
+    W(J) - \int d^4x\,J\varphi = \Gamma(\varphi)
+    = \int_{-\infty}^{\infty}dt\,
+    \langle\psi_-,t|\,i\partial_t - H\,|\psi_+,t\rangle,
+\end{equation}
+which shows that $\Gamma(\varphi)$ is indeed the stationary value.
+\end{proof}

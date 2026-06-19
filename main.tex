@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper]{book}
+% --- Page layout ---
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+
+% --- Math ---
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bbold}
+\usepackage{slashed}
+\usepackage{braket}
+\usepackage{cancel}
+
+% --- Theorems ---
+\newtheorem{theorem}{Theorem}
+
+% --- Figures ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2][1]{%
+\edef\svgwidth{#1\columnwidth}
+\import{./figures/}{#2.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+
+% --- TikZ & PGF ---
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows.meta, decorations.pathmorphing}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+% --- Misc ---
+\usepackage{soul}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\usepackage{xurl}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+
+\input{chapters/introduction}
+
+\part{Effective Action and Effective Potential}
+\input{chapters/general_formalism_eff_action}
+\input{chapters/physical_meaning_eff_action}
+\input{chapters/toy_model}
+\input{chapters/gsw_model}
+\input{chapters/gut_models}
+
+\part{Finite Temperature Field Theory}
+\input{chapters/finite_temperature_eff_potential}
+
+\part{False Vacuum Decay and Bubble Nucleation}
+\input{chapters/vacuum_decay}
+\input{chapters/fate_of_false_vacuum}
+\input{chapters/bubble_nucleation}
+\input{chapters/gw_signatures}
+
+\part{Cosmological Phase Transitions}
+\input{chapters/early_universe}
+\input{chapters/fT_eff_pot_cosmo}
+
+\part{Quantum Field Theory in Curved Spacetime}
+\input{chapters/qft_curved_spacetime}
+
+\backmatter
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
