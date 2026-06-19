@@ -1,3 +1,118 @@
-\chapter{The Early Universe and Cosmological Phase Transitions}
+\chapter{A Brief History of the Early Universe and Cosmological Phase Transitions}
 \label{ch:early-universe}
+
+\section{Thermal History of the Early Universe}
+
+The universe we observe today emerged from an early hot dense state that
+has been expanding and cooling ever since. Working backwards in time,
+the thermal history is punctuated by a sequence of phase transitions,
+each corresponding to the breaking of a symmetry as the temperature fell
+below a critical value.
+
+The earliest epoch accessible to our theoretical framework is inflation,
+a period of accelerated expansion during which the universe expanded by
+a factor of order $10^{26}$ over a time of order $10^{-36}$ to
+$10^{-32}$ seconds. At the end of inflation began the reheating phase,
+during which the universe returned to a thermal state at the reheating
+temperature $T_R$ through the coupling of the inflaton field $\phi$ to
+the Standard Model particles.
+
+Subsequent to reheating, the thermal history proceeds through a series
+of symmetry breaking transitions. At $T\sim 10^{29}\,\text{K}\sim
+	10^{16}\,\text{GeV}$, there may have been a GUT phase transition,
+\begin{equation}
+	\text{GUT} \;\longrightarrow\; \mathrm{SU}(2)_L\times\mathrm{U}(1),
+\end{equation}
+though whether this transition occurred and at what scale depends on the
+specific GUT model. At $T\sim 10^{15}\,\text{K}\sim 100\,\text{GeV}$,
+the electroweak symmetry was broken,
+\begin{equation}
+	\mathrm{SU}(2)_L\times\mathrm{U}(1)
+	\;\longrightarrow\; \mathrm{U}_{\text{em}}(1),
+\end{equation}
+and at $T\sim 2\cdot 10^{12}\,\text{K}\sim 200\,\text{MeV}$ the QCD
+confinement transition took place. Each of these transitions is
+described by a scalar field acting as an order parameter that acquires
+a vacuum expectation value as the temperature falls through $T_c$.
+
+\section{Phase Transitions and the Effective Potential}
+
+The nature of a cosmological phase transition is determined by the
+structure of the finite-temperature effective potential
+$V_{\text{eff}}(\bar\varphi, T)$. We illustrate this with the
+electroweak phase transition, where the order parameter is the Higgs
+field $h$. The tree-level Higgs potential at $T=0$ is
+\begin{equation}
+	V(h) = -m^2 h^2 + \lambda h^4,
+	\qquad m^2 > 0,\quad \lambda > 0,\quad
+	m^2\sim(100\,\text{GeV})^2.
+\end{equation}
+
+% [FIGURE: Wine-bottle potential at T=0]
+
+At $T\neq 0$, finite-temperature corrections generate a
+temperature-dependent mass term,
+\begin{equation}
+	\Delta V(h,T) = cT^2 h^2 + \cdots,\qquad c > 0,
+\end{equation}
+so that
+\begin{equation}
+	V(h,T) = V(h) + \Delta V(h,T).
+\end{equation}
+The positive $T^2 h^2$ term competes with the negative $-m^2 h^2$ term
+and tends to push the minimum back toward $h=0$ at high temperature,
+restoring the symmetry.
+
+The character of the transition depends on how the minimum of
+$V(h,T)$ evolves with temperature. If the minimum moves smoothly and
+continuously from $h\neq 0$ at low $T$ to $h=0$ at high $T$, the
+transition is \emph{second order} (or a crossover).
+
+% [FIGURE: Second order phase transition, smooth evolution of minimum]
+
+If instead a potential barrier develops between the two minima at some
+temperature, so that the two phases coexist and the field must tunnel
+through the barrier to reach the new minimum, the transition is
+\emph{first order}.
+
+% [FIGURE: First order phase transition, two degenerate minima at T_c]
+
+The potential barrier in a first-order transition can arise from
+higher-order terms in the potential. For example, a cubic term $\sim h^3$
+generates a barrier, though for the Standard Model Higgs potential alone
+this is not sufficient to produce a first-order transition. There is
+also the possibility of \emph{symmetry non-restoration}, which occurs
+when $c < 0$, so that the finite-temperature correction deepens the
+broken-symmetry minimum rather than restoring it. This situation has
+attracted considerable attention in recent years.
+
+% [FIGURE: Symmetry non-restoration, c < 0]
+
+\section{Bubble Nucleation}
+
+In a first-order phase transition, the universe finds itself temporarily
+trapped in the false vacuum, the metastable minimum of
+$V_{\text{eff}}(\bar\varphi, T)$. The field cannot roll classically to
+the true vacuum because of the potential barrier separating the two
+phases. Instead, the transition proceeds through the nucleation of
+bubbles of the true vacuum within the surrounding false vacuum. Initially,
+regions of space where the field has already tunnelled to the true vacuum
+appear as isolated bubbles,
+
+% [FIGURE: Bubble of true vacuum in false vacuum background]
+
+which then expand, driven by the pressure difference between the two
+phases. New bubbles nucleate, and eventually the expanding bubbles
+overlap and collide, filling all of space with the true vacuum and
+completing the transition.
+
+This process has two important phenomenological consequences that have
+attracted significant attention. The first is electroweak baryogenesis,
+in which the out-of-equilibrium dynamics at the bubble wall provides
+the conditions necessary to generate the observed baryon asymmetry of
+the universe. The second is the production of a stochastic gravitational
+wave background from bubble collisions and their interaction with the
+primordial plasma. The detailed analysis of both of these consequences
+requires a quantitative understanding of the bubble nucleation rate and
+bubble wall dynamics, which we develop in Part~\ref{part:false-vacuum}.
 

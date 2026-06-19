@@ -1,0 +1,144 @@
+\chapter{Finite Temperature Field Theory: General formalism}
+\label{ch:finite-temperature}
+
+Conventional quantum field theory is formulated in empty space. The LSZ
+formalism expresses scattering matrix elements in terms of zero-temperature
+Green's functions, that is, vacuum expectation values of time-ordered
+strings of Heisenberg field operators. This is perfectly justified for
+particle accelerator experiments, where the background state is
+essentially the vacuum. In early universe cosmology, however, the
+background state is a thermal bath at temperature $T$, and a different
+formalism is required.
+
+\section{Finite-Temperature Green's Functions}
+
+The finite-temperature Green's function for a scalar field $\varphi$ is
+defined by replacing the vacuum expectation value with a thermal average
+over the grand canonical ensemble,
+\begin{equation}
+	G_n^\beta(x_1,\ldots,x_n)
+	= \frac{\mathrm{Tr}\left\{e^{-\beta H}\,
+		T\left[\varphi(x_1)\cdots\varphi(x_n)\right]\right\}}
+	{\mathrm{Tr}\,e^{-\beta H}},
+\end{equation}
+where $\beta = 1/T$ is the inverse temperature and the trace is taken
+over all states of the system. This is the average value of the
+time-ordered product of $n$ field operators in the grand canonical
+ensemble with no chemical potential.
+
+The finite-temperature generating functional is defined analogously,
+\begin{equation}
+	Z^\beta(J) = \frac{\mathrm{Tr}\left[e^{-\beta H}\,
+			T\exp\!\left(i\int J(x)\,\varphi(x)\,d^4x\right)\right]}
+	{\mathrm{Tr}\,e^{-\beta H}}.
+\end{equation}
+The essential difference between the zero-temperature and
+finite-temperature formalisms lies in the boundary conditions on the
+set of paths over which the functional integral is taken. At zero
+temperature the transition amplitude is
+\begin{equation}
+	{}_H\langle\psi_1,t_1|\psi_2,t_2\rangle_H
+	= \int\left[d\varphi(s,\mathbf{x})\right]
+	\psi_1^*[\varphi(t_2,\mathbf{x})]\,\psi_2[\varphi(t_1,\mathbf{x})]\,
+	\exp\!\left[i\int_{t_i}^{t_f}ds\int d^3x\,
+		\mathcal{L}(\varphi,\partial\varphi)\right],
+\end{equation}
+with $t_i\to-\infty$ and $t_f\to+\infty$. At finite temperature the
+boundary wavefunctionals $\psi^*[\varphi(t_f,\mathbf{x}_f)]\,
+	\psi[\varphi(t_i,\mathbf{x}_i)]$ are replaced by
+\begin{equation}
+	\sum e^{-\beta E(\psi)}\,\psi^*[\varphi(t_f,\mathbf{x}_f)]\,
+	\psi[\varphi(t_i,\mathbf{x}_i)],
+\end{equation}
+which implements the thermal weighting of states. It is also worth noting
+that the finite-temperature effective potential is not gauge invariant:
+only in physical gauges does the trace correspond to a sum over all
+physical states of the system.
+
+\section{Periodicity and the KMS Condition}
+
+A fundamental consequence of the thermal boundary conditions is that the
+finite-temperature Green's functions satisfy periodicity conditions in
+Euclidean time. Working with Euclidean times $t\in[0,-i\beta]$, the
+time-ordering is
+\begin{equation}
+	T\left[\varphi(x)\,\varphi(y)\right] =
+	\begin{cases}
+		\varphi(x)\,\varphi(y)         & \text{if } ix^0 > iy^0, \\
+		(-1)^s\,\varphi(y)\,\varphi(x) & \text{if } ix^0 < iy^0,
+	\end{cases}
+\end{equation}
+where $s=0$ for bosonic fields and $s=1$ for fermionic fields. To derive
+the periodicity condition, we evaluate the two-point function at $x^0=0$
+with $iy^0 > ix^0$,
+\begin{align}
+	\left(\mathrm{Tr}\,e^{-\beta H}\right)
+	G_2^\beta(x-y)\big|_{x^0=0}
+	 & = (-1)^s\,\mathrm{Tr}\left[e^{-\beta H}\,
+		                        \varphi(y)\,\varphi(x)\right] \notag                               \\
+	 & = (-1)^s\,\mathrm{Tr}\left[e^{-\beta H}\,
+		                        \varphi(y^0;\mathbf{y})\,\varphi(0,\mathbf{x})\right] \notag       \\
+	 & = (-1)^s\,\mathrm{Tr}\left[\varphi(0,\mathbf{x})\,
+		                        e^{-\beta H}\,\varphi(y^0;\mathbf{y})\right] \notag                \\
+	 & = (-1)^s\,\mathrm{Tr}\left[e^{-\beta H}\,
+		                        \underbrace{e^{\beta H}\,\varphi(0,\mathbf{x})\,
+			                        e^{-\beta H}}_{\varphi(-i\beta,\,\mathbf{x})}\,
+		                        \varphi(y^0;\mathbf{y})\right] \notag                    \\
+	 & = (-1)^s\,\mathrm{Tr}\left[e^{-\beta H}\,
+		                        \varphi(-i\beta,\mathbf{x})\,\varphi(y^0;\mathbf{y})\right] \notag \\
+	 & = (-1)^s\left(\mathrm{Tr}\,e^{-\beta H}\right)
+	G_2^\beta(x-y)\big|_{x^0=-i\beta},
+\end{align}
+where in the third line we used the cyclicity of the trace, and in the
+fourth line we used the Heisenberg equation of motion to identify
+$e^{\beta H}\varphi(0,\mathbf{x})e^{-\beta H} = \varphi(-i\beta,\mathbf{x})$.
+Dividing through by $\mathrm{Tr}\,e^{-\beta H}$,
+\begin{equation}
+	\boxed{G_2^\beta(x-y)\big|_{x^0=0}
+		= (-1)^s\,G_2^\beta(x-y)\big|_{x^0=-i\beta}.}
+\end{equation}
+This is the Kubo-Martin-Schwinger (KMS) condition: bosonic Green's
+functions are periodic in Euclidean time with period $\beta$, while
+fermionic Green's functions are antiperiodic.
+
+\section{Matsubara Frequencies and Feynman Rules}
+
+The periodicity in Euclidean time has a direct consequence for the
+momentum-space structure of the theory. Vertex factors are unaffected by
+the change in boundary conditions, and the momentum-space propagator
+remains of the same form. However, the periodicity forces the
+energy component of the loop momentum to be discretized. The allowed
+frequencies, known as Matsubara frequencies, are
+\begin{align}
+	\omega_n & = \frac{2n\pi}{\beta}
+	\qquad\text{(Bose fields)},          \\
+	\omega_n & = \frac{(2n+1)\pi}{\beta}
+	\qquad\text{(Fermi fields)},
+\end{align}
+for integer $n$. The Feynman rules are modified accordingly. The
+correspondence between zero-temperature and finite-temperature rules is
+summarized in the following table.
+
+\begin{center}
+	\begin{tabular}{lcc}
+		 & Zero temperature                                                     & Finite temperature \\[6pt]
+		\hline                                                                                       \\
+		Loop integral
+		 & $\displaystyle\int\frac{d^4k}{(2\pi)^4}$
+		 & $\displaystyle\frac{1}{-i\beta}\sum_{n=-\infty}^{\infty}
+			   \int\frac{d^3k}{(2\pi)^3}$                                   \\[12pt]
+		Vertex $\delta$-function
+		 & $(2\pi)^4\,\delta^{(4)}\!\left(\sum k_i\right)$
+		 & $\displaystyle\frac{\beta}{i}(2\pi)^3\,
+			   \delta_{\sum\omega_n}\,\delta^{(3)}\!\left(\sum\mathbf{k}_i\right)$
+		\\[6pt]
+		\hline
+	\end{tabular}
+\end{center}
+
+The replacement of the continuous energy integral by a discrete sum over
+Matsubara frequencies is the defining feature of the imaginary-time
+formalism. In the next section we use these rules to compute the
+finite-temperature corrections to the effective potential.
+
+

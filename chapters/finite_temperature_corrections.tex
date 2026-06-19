@@ -1,0 +1,347 @@
+\chapter{Finite-Temperature Corrections to the Effective Potential}
+
+\section{Corrections to Scalar Field Theory}
+
+In the zero-temperature case, the one-loop contribution to the effective
+potential came from the sum
+\begin{equation}
+	i\sum_{n=1}^{\infty}\int\frac{d^4k}{(2\pi)^4}\,\frac{1}{2n}
+	\left[\frac{\frac{1}{2}\lambda\bar\varphi^2}{k^2+i\varepsilon}\right]^n
+	= -\frac{i}{2}\int\frac{d^4k}{(2\pi)^4}
+	\ln\left[1 - \frac{\frac{1}{2}\lambda\bar\varphi^2}{k^2+i\varepsilon}\right].
+\end{equation}
+At finite temperature, the replacement of the continuous energy integral
+by a discrete Matsubara sum gives
+\begin{equation}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	= U(\bar\varphi) - \frac{i}{2}\cdot\frac{1}{-i\beta}
+	\sum_{n=-\infty}^{\infty}\int\frac{d^3k}{(2\pi)^3}
+	\ln\left[1 - \frac{\lambda\bar\varphi^2}
+		{2(\omega_n^2-k^2)}\right],
+\end{equation}
+\begin{equation}
+	= U(\bar\varphi) + \frac{1}{2\beta}
+	\sum_{n=-\infty}^{\infty}\int\frac{d^3k}{(2\pi)^3}
+	\ln\left[1 - \frac{\lambda\bar\varphi^2}
+		{2(\omega_n^2-k^2)}\right].
+\end{equation}
+For Bose fields, the Matsubara frequencies satisfy
+$-i\beta\omega_n = 2\pi n$, giving $\omega_n = 2\pi in/\beta$ and
+$\omega_n^2 = -4\pi^2n^2/\beta^2$. Substituting,
+\begin{equation}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	= U(\bar\varphi) + \frac{1}{2\beta}
+	\sum_{n=-\infty}^{\infty}\int\frac{d^3k}{(2\pi)^3}
+	\ln\left[1 + \frac{\lambda\bar\varphi^2}
+		{2\left(\frac{4\pi^2}{\beta^2}n^2+k^2\right)}\right].
+\end{equation}
+Writing the argument of the logarithm as a ratio,
+\begin{multline}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	= U(\bar\varphi) + \frac{1}{2\beta}
+	\sum_{n=-\infty}^{\infty}\int\frac{d^3k}{(2\pi)^3} \\
+	\times\left(\ln\left[\frac{4\pi^2}{\beta^2}n^2
+		+ k^2 + \frac{\lambda\bar\varphi^2}{2}\right]
+	- \ln\left[\frac{4\pi^2}{\beta^2}n^2+k^2\right]\right),
+\end{multline}
+where the second term contributes only a field-independent constant and
+is dropped. Denoting $E_k^2 = k^2 + \frac{\lambda\bar\varphi^2}{2}$,
+\begin{equation}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	= U(\bar\varphi) + \frac{1}{2\beta}
+	\int\frac{d^3k}{(2\pi)^3}
+	\sum_{n=-\infty}^{\infty}
+	\ln\left[\frac{4\pi^2}{\beta^2}n^2+E_k^2\right]
+	+ \text{const.}
+\end{equation}
+
+\subsection*{Evaluation of the Matsubara Sum}
+
+We evaluate the sum
+\begin{equation}
+	X = \sum_{n=-\infty}^{\infty}
+	\ln\left[\frac{4\pi^2}{\beta^2}n^2+E_k^2\right]
+\end{equation}
+by differentiating with respect to $E_k$. Setting $a^2 = 4\pi^2/\beta^2$
+and $y = \beta E_k/2\pi$,
+\begin{align}
+	\frac{dX}{dE_k}
+	 & = \sum_{n=-\infty}^{\infty}\frac{2E_k}{a^2n^2+E_k^2} \notag        \\
+	 & = \frac{2}{E_k} + \frac{4}{a}\sum_{n=1}^{\infty}\frac{y}{y^2+n^2},
+\end{align}
+where we separated the $n=0$ term. Using the identity
+\begin{equation}
+	\sum_{n=1}^{\infty}\frac{y}{y^2+n^2}
+	= -\frac{1}{2y} + \frac{\pi}{2}\coth\pi y
+	= -\frac{1}{2y} + \frac{\pi}{2}
+	+ \frac{\pi e^{-2\pi y}}{1-e^{-2\pi y}},
+\end{equation}
+\begin{align}
+	\frac{dX}{dE_k}
+	 & = \frac{2}{E_k} + \frac{2\beta}{\pi}
+	\left(-\frac{1}{2y}+\frac{\pi}{2}
+	+\frac{\pi e^{-2\pi y}}{1-e^{-2\pi y}}\right)
+	\notag                                                       \\
+	 & = \frac{2}{E_k} - \frac{\beta}{\pi y}
+	+ \beta + \frac{2\beta e^{-2\pi y}}{1-e^{-2\pi y}}
+	\notag                                                       \\
+	 & = \beta + \frac{2\beta e^{-\beta E_k}}{1-e^{-\beta E_k}},
+\end{align}
+where in the last step we used $y = \beta E_k/2\pi$ so that
+$\beta/(\pi y) = 2/E_k$, cancelling the first term. Integrating back,
+\begin{equation}
+	X = \int\left(\beta + \frac{2\beta e^{-\beta E_k}}
+	{1-e^{-\beta E_k}}\right)dE_k
+	= \beta E_k + 2\ln\left(1-e^{-\beta E_k}\right).
+\end{equation}
+Substituting back,
+\begin{align}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	 & = U(\bar\varphi) + \frac{1}{2\beta}
+	\int\frac{d^3k}{(2\pi)^3}
+	\left(\beta E_k + 2\ln\left(1-e^{-\beta E_k}\right)\right)
+	\notag                                          \\
+	 & = U(\bar\varphi) + \int\frac{d^3k}{(2\pi)^3}
+	\left[\frac{E_k}{2}
+		+ \frac{1}{\beta}\ln\left(1-e^{-\beta E_k}\right)\right].
+\end{align}
+The first term inside the integral is the zero-point energy. Using the
+identity
+\begin{equation}
+	i\int_{-\infty}^{\infty}\frac{dx}{2\pi}
+	\ln(-x^2+y^2-i\varepsilon) = y + \text{const.},
+\end{equation}
+and rotating to Euclidean space via $k^0\to ik^0_E$, $-k_0^2+E_k^2
+	= k_E^2 + \frac{\lambda\bar\varphi^2}{2}$, the zero-temperature part
+is recovered and we can write
+\begin{equation}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	= \underbrace{U(\bar\varphi) + \frac{1}{2}
+		\int\frac{d^4k_E}{(2\pi)^4}
+		\ln\!\left[1+\frac{\lambda\bar\varphi^2}{2k_E^2}\right]}_{
+		\text{zero-temperature result}}
+	+ \underbrace{\frac{1}{2\pi^2\beta}
+		\int_0^{\infty}dk\,k^2
+		\ln\!\left(1-e^{-\beta E_k}\right)}_{
+		\text{finite-temperature contribution}}.
+\end{equation}
+Substituting $x = k\beta$, $dk = dx/\beta$, $E_k =
+		(k^2+\lambda\bar\varphi^2/2)^{1/2}$,
+\begin{equation}
+	\Delta V_{\text{eff}}^{(1)}(\bar\varphi)
+	= \frac{1}{2\pi^2\beta^4}\int_0^{\infty}dx\,x^2
+	\ln\!\left[1-\exp\!\left[{-\left(x^2
+				+\frac{\lambda\bar\varphi^2\beta^2}{2}\right)^{1/2}}\right]\right].
+\end{equation}
+Defining $y^2 = \lambda\bar\varphi^2\beta^2/2$, the finite-temperature
+correction can be written compactly as
+\begin{equation}
+	V_{\text{eff}}^{(1)}(\bar\varphi)
+	= V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+	+ \frac{1}{2\pi^2\beta^4}\,I(y),
+\end{equation}
+where
+\begin{equation}
+	I(y) = \int_0^{\infty}dx\,x^2
+	\ln\!\left[1-e^{-(x^2+y^2)^{1/2}}\right].
+\end{equation}
+The zero-temperature renormalization counterterms also render this
+finite-temperature contribution finite, so no additional renormalization
+is needed.
+
+\subsection*{High-Temperature Expansion}
+
+In the high-temperature limit $\bar\varphi\beta\ll 1$, we expand $I(y)$
+in powers of $y^2$. Setting $f(y) = \ln(1-e^{-(x^2+y^2)^{1/2}})$,
+\begin{align}
+	f(y) & = f(0) + y^2 f'(0) + \mathcal{O}(y^4) \notag                       \\
+	     & = \ln(1-e^{-x}) + y^2\left[\frac{e^{-(x^2+y^2)^{1/2}}}
+		                            {1-e^{-(x^2+y^2)^{1/2}}}
+		                            \cdot\frac{1}{2(x^2+y^2)^{1/2}}\right]_{y=0}
+	+ \mathcal{O}(y^4) \notag                                                 \\
+	     & = \ln(1-e^{-x})
+	+ \frac{y^2}{2x}\cdot\frac{e^{-x}}{1-e^{-x}}
+	+ \mathcal{O}(y^4).
+\end{align}
+Substituting into the integral,
+\begin{equation}
+	I(y) = \int_0^{\infty}dx\,x^2\ln(1-e^{-x})
+	+ \frac{y^2}{2}\int_0^{\infty}dx\,
+	\frac{xe^{-x}}{1-e^{-x}} + \mathcal{O}(y^4).
+\end{equation}
+For the first term, using $\ln(1-e^{-x})
+	= -\sum_{n=1}^{\infty}e^{-nx}/n$,
+\begin{equation}
+	\int_0^{\infty}dx\,x^2\ln(1-e^{-x})
+	= -\sum_{n=1}^{\infty}\frac{1}{n}
+	\int_0^{\infty}dx\,x^2 e^{-nx}.
+\end{equation}
+Substituting $y = nx$,
+\begin{equation}
+	\int_0^{\infty}dx\,x^2 e^{-nx}
+	= \frac{1}{n^3}\int_0^{\infty}dy\,y^2 e^{-y}
+	= \frac{\Gamma(3)}{n^3} = \frac{2}{n^3},
+\end{equation}
+so the first term gives
+\begin{equation}
+	-\sum_{n=1}^{\infty}\frac{1}{n}\cdot\frac{2}{n^3}
+	= -2\sum_{n=1}^{\infty}\frac{1}{n^4}
+	= -2\zeta(4) = -2\cdot\frac{\pi^4}{90}
+	= -\frac{\pi^4}{45}.
+\end{equation}
+For the second term, using $e^{-x}/(1-e^{-x})
+	= \sum_{n=0}^{\infty}e^{-(n+1)x}$,
+\begin{equation}
+	\int_0^{\infty}dx\,\frac{xe^{-x}}{1-e^{-x}}
+	= \sum_{n=1}^{\infty}\int_0^{\infty}dx\,x\,e^{-nx}.
+\end{equation}
+Substituting $y = nx$,
+\begin{equation}
+	\sum_{n=1}^{\infty}\frac{1}{n^2}
+	\int_0^{\infty}dy\,y\,e^{-y}
+	= \sum_{n=1}^{\infty}\frac{\Gamma(2)}{n^2}
+	= \zeta(2) = \frac{\pi^2}{6}.
+\end{equation}
+Combining,
+\begin{equation}
+	\boxed{I(y) = -\frac{\pi^4}{45}
+		+ \frac{\pi^2 y^2}{12} + \mathcal{O}(y^4).}
+\end{equation}
+Substituting back with $y^2 = \lambda\bar\varphi^2\beta^2/2$,
+\begin{align}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	 & = V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+	+ \frac{1}{2\pi^2\beta^4}
+	\left(-\frac{\pi^4}{45}
+	+ \frac{\pi^2}{12}\cdot\frac{\lambda\bar\varphi^2\beta^2}{2}
+	+ \mathcal{O}(\bar\varphi^4)\right) \notag        \\
+	 & = \boxed{V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+		     - \frac{\pi^2}{90\beta^4}
+		     + \frac{\lambda\bar\varphi^2}{24\beta^2}
+		     + \mathcal{O}(\bar\varphi^4).}
+\end{align}
+The first correction $-\pi^2/(90\beta^4) = -\pi^2 T^4/90$ is the
+familiar Stefan-Boltzmann term, the free energy density of a massless
+scalar gas. The second correction $\lambda\bar\varphi^2/(24\beta^2)
+	= \lambda T^2\bar\varphi^2/24$ is a temperature-dependent mass term,
+positive and proportional to $T^2$. This term is what drives symmetry
+restoration at high temperature: it adds a positive contribution to the
+effective mass of the field, pushing the minimum of the effective
+potential back toward $\bar\varphi = 0$ as $T$ increases.
+
+\section{Corrections to the GSW Model}
+
+The finite-temperature correction to the effective potential in the GSW
+model receives contributions from the two $W$ bosons and the $Z$ boson,
+each with three polarizations. Using the field-dependent masses
+$m(W_{1,2}) = \frac{1}{2}g\bar\varphi$ and
+$m(Z) = \frac{1}{2}(g^2+g'^2)^{1/2}\bar\varphi$, the correction is
+\begin{equation}
+	\Delta V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	= \frac{3}{2\pi^2\beta^4}\left\{
+	2I\!\left(\tfrac{1}{2}g\bar\varphi\beta\right)
+	+ I\!\left[\tfrac{1}{2}(g^2+g'^2)^{1/2}\bar\varphi\beta\right]
+	\right\}.
+\end{equation}
+Expanding each term using $I(y) = -\pi^4/45 + \pi^2 y^2/12 +
+	\mathcal{O}(y^4)$, the $W$ boson contribution gives
+\begin{align}
+	2I\!\left(\tfrac{1}{2}g\bar\varphi\beta\right)
+	 & = 2\left[-\frac{\pi^4}{45}
+		      + \frac{\pi^2}{12}\cdot\frac{1}{4}g^2\bar\varphi^2\beta^2
+		      + \mathcal{O}(\bar\varphi^4)\right] \notag \\
+	 & = -\frac{2\pi^4}{45}
+	+ \frac{\pi^2}{24}g^2\beta^2\bar\varphi^2
+	+ \mathcal{O}(\bar\varphi^4),
+\end{align}
+and the $Z$ boson contribution gives
+\begin{align}
+	I\!\left[\tfrac{1}{2}(g^2+g'^2)^{1/2}\bar\varphi\beta\right]
+	 & = -\frac{\pi^4}{45}
+	+ \frac{\pi^2}{12}\cdot\frac{1}{4}(g^2+g'^2)
+	\bar\varphi^2\beta^2
+	+ \mathcal{O}(\bar\varphi^4) \notag \\
+	 & = -\frac{\pi^4}{45}
+	+ \frac{\pi^2}{48}(g^2+g'^2)\bar\varphi^2\beta^2
+	+ \mathcal{O}(\bar\varphi^4).
+\end{align}
+Summing these,
+\begin{align}
+	\Delta V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	 & = \frac{3}{2\pi^2\beta^4}\left[
+		                            -\frac{2\pi^4}{45}
+		                            + \frac{\pi^2}{24}g^2\beta^2\bar\varphi^2
+		                            - \frac{\pi^4}{45}
+		                            + \frac{\pi^2}{48}(g^2+g'^2)\bar\varphi^2\beta^2
+		                            + \mathcal{O}(\bar\varphi^4)\right] \notag  \\
+	 & = \frac{3}{2\pi^2\beta^4}\left[
+		                            -\frac{3\pi^4}{45}
+		                            + \frac{\pi^2\beta^2\bar\varphi^2}{24}
+		                            \left(g^2 + \frac{g^2}{2} + \frac{g'^2}{2}\right)
+		                            + \mathcal{O}(\bar\varphi^4)\right] \notag \\
+	 & = \frac{3}{2\pi^2\beta^4}\left[
+		                            -\frac{\pi^4}{15}
+		                            + \frac{\pi^2}{48}\beta^2(3g^2+g'^2)\bar\varphi^2
+		                            + \mathcal{O}(\bar\varphi^4)\right] \notag \\
+	 & = -\frac{\pi^2}{10\beta^4}
+	+ \frac{1}{32\beta^2}(3g^2+g'^2)\bar\varphi^2
+	+ \mathcal{O}(\bar\varphi^4).
+\end{align}
+The full finite-temperature effective potential in the GSW model is
+therefore
+\begin{equation}
+	\boxed{V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+		= V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+		- \frac{\pi^2}{10\beta^4}
+		+ \frac{1}{32\beta^2}(3g^2+g'^2)\bar\varphi^2
+		+ \mathcal{O}(\bar\varphi^4).}
+\end{equation}
+As in the scalar case, the $-\pi^2/(10\beta^4)$ term is the
+Stefan-Boltzmann free energy of the gauge bosons, and the
+$(3g^2+g'^2)\bar\varphi^2/(32\beta^2)$ term is a positive
+temperature-dependent mass correction that drives symmetry restoration
+at high temperature.
+
+\section{Corrections to the Minimal SU(5) Model}
+
+For the minimal SU(5) GUT, the gauge bosons acquire a field-dependent
+mass $m = \sqrt{25/8}\,g\bar\varphi$ from the Higgs mechanism. The
+finite-temperature correction to the effective potential is
+\begin{align}
+	V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+	 & = V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+	+ \frac{18}{\pi^2\beta^4}
+	\,I\!\left(\sqrt{\tfrac{25}{8}}\,g\bar\varphi\beta\right)
+	\notag                                                               \\
+	 & = V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+	+ \frac{18}{\pi^2\beta^4}\left[
+		                         -\frac{\pi^4}{45}
+		                         + \frac{\pi^2}{12}\cdot\frac{25}{8}
+		                         \,g^2\bar\varphi^2\beta^2
+		                         + \mathcal{O}(\bar\varphi^4)\right] \notag \\
+	 & = V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+	- \frac{2\pi^2}{5\beta^4}
+	+ \frac{18}{\pi^2\beta^4}\cdot\frac{25}{8}
+	\,g^2\bar\varphi^2\beta^2\cdot\frac{\pi^2}{12}
+	+ \mathcal{O}(\bar\varphi^4),
+\end{align}
+where the factor of 18 counts the degrees of freedom of the heavy gauge
+bosons in the SU(5) model. Collecting terms,
+\begin{equation}
+	\boxed{V_{\text{eff}}^{(1)\beta}(\bar\varphi)
+		= V_{\text{eff}}^{(1)\,T=0}(\bar\varphi)
+		- \frac{2\pi^2}{5\beta^4}
+		+ \frac{75}{16\beta^2}\,g^2\bar\varphi^2
+		+ \mathcal{O}(\bar\varphi^4).}
+\end{equation}
+The structure is the same as in the scalar and GSW cases: a
+Stefan-Boltzmann term $-2\pi^2/(5\beta^4)$ from the free energy of the
+gauge bosons, and a positive temperature-dependent mass term
+$75g^2\bar\varphi^2/(16\beta^2)$ that drives symmetry restoration. The
+larger coefficient relative to the GSW case reflects the larger gauge
+group and the correspondingly greater number of degrees of freedom.
+
+
+
+
+

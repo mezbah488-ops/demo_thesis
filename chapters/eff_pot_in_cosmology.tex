@@ -1,0 +1,244 @@
+\chapter{The Effective Potential in Cosmology}
+\label{ch:eff-pot-cosmo}
+
+In Part~\ref{part:eff-action} we developed the effective action
+formalism and computed the effective potential at zero temperature,
+using a momentum cutoff to regulate the divergent integrals. Here we
+revisit this computation in the cosmological context, with two
+differences. First, we use dimensional regularization and the
+$\overline{\text{MS}}$ renormalization scheme, which is more systematic
+and avoids the ambiguities associated with a hard cutoff. Second, we
+keep the physical application front and center: the question is not just
+what the quantum-corrected vacuum is, but how it changes as the universe
+cools, and what determines whether the resulting phase transition is
+first or second order.
+
+\section{The Effective Action and Effective Potential}
+
+We work with a real scalar field $\phi$ in $\phi^4$ theory,
+\begin{equation}
+	S[\phi] = \int d^4x\left[
+		\frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi
+		- V_0(\phi)\right],\qquad
+	V_0(\phi) = \frac{m^2}{2}\phi^2 + \frac{\lambda}{4!}\phi^4,
+\end{equation}
+where the $\phi\to-\phi$ symmetry forbids a cubic term. The basic
+objects of interest are the correlators
+\begin{equation}
+	\langle\Omega|T\{\phi(x_1)\cdots\phi(x_n)\}|\Omega\rangle
+	= \frac{\int\mathcal{D}\phi\;\phi(x_1)\cdots\phi(x_n)\,
+		e^{iS[\phi]}}{\int\mathcal{D}\phi\;e^{iS[\phi]}},
+\end{equation}
+where $|\Omega\rangle$ is the vacuum of the interacting theory. Our goal
+is to find a potential for the expectation value
+$\langle\Omega|\phi(x)|\Omega\rangle$.
+
+Introducing a source $J(x)$, the generating functional is
+\begin{equation}
+	Z[J] = \int\mathcal{D}\phi\;
+	e^{iS[\phi] + i\int d^4x\,J(x)\phi(x)},
+\end{equation}
+from which all correlators are obtained by functional differentiation.
+The connected generating functional $W[J] = -i\ln Z[J]$ generates the
+connected Green's functions. Its first derivative defines the classical
+field,
+\begin{equation}
+	\frac{\delta W[J]}{\delta J(x)}
+	= \langle\Omega|\phi(x)|\Omega\rangle_J
+	\equiv \bar\phi(x).
+\end{equation}
+The effective action is defined by the Legendre transform,
+\begin{equation}
+	\Gamma[\bar\phi] \equiv W[J]
+	- \int d^4x\,J(x)\,\bar\phi(x),
+\end{equation}
+and satisfies $\delta\Gamma/\delta\bar\phi(y) = -J(y)$. The vacuum of
+the theory in the absence of sources is therefore determined by
+\begin{equation}
+	\frac{\delta\Gamma[\bar\phi]}{\delta\bar\phi} = 0.
+\end{equation}
+For a spatially uniform, time-independent configuration
+$\bar\phi(x) = \bar\phi_c$, the effective action reduces to
+\begin{equation}
+	\Gamma[\bar\phi_c] = -\int d^4x\,V_{\text{eff}}(\bar\phi_c),
+\end{equation}
+where $V_{\text{eff}}(\bar\phi_c)$ is the effective potential, the
+quantum-corrected potential whose minimum determines the true ground
+state of the theory. Without proof, $\Gamma[\bar\phi]$ is the
+generating functional of 1PI correlators,
+\begin{equation}
+	V_{\text{eff}}(\bar\phi_c) = -\sum_{n=0}^{\infty}
+	\frac{1}{n!}\,\bar\phi_c^{\,n}\,\Gamma^{(n)}(p_i=0).
+\end{equation}
+
+\section{The Coleman-Weinberg Potential via Dimensional Regularization}
+
+The one-loop correction to the effective potential is
+\begin{equation}
+	V_1(\phi) = \frac{1}{2}\int\frac{d^4p_E}{(2\pi)^4}
+	\ln\!\left[p_E^2 + \tilde m^2(\phi)\right],
+\end{equation}
+where
+\begin{equation}
+	\tilde m^2(\phi) = \frac{d^2 V_0(\phi)}{d\phi^2}
+	= m^2 + \frac{\lambda}{2}\phi^2
+\end{equation}
+is the field-dependent mass. This integral is UV divergent and must be
+regulated. We use dimensional regularization, replacing $d=4$ by
+$d=4-2\varepsilon$ and introducing a mass scale $\mu$ to keep the
+action dimensionless,
+\begin{equation}
+	V_1(\phi) = \frac{1}{2}\mu^{4-d}
+	\int\frac{d^dk_E}{(2\pi)^d}
+	\ln\!\left(p_E^2 + \tilde m^2(\phi)\right).
+\end{equation}
+To evaluate this, we differentiate with respect to $\tilde m^2(\phi)$
+and use the master formula of dimensional regularization,
+\begin{equation}
+	\int\frac{d^dp_E}{(2\pi)^d}
+	\frac{1}{p_E^2+m^2}
+	= \frac{1}{(4\pi)^{d/2}}(m^2)^{d/2-1}
+	\Gamma\!\left(1-\frac{d}{2}\right),
+\end{equation}
+to obtain
+\begin{equation}
+	\frac{dV_1}{d\tilde m^2}
+	= \frac{1}{2}\mu^{4-d}\cdot
+	\frac{1}{(4\pi)^{d/2}}
+	\left(\tilde m^2\right)^{d/2-1}
+	\Gamma\!\left(1-\frac{d}{2}\right).
+\end{equation}
+Integrating back and substituting $d=4-2\varepsilon$,
+\begin{equation}
+	V_1(\phi) = \frac{1}{64\pi^2}\,\tilde m^4(\phi)
+	\left[-\frac{1}{\varepsilon} + \gamma_E - \ln 4\pi
+		+ \ln\frac{\tilde m^2(\phi)}{\mu^2} - \frac{3}{2}\right].
+\end{equation}
+In the $\overline{\text{MS}}$ scheme, we absorb the divergent combination
+$\mathcal{C}_{\text{uv}} = 1/\varepsilon - \gamma_E + \ln 4\pi$ into
+counterterms, leaving the renormalized one-loop potential
+\begin{equation}
+	\boxed{V_1(\phi) = \frac{1}{64\pi^2}\,\tilde m^4(\phi)
+		\left[\ln\frac{\tilde m^2(\phi)}{\mu^2} - \frac{3}{2}\right].}
+	\label{eq:CW-msbar}
+\end{equation}
+This result generalizes immediately to other fields. For a $\mathrm{U}(1)$
+gauge field with field-dependent mass $\tilde m_A^2(\phi) = 2g^2|\phi|^2$
+arising from spontaneous symmetry breaking,
+\begin{equation}
+	V_1^{(A)}(\phi) = \frac{3}{64\pi^2}\,\tilde m_A^4(\phi)
+	\left[\ln\frac{\tilde m_A^2(\phi)}{\mu^2} - \frac{5}{6}\right],
+\end{equation}
+where the factor of 3 counts the physical polarizations and the
+$-5/6$ (rather than $-3/2$) arises from the vector nature of the field,
+computed in Landau gauge. For Dirac fermions with Yukawa coupling $y$
+and field-dependent mass $m_\psi^2 = y^2\phi^2$,
+\begin{equation}
+	V_1^{(\psi)}(\phi) = -\frac{4}{64\pi^2}\,\tilde m_\psi^4(\phi)
+	\left[\ln\frac{\tilde m_\psi^2(\phi)}{\mu^2} - \frac{3}{2}\right],
+\end{equation}
+where the overall minus sign comes from the fermion loop and the factor
+of 4 counts the spinor degrees of freedom. The general formula,
+summing over all particles coupling to $\phi$, is
+\begin{equation}
+	V_{\text{eff}}(\phi) = V_0(\phi)
+	+ \frac{1}{64\pi^2}\sum_i n_i\,\tilde m_i^4(\phi)
+	\left[\ln\frac{\tilde m_i^2(\phi)}{\mu^2} - c_i\right],
+	\label{eq:CW-general}
+\end{equation}
+where $n_i = (-1)^F\cdot\text{d.o.f.}$ counts degrees of freedom with
+a minus sign for fermions, and
+\begin{equation}
+	c_i = \begin{cases}
+		\dfrac{3}{2} & \text{scalars and fermions,} \\[6pt]
+		\dfrac{5}{6} & \text{gauge bosons.}
+	\end{cases}
+\end{equation}
+This is the Coleman-Weinberg potential in the $\overline{\text{MS}}$
+scheme. It supersedes the cutoff-regulated result of
+Chapter~\ref{ch:toy-model} and will be our working formula for
+the remainder of this part.
+
+\section{The Coleman-Weinberg Model}
+
+We now apply \eqref{eq:CW-general} to the Coleman-Weinberg model of
+massless scalar electrodynamics,
+\begin{equation}
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}^2
+	+ |D_\mu\phi|^2 - \frac{\lambda}{4!}|\phi|^4,
+	\qquad D_\mu = \partial_\mu + igA_\mu.
+\end{equation}
+There is no mass term in the Lagrangian, and the classical action is
+scale invariant: under $x\to\lambda x$, $A_\mu\to\lambda^{-1}A_\mu$,
+$\phi\to\lambda^{-1}\phi$, each term in $\mathcal{L}$ scales as
+$\lambda^{-4}$, leaving $S = \int d^4x\,\mathcal{L}$ invariant.
+
+At the quantum level, scale invariance is broken by the logarithms in
+\eqref{eq:CW-general}. Writing $\phi = \phi_c + \chi_1 + i\chi_2$ and
+expanding around the background $\phi_c$, the field-dependent masses are
+\begin{align}
+	\tilde m_{\chi_1}^2(\phi_c) & = \frac{\lambda}{2}\phi_c^2, \\
+	\tilde m_{\chi_2}^2(\phi_c) & = \frac{\lambda}{6}\phi_c^2, \\
+	m_A^2(\phi_c)               & = 2g^2\phi_c^2.
+\end{align}
+In the regime $\lambda^2\ll g^4$, the scalar loop contributions are
+negligible and the effective potential is dominated by the gauge boson
+loop,
+\begin{equation}
+	V_{\text{eff}}(\phi_c) \cong \frac{\lambda}{4!}\phi_c^4
+	+ \frac{3}{16\pi^2}\,g^4\phi_c^4
+	\left[\ln\frac{2g^2\phi_c^2}{\mu^2} - \frac{5}{6}\right].
+\end{equation}
+Redefining the renormalization scale as $\tilde\mu^2 =
+	e^{5/6}\mu^2/(2g^2)$, this simplifies to
+\begin{equation}
+	V_{\text{eff}}(\phi_c) = \frac{\lambda}{4!}\phi_c^4
+	+ \frac{3g^4}{16\pi^2}\,\phi_c^4
+	\ln\frac{\phi_c^2}{\tilde\mu^2}.
+\end{equation}
+Defining an effective quartic coupling
+\begin{equation}
+	\lambda_{\text{eff}}(\phi_c) \equiv \lambda
+	+ \frac{g^4}{2\pi^2}\ln\frac{\phi_c^2}{\tilde\mu^2},
+\end{equation}
+the effective potential takes the suggestive form
+\begin{equation}
+	V_{\text{eff}}(\phi_c) = \frac{\lambda_{\text{eff}}(\phi_c)}{4!}
+	\phi_c^4.
+\end{equation}
+This is precisely analogous to the running coupling in scattering
+experiments, where the appropriate scale at which to evaluate the
+coupling is the energy scale of the process. Here the relevant scale is
+the field value $\phi_c$ itself. At $\phi_c = \tilde\mu$, the logarithm
+vanishes and $\lambda_{\text{eff}}(\tilde\mu) = \lambda$, so $\tilde\mu$
+plays the role of an RG scale. Quantum corrections have therefore broken
+the classical scale invariance and generated a preferred scale, producing
+a nontrivial minimum of the effective potential.
+
+% [FIGURE: Coleman-Weinberg effective potential showing dynamically
+%  generated minimum]
+
+This is the phenomenon of dimensional transmutation already encountered
+in Chapter~\ref{ch:massless-scalar-ed}: a theory with no classical mass
+scale develops a preferred scale through radiative corrections. The scale
+$\tilde\mu$ at which $\lambda_{\text{eff}}$ is evaluated plays the same
+role as the renormalization point $M$ in the cutoff treatment of
+Chapter~\ref{ch:toy-model}, and the two approaches give the same
+physical result in different renormalization schemes.
+
+For the Standard Model Higgs, an analogous but more involved running
+occurs. The tree-level wine-bottle potential has a minimum at
+$\sim 100\,\text{GeV}$ with positive $\lambda$. However, running $\lambda$
+to higher scales using the Standard Model renormalization group equations,
+the coupling turns negative at energy scales of order $10^{10}$ to
+$10^{12}\,\text{GeV}$, implying that the electroweak vacuum is
+metastable rather than absolutely stable.
+
+% [FIGURE: Higgs effective potential showing metastable minimum]
+
+The lifetime of this metastable vacuum is many orders of magnitude
+larger than the age of the universe, so this poses no immediate
+phenomenological problem. Nevertheless it raises the deep question of
+why the measured values of the top quark mass and Higgs mass place us
+precisely in the metastable region of parameter space. For a detailed
+analysis, see Buttazzo et al., arXiv:1307.3536.

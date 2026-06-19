@@ -1,0 +1,213 @@
+\chapter{Finite-Temperature Effective Potential in Cosmology}
+\label{ch:fT-eff-pot-cosmo}
+
+We now extend the analysis of the previous chapter to finite temperature.
+The imaginary-time formalism developed in Chapter~\ref{ch:finite-temperature}
+provides the framework: at temperature $T = 1/\beta$, the partition
+function is a path integral over fields periodic in Euclidean time with
+period $\beta$, and the loop integrals are replaced by Matsubara sums.
+Here we apply this machinery to derive the finite-temperature effective
+potential in the cosmological context, and use it to analyze the
+temperature dependence of the phase structure.
+
+\section{The Imaginary-Time Formalism in Brief}
+
+The canonical ensemble in quantum mechanics is described by the density
+matrix $\rho = Z^{-1}e^{-\beta H}$, with partition function
+$Z = \mathrm{tr}(e^{-\beta H})$ and ensemble averages
+\begin{equation}
+	\langle\mathcal{O}\rangle
+	= \mathrm{tr}(\rho\,\mathcal{O})
+	= \frac{1}{Z}\sum_n e^{-\beta E_n}
+	\langle\psi_n|\mathcal{O}|\psi_n\rangle.
+\end{equation}
+In quantum field theory the trace becomes a path integral over field
+configurations,
+\begin{equation}
+	Z = \mathrm{tr}(e^{-\beta H})
+	= \int\mathcal{D}\phi\,\langle\phi|e^{-\beta H}|\phi\rangle.
+\end{equation}
+To cast this in path integral form, we use Feynman's formula for the
+transition amplitude,
+\begin{equation}
+	\langle\phi_b|e^{-iH(t_b-t_a)}|\phi_a\rangle
+	= \int_{\phi(t_a)=\phi_a}^{\phi(t_b)=\phi_b}
+	\mathcal{D}\phi\;
+	e^{i\int_{t_a}^{t_b}dt\int d^3x\,\mathcal{L}},
+\end{equation}
+and analytically continue to imaginary time $\tau = it$. Setting
+$t_a=0$ and $t_b = -i\beta$, identifying $\phi_a = \phi_b$ and
+integrating over field configurations, the partition function becomes
+\begin{equation}
+	Z = \int_{\phi(0,\mathbf{x})=\phi(\beta,\mathbf{x})}
+	\mathcal{D}\phi\;
+	e^{-\int_0^\beta d\tau\int d^3x\,\mathcal{L}_E},
+\end{equation}
+where the Euclidean Lagrangian is
+\begin{equation}
+	\mathcal{L}_E = (\partial_\tau\phi)^2
+	+ (\partial_i\phi)^2 + V(\phi).
+\end{equation}
+The fields satisfy periodic boundary conditions in Euclidean time,
+$\phi(0,\mathbf{x}) = \phi(\beta,\mathbf{x})$ for bosons and
+antiperiodic for fermions. The generating functional at finite
+temperature is
+\begin{equation}
+	Z^\beta[J] = \int\mathcal{D}\phi\;
+	e^{-\int_0^\beta d\tau\int d^3x\,
+			[\mathcal{L}_E - J\phi]},
+\end{equation}
+and the chain from $Z^\beta[J]$ to the finite-temperature effective
+potential $V_{\text{eff}}^\beta(\bar\phi_c)$ follows exactly the same
+Legendre transform logic as at zero temperature,
+\begin{equation}
+	Z^\beta[J]
+	\xrightarrow{\;\text{Legendre}\;}
+	\Gamma^\beta[\bar\phi]
+	\xrightarrow{\;\bar\phi=\bar\phi_c\;}
+	V_{\text{eff}}^\beta(\bar\phi_c).
+\end{equation}
+The key difference from zero temperature lies in the Feynman rules. The
+propagator becomes $-i/(\omega_k^2 + \mathbf{p}^2 + m^2)$ in Euclidean
+space, the vertex is unchanged at $-i\lambda$, and the loop integral is
+replaced by a Matsubara sum,
+\begin{equation}
+	\int\frac{d^4p}{(2\pi)^4}
+	\;\longrightarrow\;
+	\frac{i}{\beta}\sum_{k=-\infty}^{\infty}
+	\int\frac{d^3p}{(2\pi)^3},
+\end{equation}
+with bosonic Matsubara frequencies $\omega_k = 2\pi k\beta^{-1}$ and
+fermionic frequencies $\omega_k = (2k+1)\pi\beta^{-1}$.
+
+\section{The Thermal Functions \texorpdfstring{$J_B$}{JB} and
+  \texorpdfstring{$J_F$}{JF}}
+
+Following the same steps as in Chapter~\ref{ch:finite-temperature},
+the one-loop finite-temperature contribution to the effective potential
+for a scalar field with field-dependent mass $m^2(\phi)$ is
+\begin{equation}
+	V_{1,\beta}(\phi) = \int\frac{d^3p}{(2\pi)^3}
+	\left[\frac{\omega}{2}
+		+ \frac{1}{\beta}\ln(1-e^{-\beta\omega})\right],
+	\qquad \omega = \sqrt{\mathbf{p}^2+m^2(\phi)}.
+\end{equation}
+The first term is the zero-point energy, which upon Wick rotation
+reproduces the zero-temperature Coleman-Weinberg result. The second
+term is the genuinely thermal contribution. After the substitution
+$x = |\mathbf{p}|\beta$, it takes the form
+\begin{equation}
+	V_{1,\beta}(\phi) = \frac{T^4}{2\pi^2}
+	J_B\!\left(\frac{m^2(\phi)}{T^2}\right),
+\end{equation}
+where the bosonic thermal function is defined as
+\begin{equation}
+	J_B(y^2) = \int_0^{\infty}dx\,x^2
+	\ln\!\left(1 - e^{-\sqrt{x^2+y^2}}\right).
+\end{equation}
+For a $\mathrm{U}(1)$ gauge field with field-dependent mass
+$m_A^2(\phi) = 2g^2|\phi|^2$, the three physical polarizations
+contribute
+\begin{equation}
+	V_{1,\beta}^{(A_\mu)}(\phi)
+	= \frac{3T^4}{2\pi^2}
+	J_B\!\left(\frac{m_A^2(\phi)}{T^2}\right).
+\end{equation}
+For Dirac fermions with field-dependent mass $m_f^2 = y^2\phi^2$,
+the antiperiodic boundary conditions give fermionic Matsubara frequencies
+$\omega_k = (2k+1)\pi\beta^{-1}$, and the thermal contribution is
+\begin{equation}
+	V_{1,\beta}^{(\psi)}(\phi)
+	= -\frac{2T^4}{\pi^2}
+	J_F\!\left(\frac{m_f^2(\phi)}{T^2}\right),
+\end{equation}
+where the fermionic thermal function is
+\begin{equation}
+	J_F(y^2) = \int_0^{\infty}dx\,x^2
+	\ln\!\left(1 + e^{-\sqrt{x^2+y^2}}\right),
+\end{equation}
+with a plus sign in the exponential reflecting the antiperiodic boundary
+conditions. The high-temperature expansions of these functions, valid
+for $y^2 = m^2(\phi)/T^2\ll 1$, are
+\begin{align}
+	J_B(y^2) & \cong -\frac{\pi^4}{45}
+	+ \frac{\pi^2}{12}y^2
+	- \frac{\pi}{6}|y|^3
+	- \frac{1}{32}y^4\ln\frac{y^2}{a_B}
+	+ \cdots,                           \\
+	J_F(y^2) & \cong \frac{7\pi^4}{360}
+	- \frac{\pi^2}{24}y^2
+	- \frac{1}{32}y^4\ln\frac{y^2}{a_F}
+	+ \cdots,
+\end{align}
+where $a_B = \pi^2 e^{3/2-2\gamma_E}$ and
+$a_F = 16\pi^2 e^{3/2-2\gamma_E}$. The leading terms $\mp\pi^4/45$
+and $7\pi^4/360$ are the free energy densities of massless bosons and
+fermions respectively, the Stefan-Boltzmann contributions. The
+$\pm\pi^2 y^2/12$ terms are the temperature-dependent mass corrections
+already computed in Chapter~\ref{ch:finite-temperature}. The cubic
+term $-\pi|y|^3/6$ in $J_B$ is new and is absent for fermions: it
+arises from the bosonic Matsubara zero mode and, as we shall see, plays
+a crucial role in generating a potential barrier and hence a first-order
+phase transition.
+
+\section{The Coleman-Weinberg Model at Finite Temperature}
+
+We now bring together the zero-temperature and finite-temperature
+contributions to obtain the full effective potential of the
+Coleman-Weinberg model at temperature $T$. The total effective potential
+is
+\begin{equation}
+	V_{\text{eff}}(\phi,T)
+	= \underbrace{V_0(\phi) + V_{1,\text{CW}}(\phi)}_{
+		\lambda_{\text{eff}}(\phi)\phi^4/4!}
+	+ V_{1,\beta}(\phi),
+	\label{eq:tot-eff-pot}
+\end{equation}
+where the zero-temperature part was computed in the previous chapter.
+In the regime $\lambda^2\ll g^4$, the thermal contribution is dominated
+by the gauge boson loop,
+\begin{equation}
+	V_{1,\beta}(\phi)
+	\cong \frac{3T^4}{2\pi^2}
+	J_B\!\left(\frac{2g^2\phi^2}{T^2}\right).
+\end{equation}
+In the high-temperature approximation $T^2\gg m_A^2(\phi) = 2g^2\phi^2$,
+expanding $J_B$,
+\begin{equation}
+	V_{1,\beta}(\phi)
+	\cong \frac{g^2}{4\pi^2}T^2\phi^2
+	+ \mathcal{O}(\phi^3) + \text{const.},
+\end{equation}
+so that the full effective potential becomes
+\begin{equation}
+	V_{\text{eff}}(\phi,T)
+	= \frac{\lambda_{\text{eff}}(\phi)}{4!}\phi^4
+	+ \frac{g^2}{4\pi^2}T^2\phi^2 + \cdots
+\end{equation}
+The positive $T^2\phi^2$ term drives symmetry restoration at high
+temperature: it adds a positive mass-squared to the field, pushing the
+minimum back toward $\phi = 0$. At sufficiently high $T$ the symmetric
+phase is restored. As the universe cools, the coefficient of $\phi^2$
+decreases and eventually the broken-symmetry minimum at $\phi\neq 0$
+becomes energetically favored.
+
+% [FIGURE: Effective potential at various temperatures showing symmetry
+%  restoration at high T and the development of a minimum at low T]
+
+The cubic term $\sim T|\phi|^3$ from $J_B$ is particularly significant.
+It generates a potential barrier between the symmetric and broken-symmetry
+phases that persists down to temperatures below the naive critical
+temperature, making the transition first order. The height and width of
+this barrier determine the nucleation rate of bubbles of the broken phase
+within the symmetric phase, which we analyze in detail in
+Part~\ref{part:false-vacuum}.
+
+The temperature at which the two minima become degenerate is the
+critical temperature $T_c$, derived in Chapter~\ref{ch:finite-temperature}
+for the purely quartic case. Below $T_c$ the broken-symmetry phase is
+the global minimum, and the universe undergoes the phase transition.
+The order and character of this transition, and its cosmological
+consequences, depend sensitively on the relative magnitudes of the
+gauge and scalar couplings, and on the full structure of the effective
+potential including the cubic term from the thermal bosonic loop.

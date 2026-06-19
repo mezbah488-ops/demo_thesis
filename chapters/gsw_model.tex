@@ -199,7 +199,196 @@ and the $Z$ boson,
 The coefficient is determined entirely by the gauge couplings $g$ and
 $g'$, and the structure $\bar\varphi^4\ln\bar\varphi^2$ is the
 characteristic signature of the Coleman-Weinberg mechanism in a gauge
-theory. In the next chapter we extend this analysis to GUT models, where
-the larger gauge group and richer symmetry breaking pattern lead to
-qualitatively new features.
+theory.
+
+Introduce $g = e/\sin\theta_W$ and
+$g' = e/\cos\theta_W$ to express the result in terms of measurable
+quantities. Computing each term,
+\begin{align}
+	g^4          & = \frac{e^4}{\sin^4\theta_W},               \\
+	(g^2+g'^2)^2 & = \frac{e^4}{\sin^4\theta_W\cos^4\theta_W}.
+\end{align}
+Combining,
+\begin{equation}
+	2g^4 + (g^2+g'^2)^2
+	= \frac{e^4}{\sin^4\theta_W}
+	\left(2 + \frac{1}{\cos^4\theta_W}\right)
+	= \frac{e^4\left(2+\cos^{-4}\theta_W\right)}{\sin^4\theta_W}.
+\end{equation}
+The prefactor rewrites as
+\begin{equation}
+	\frac{3}{1024\pi^2} = \frac{3}{64}\cdot\frac{1}{16\pi^2}
+	= \frac{3}{64}\left(\frac{1}{4\pi}\right)^2.
+\end{equation}
+\begin{equation}
+	\frac{3}{1024\pi^2}\left[2g^4+(g^2+g'^2)^2\right]
+	= \frac{3}{64}\left(\frac{e^2}{4\pi}\right)^2
+	\frac{2+\cos^{-4}\theta_W}{\sin^4\theta_W},
+\end{equation}
+and therefore
+\begin{equation}
+	V_g^{(1)}(\bar\varphi) = \frac{3}{64}\left(\frac{e^2}{4\pi}\right)^2
+	\left[\frac{2+\cos^{-4}\theta_W}{\sin^4\theta_W}\right]
+	\bar\varphi^4\ln\bar\varphi^2 + \mathcal{O}(\bar\varphi^4),
+\end{equation}
+which expresses the gauge boson contribution entirely in terms of the
+fine structure constant $\alpha_\text{em} = e^2/4\pi$ and the Weinberg
+angle $\theta_W$.
+
+We now derive the renormalized form of the gauge boson contribution.
+For the GSW model, the field-dependent masses are $m^2(W_{1,2}) =
+	\frac{1}{4}g^2\bar\varphi^2$ for the two $W$ bosons and $m^2(Z) =
+	\frac{1}{4}(g^2+g'^2)\bar\varphi^2$ for the $Z$ boson. Each massive
+gauge boson with mass $m^2 = c\bar\varphi^2$ contributes to the one-loop
+integral, with three polarizations, a term
+\begin{equation}
+	\frac{3c^2}{64\pi^2}\bar\varphi^4
+	\left[\ln\frac{c\bar\varphi^2}{\Lambda^2} - \frac{1}{2}\right].
+\end{equation}
+Summing over the two $W$ bosons and the $Z$ boson and defining
+\begin{equation}
+	A \equiv \frac{3}{1024\pi^2}\left[2g^4+(g^2+g'^2)^2\right],
+\end{equation}
+the one-loop gauge boson potential, after the mass renormalization
+condition has been imposed to cancel the $\Lambda^2\bar\varphi^2$
+divergence, takes the form
+\begin{equation}
+	V_g^{(1)}(\bar\varphi) = C^{(1)}\bar\varphi^4
+	+ A\bar\varphi^4\left[\ln\frac{\bar\varphi^2}{\Lambda^2}
+		- \frac{1}{2}\right].
+\end{equation}
+We now compute four derivatives to apply the coupling constant
+renormalization condition. Differentiating once,
+\begin{align}
+	\frac{d}{d\bar\varphi}\left[A\bar\varphi^4
+		                      \left(\ln\frac{\bar\varphi^2}{\Lambda^2}
+		                      - \frac{1}{2}\right)\right]
+	 & = 4A\bar\varphi^3\left(\ln\frac{\bar\varphi^2}{\Lambda^2}
+	- \frac{1}{2}\right)
+	+ A\bar\varphi^4\cdot\frac{2}{\bar\varphi} \notag            \\
+	 & = 4A\bar\varphi^3\ln\frac{\bar\varphi^2}{\Lambda^2}
+	- 2A\bar\varphi^3 + 2A\bar\varphi^3 \notag                   \\
+	 & = 4A\bar\varphi^3\ln\frac{\bar\varphi^2}{\Lambda^2},
+\end{align}
+so that
+\begin{equation}
+	\frac{dV_g^{(1)}}{d\bar\varphi}
+	= 4C^{(1)}\bar\varphi^3
+	+ 4A\bar\varphi^3\ln\frac{\bar\varphi^2}{\Lambda^2}.
+\end{equation}
+Differentiating again,
+\begin{align}
+	\frac{d}{d\bar\varphi}\left[4A\bar\varphi^3
+		                      \ln\frac{\bar\varphi^2}{\Lambda^2}\right]
+	 & = 12A\bar\varphi^2\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 4A\bar\varphi^3\cdot\frac{2}{\bar\varphi} \notag      \\
+	 & = 12A\bar\varphi^2\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 8A\bar\varphi^2,
+\end{align}
+\begin{equation}
+	\frac{d^2V_g^{(1)}}{d\bar\varphi^2}
+	= 12C^{(1)}\bar\varphi^2
+	+ 12A\bar\varphi^2\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 8A\bar\varphi^2.
+\end{equation}
+The third derivative,
+\begin{align}
+	\frac{d}{d\bar\varphi}\left[12A\bar\varphi^2
+		                      \ln\frac{\bar\varphi^2}{\Lambda^2}
+		                      + 8A\bar\varphi^2\right]
+	 & = 24A\bar\varphi\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 12A\bar\varphi^2\cdot\frac{2}{\bar\varphi}
+	+ 16A\bar\varphi \notag                               \\
+	 & = 24A\bar\varphi\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 24A\bar\varphi + 16A\bar\varphi \notag              \\
+	 & = 24A\bar\varphi\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 40A\bar\varphi,
+\end{align}
+\begin{equation}
+	\frac{d^3V_g^{(1)}}{d\bar\varphi^3}
+	= 24C^{(1)}\bar\varphi
+	+ 24A\bar\varphi\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 40A\bar\varphi.
+\end{equation}
+The fourth derivative,
+\begin{align}
+	\frac{d}{d\bar\varphi}\left[24A\bar\varphi
+		                      \ln\frac{\bar\varphi^2}{\Lambda^2}
+		                      + 40A\bar\varphi\right]
+	 & = 24A\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 24A\bar\varphi\cdot\frac{2}{\bar\varphi}
+	+ 40A \notag                                      \\
+	 & = 24A\ln\frac{\bar\varphi^2}{\Lambda^2}
+	+ 48A + 40A \notag                                \\
+	 & = 24A\ln\frac{\bar\varphi^2}{\Lambda^2} + 88A,
+\end{align}
+\begin{equation}
+	\frac{d^4V_g^{(1)}}{d\bar\varphi^4}
+	= 24C^{(1)}
+	+ 24A\ln\frac{\bar\varphi^2}{\Lambda^2} + 88A.
+\end{equation}
+Imposing the coupling constant renormalization condition
+$\left.\dfrac{d^4V_g^{(1)}}{d\bar\varphi^4}\right|_{\bar\varphi=M}
+	= \lambda$,
+\begin{equation}
+	24C^{(1)} + 24A\ln\frac{M^2}{\Lambda^2} + 88A = \lambda,
+\end{equation}
+and solving for $C^{(1)}$,
+\begin{equation}
+	C^{(1)} = \frac{\lambda - 88A}{24} - A\ln\frac{M^2}{\Lambda^2}.
+\end{equation}
+Substituting back,
+\begin{align}
+	V_g^{(1)}(\bar\varphi)
+	 & = \left[\frac{\lambda - 88A}{24}
+		     - A\ln\frac{M^2}{\Lambda^2}\right]\bar\varphi^4
+	+ A\bar\varphi^4\left[\ln\frac{\bar\varphi^2}{\Lambda^2}
+		                - \frac{1}{2}\right] \notag \\
+	 & = \frac{\lambda}{24}\bar\varphi^4
+	- \frac{88A}{24}\bar\varphi^4
+	- A\bar\varphi^4\ln\frac{M^2}{\Lambda^2}
+	+ A\bar\varphi^4\ln\frac{\bar\varphi^2}{\Lambda^2}
+	- \frac{A}{2}\bar\varphi^4.
+\end{align}
+The two logarithms combine as
+\begin{equation}
+	A\bar\varphi^4\ln\frac{\bar\varphi^2}{\Lambda^2}
+	- A\bar\varphi^4\ln\frac{M^2}{\Lambda^2}
+	= A\bar\varphi^4\ln\frac{\bar\varphi^2}{M^2},
+\end{equation}
+and the remaining constant terms collect as
+\begin{equation}
+	-\frac{88A}{24} - \frac{A}{2}
+	= -\frac{88A}{24} - \frac{12A}{24}
+	= -\frac{100A}{24}
+	= -\frac{25A}{6}.
+\end{equation}
+Therefore,
+\begin{equation}
+	V_g^{(1)}(\bar\varphi) = \frac{\lambda}{4!}\bar\varphi^4
+	+ A\bar\varphi^4\left[\ln\frac{\bar\varphi^2}{M^2}
+		- \frac{25}{6}\right],
+\end{equation}
+and substituting back the definition of $A$ and expressing in terms of
+the measurable quantities $e$ and $\theta_W$ via
+\eqref{eq:gauge-mass-matrix},
+\begin{equation}
+	\boxed{V_g^{(1)}(\bar\varphi) = \frac{\lambda}{4!}\bar\varphi^4
+		+ \frac{3}{64}\left(\frac{e^2}{4\pi}\right)^2
+		\left[\frac{2+\cos^{-4}\theta_W}{\sin^4\theta_W}\right]
+		\bar\varphi^4\left[\ln\frac{\bar\varphi^2}{M^2}
+			- \frac{25}{6}\right].}
+\end{equation}
+The $-25/6$ arises from collecting the finite constants after
+renormalization, specifically $-88/24 - 1/2 = -25/6$, and is a
+universal consequence of the renormalization condition imposed at the
+scale $M$, independent of the specific values of the gauge couplings.
+
+
+\section{Georgy-Glashow minimal SU(5) model}
+
+
+
+
+
 

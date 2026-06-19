@@ -1,0 +1,288 @@
+\chapter{One-Loop Effective Potential in Non-Abelian Gauge Theories}
+\label{ch:non-abelian-one-loop}
+
+The mechanism of spontaneous symmetry breaking via radiative corrections,
+which we saw explicitly in massless scalar electrodynamics, works equally
+well for non-Abelian gauge theories. The computation of the one-loop
+effective potential is conceptually the same as in the scalar case,
+though the technical details are more involved due to the richer field
+content. We follow the treatment of Brandenberger closely.
+
+\section{The Theory}
+
+Consider a non-Abelian gauge theory with gauge group $G$ and generators
+$\tau_a$, a set of Dirac bispinor fields $\psi^a$, and a set of scalar
+fields $\varphi_i$, each forming a representation space for $G$. The
+Lagrangian is
+\begin{equation}
+    \mathcal{L}(A,\psi,\varphi) = -\frac{1}{4}\mathrm{Tr}(F_{\mu\nu}F^{\mu\nu})
+    + i\,\mathrm{Tr}(\bar\psi\slashed{D}\psi)
+    + \mathrm{Tr}(\bar\psi M\psi)
+    - \mathrm{Tr}(\bar\psi\Gamma\varphi\psi)
+    + \frac{1}{2}\mathrm{Tr}(D_\mu\varphi)^\dagger D^\mu\varphi
+    - U(\varphi),
+    \label{eq:non-abelian-lagrangian}
+\end{equation}
+where the gauge field, field strength, and covariant derivative are
+\begin{align}
+    A_\mu &= A_\mu^a\tau_a, \\
+    F_{\mu\nu} &= \partial_\mu A_\nu - \partial_\nu A_\mu
+    + ig[A_\mu, A_\nu], \\
+    D_\mu &= \partial_\mu + igA_\mu.
+\end{align}
+In $D_\mu$, the $\tau_a$ are the matrices representing the generators
+in the appropriate representation space. The trace refers to the
+appropriate representation space: if the Higgs and Fermi fields are
+represented as column vectors, the trace reduces to the scalar product,
+e.g.\ $\mathrm{Tr}(D_\mu\varphi)^\dagger D^\mu\varphi
+= (D_\mu\varphi)^\dagger D^\mu\varphi$. The matrix $\Gamma$ denotes the
+Yukawa coupling constants.
+
+The Feynman rules in general involve extra fields, the ghost fields
+$\omega$ and $\bar\omega$, scalar fields obeying Fermi statistics
+(Faddeev and Popov, 1967). They arise as a consequence of the
+field-dependent functional determinant in the Faddeev-Popov ansatz for
+the generating functional. In covariant gauges, the ghost term in the
+effective Lagrangian is $\mathrm{Tr}\,\bar\omega\,\partial_\mu A^\mu\omega$,
+and contains no Higgs couplings to ghost fields. Hence to one-loop order
+no ghosts arise in our calculation of the effective potential. The
+one-loop effective potential therefore takes the form
+\begin{equation}
+    V_{\text{eff}}(\bar\varphi) = U(\bar\varphi)
+    + V_{\text{c.t.}}^{(1)}
+    + V_{1\text{-loop}},
+    \label{eq:Veff-decomposition}
+\end{equation}
+where $V_{\text{c.t.}}^{(1)}$ contains all counterterms to order $\hbar$
+and $V_{1\text{-loop}}$ is the sum of all one-loop graphs with external
+$\varphi$ lines at zero momenta. By charge conservation, the particle
+type cannot change within a single loop, so the contributing one-loop
+diagrams are those with Higgs bosons, fermions, or gauge bosons running
+in the loop. The corresponding contributions are denoted $V_S^{(1)}$,
+$V_f^{(1)}$, and $V_g^{(1)}$.
+
+\section{Diagonalization of the Scalar Mass Matrix}
+
+The scalar sector of the theory is described by the Hessian of the
+potential, evaluated at the background field $\bar\varphi$,
+\begin{equation}
+    W^{ij}(\bar\varphi) = \left.\frac{\partial^2 U(\varphi)}
+    {\partial\varphi_i\,\partial\varphi_j}\right|_{\varphi=\bar\varphi}.
+    \label{eq:Wij-def}
+\end{equation}
+This matrix controls the quadratic fluctuations around the background.
+To see this explicitly, expand around the background
+$\varphi_i(x) = \bar\varphi_i + \eta_i(x)$, where $\eta_i$ are small
+fluctuations. Since $\bar\varphi$ satisfies the classical equations of
+motion, the linear term vanishes and the quadratic Lagrangian is
+\begin{equation}
+    \mathcal{L}_{\text{quad}} = \frac{1}{2}(\partial_\mu\eta_i)^2
+    - \frac{1}{2}\eta_i W^{ij}(\bar\varphi)\eta_j.
+\end{equation}
+If $W^{ij}$ is not diagonal, the fields $\eta_i$ are mixed and do not
+correspond to independent physical particles. To decouple them, we
+diagonalize $W$.
+
+For an even quartic potential, the most general form is
+\begin{equation}
+    U(\varphi) = \frac{1}{2}m_{ij}\varphi_i\varphi_j
+    + \frac{1}{4!}\lambda_{ijkl}\varphi_i\varphi_j\varphi_k\varphi_l,
+\end{equation}
+with $m_{ij} = m_{ji}$ and $\lambda_{ijkl} = \lambda_{(ijkl)}$.
+Computing the second derivative,
+\begin{equation}
+    W^{ab}(\bar\varphi) = m_{ab}
+    + \frac{1}{2}\lambda_{abkl}\bar\varphi_k\bar\varphi_l.
+\end{equation}
+Since $m_{ab}$ is symmetric and $\lambda_{abkl}$ is symmetric in $a,b$,
+the matrix $W^{ab}$ is real and symmetric. By the spectral theorem, any
+real symmetric matrix can be diagonalized by an orthogonal transformation:
+there exists an orthogonal matrix $O$ such that
+\begin{equation}
+    O^T W O = \mathrm{diag}(w_1,\ldots,w_N).
+\end{equation}
+Defining the rotated fields $\chi_i = O_{ij}\eta_j$, and using the fact
+that orthogonal transformations preserve the kinetic term, the quadratic
+Lagrangian becomes
+\begin{equation}
+    \boxed{\mathcal{L}_{\text{quad}} = \sum_i\left[
+    \frac{1}{2}(\partial_\mu\chi_i)^2
+    - \frac{1}{2}w_i\,\chi_i^2\right].}
+\end{equation}
+Each mode $\chi_i$ is now an independent scalar with mass squared $w_i$,
+propagating freely without mixing. These are the physical Higgs modes.
+
+As a concrete example, for the gauge-invariant quartic potential
+$U(\varphi) = \frac{1}{2}m^2\varphi_i\varphi_i
++ \frac{\lambda}{4!}(\varphi_i\varphi_i)^2$,
+choosing the background along a single direction
+$\bar\varphi_i = v\,\delta_{i1}$ gives
+\begin{align}
+    W^{11} &= m^2 + \frac{\lambda}{2}v^2
+    \quad\text{(radial/Higgs mode)}, \\
+    W^{aa} &= m^2 + \frac{\lambda}{6}v^2
+    \quad\text{($N-1$ degenerate transverse modes, $a\neq 1$)}, \\
+    W^{ab} &= 0 \quad\text{for $a\neq b$},
+\end{align}
+so the matrix is already diagonal in this basis.
+
+\section{The Higgs Boson Contribution \texorpdfstring{$V_S^{(1)}$}{VS}}
+
+For $V_S^{(1)}$, the only change relative to the scalar field theory
+example is the presence of more than one scalar particle. The relevant
+diagrams are those of the single scalar case, now with one internal line
+associated with $\varphi_i$ and the other with $\varphi_j$.
+
+% [DIAGRAM: one-loop scalar diagrams with external varphi lines,
+%  analogous to Fig.~3 of Brandenberger but for the scalar loop]
+
+The effective coupling constant, which includes the $\bar\varphi$ factors
+for internal links and the Bose combinatorial factors, is
+\begin{equation}
+    W^{ij} = \frac{\partial^2 U(\varphi)}{\partial\varphi_i\,
+    \partial\varphi_j}\bigg|_{\varphi=\bar\varphi}.
+    \label{eq:Wij-coupling}
+\end{equation}
+In the single scalar field theory, $W = \frac{1}{2}\lambda\bar\varphi^2$.
+If $U(\varphi)$ is an even quartic polynomial, $W(\bar\varphi)$ is a
+quadratic form and can be diagonalized as shown above. In the diagonal
+basis, the different Higgs fields decouple and $V_S^{(1)}$ is obtained
+by adding the contributions of the new basis fields. Each individual term
+is given by the scalar Coleman-Weinberg integral. Neglecting the
+$\lambda^2$ corrections to terms already contained in $V_{\text{eff}}^{(0)}$,
+the cutoff-independent part of the one-loop integral for a single mode
+with $m^2 = \frac{\lambda}{2}\bar\varphi^2$ is
+\begin{equation}
+    V_{\text{1-loop}}\big|_{\text{c.i.}} = \frac{1}{64\pi^2}
+    \left(\frac{\lambda\bar\varphi^2}{2}\right)^2
+    \ln\frac{\lambda\bar\varphi^2}{2},
+    \label{eq:CW-scalar}
+\end{equation}
+where the divergent terms proportional to $\Lambda^2$ and $\ln\Lambda^2$
+have been absorbed into renormalization of the mass and coupling constant
+respectively. Generalizing to the diagonal basis,
+\begin{align}
+    V_S^{(1)}(\bar\varphi) &= \frac{1}{64\pi^2}
+    \sum_i(W^{ii})^2\ln W^{ii} \notag\\
+    &= \frac{1}{64\pi^2}\mathrm{Tr}(W^2\ln W),
+    \label{eq:VS1}
+\end{align}
+which is basis-independent since the trace is invariant under orthogonal
+transformations.
+
+\section{The Fermion Contribution \texorpdfstring{$V_f^{(1)}$}{Vf}}
+
+The fermion contribution $V_f^{(1)}$ is given by the diagrams in Fig.~3
+of Brandenberger, for the case $M=0$. Since the trace of an odd number
+of $\gamma$ matrices vanishes, diagrams with an odd number of vertices
+are zero. With all indices inserted explicitly, the Yukawa coupling term
+from \eqref{eq:non-abelian-lagrangian} is
+\begin{equation}
+    \sum_{a,b,i}\bar\varphi_i\,\Gamma^i_{ab}\,\psi^a\psi^b.
+    \label{eq:yukawa}
+\end{equation}
+
+% [DIAGRAM: closed fermion loop diagrams with external scalar insertions,
+%  Fig.~3 of Brandenberger]
+
+The diagram with two external scalar field insertions $\bar\varphi_i$
+and $\bar\varphi_j$ consists of a closed fermion loop with two internal
+massless propagators $\slashed{k}/k^2$ and two Yukawa vertices
+contributing $\Gamma^i_{ab}$ and $\Gamma^j_{ba}$. Assembling all
+factors, the overall sign $(-1)$ from the fermion loop and the symmetry
+factor $\frac{1}{2}$ combine to give
+\begin{equation}
+    -\frac{1}{2}\int\frac{d^4k}{(2\pi)^4}
+    \sum_{i,j,a,b}\mathrm{Tr}_S\,\bar\varphi_i\,\Gamma^i_{ab}\,
+    \frac{\slashed{k}^2}{k^4}\,\Gamma^j_{ba}\,\bar\varphi_j.
+    \label{eq:fermion-diagram}
+\end{equation}
+Using $(\slashed{k})(\slashed{k}) = k^2$, the propagator product
+simplifies to $\slashed{k}^2/k^4 = 1/k^2$. The spinor trace then acts
+only on the identity in spinor space, giving $\mathrm{Tr}_S(\mathbf{1})
+= 4$ in four dimensions. Defining the matrix
+$(\bar\varphi\,\Gamma)_{ab} \equiv \sum_i\bar\varphi_i\,\Gamma^i_{ab}$,
+the sum over indices becomes
+$\sum_{a,b}(\bar\varphi\,\Gamma)_{ab}(\bar\varphi\,\Gamma)_{ba}
+= \mathrm{Tr}_f(\bar\varphi\,\Gamma)^2$,
+and \eqref{eq:fermion-diagram} reduces to
+\begin{equation}
+    -\frac{1}{2}\int\frac{d^4k}{(2\pi)^4}\,\frac{4}{k^2}\,
+    \mathrm{Tr}_f(\bar\varphi\,\Gamma)^2.
+\end{equation}
+The graph with $2n$ vertices yields analogously
+\begin{equation}
+    \frac{1}{2n}\int\frac{d^4k}{(2\pi)^4}\,\frac{1}{(k^2)^n}\,
+    \mathrm{Tr}_f(\bar\varphi\,\Gamma)^{2n},
+\end{equation}
+so that summing over all diagrams,
+\begin{equation}
+    V_f^{(1)}(\bar\varphi) = -4i\,\mathrm{Tr}_f\sum_{n=1}^{\infty}
+    \int\frac{d^4k}{(2\pi)^4}\,\frac{1}{2n}
+    \left[\frac{(\bar\varphi\,\Gamma)^2}{k^2}\right]^n.
+\end{equation}
+This result is analogous to \eqref{eq:CW-scalar}, and its evaluation
+follows the same procedure as in the scalar case. The cutoff-independent
+part gives
+\begin{equation}
+    V_f^{(1)}(\bar\varphi) = -\frac{1}{64\pi^2}\,4\,
+    \mathrm{Tr}_f\!\left[(\bar\varphi\,\Gamma)^4
+    \ln(\bar\varphi\,\Gamma)^2\right].
+    \label{eq:Vf1}
+\end{equation}
+
+\section{The Gauge Boson Contribution \texorpdfstring{$V_g^{(1)}$}{Vg}}
+
+Finally we compute $V_g^{(1)}$, the gauge boson loop contribution. The
+only vertex contributing to one-loop order is the $A^2\varphi^2$ vertex,
+which stems from the following term in the Lagrangian density,
+\begin{equation}
+    \frac{1}{2}\mathrm{Tr}(igA_\mu\varphi)^\dagger(igA^\mu\varphi)
+    = \frac{1}{2}g_{\alpha\beta}\mathrm{Tr}
+    \!\left[(\tau_\alpha A^\alpha_\mu\varphi)^\dagger
+    (\tau_\beta A^{\beta\mu}\varphi)\right]
+    = \frac{1}{2}A^\alpha_\mu M^2_{\alpha\beta}A^{\beta\mu},
+\end{equation}
+with the field-dependent gauge boson mass matrix
+\begin{equation}
+    M^2_{\alpha\beta} = g_{\alpha\beta}\,
+    \mathrm{Tr}\!\left[(\tau_\alpha\varphi)^\dagger\tau_\beta\varphi\right].
+    \label{eq:gauge-mass-matrix}
+\end{equation}
+
+% [DIAGRAM: one-loop gauge boson diagrams with external scalar
+%  insertions, Fig.~4 of Brandenberger]
+
+A few comments on \eqref{eq:gauge-mass-matrix} are in order. First, if
+$G$ is not a simple group, there will in general be a different coupling
+constant associated with each field $A^a_\mu$. Second, the trace is in
+the Higgs representation space. Third, $M^2_{\alpha\beta}|_{\varphi=
+\bar\varphi}$ is the gauge boson mass matrix in the broken phase with
+vacuum expectation value $\bar\varphi$, and is a constant matrix in the
+sense of \eqref{eq:Wij-def}. Since in Landau gauge the gauge fields have
+three degrees of freedom (they have a Lie algebra trace), the calculation
+of $V_g^{(1)}$ is analogous to that of $V_S^{(1)}$, and
+\begin{equation}
+    V_g^{(1)}(\bar\varphi) = \frac{3}{64\pi^2}
+    \mathrm{Tr}(M^4\ln M^2)\big|_{\varphi=\bar\varphi}.
+    \label{eq:Vg1}
+\end{equation}
+
+\section{The Full One-Loop Effective Potential}
+
+Combining the three contributions \eqref{eq:VS1}, \eqref{eq:Vf1}, and
+\eqref{eq:Vg1}, the full one-loop effective potential is
+\begin{equation}
+    V_{\text{eff}}(\bar\varphi) = U(\bar\varphi)
+    + \frac{1}{64\pi^2}\mathrm{Tr}(W^2\ln W)
+    - \frac{4}{64\pi^2}\mathrm{Tr}_f
+    \!\left[(\bar\varphi\,\Gamma)^4\ln(\bar\varphi\,\Gamma)^2\right]
+    + \frac{3}{64\pi^2}\mathrm{Tr}(M^4\ln M^2)\big|_{\varphi=\bar\varphi},
+\end{equation}
+where all traces are evaluated at $\varphi = \bar\varphi$. This is the
+master formula for the one-loop effective potential in a non-Abelian
+gauge theory. The scalar, fermion, and gauge boson loops each contribute
+a term of the Coleman-Weinberg form $m^4\ln m^2$, with the mass matrix
+appropriate to each field type. In the next chapter we apply this formula
+to GUT models, where the gauge group is larger and the symmetry breaking
+pattern is richer.

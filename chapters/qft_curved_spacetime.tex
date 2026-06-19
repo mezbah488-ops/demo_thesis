@@ -1,3 +1,134 @@
-\chapter{Semiclassical Gravity and Particle Creation}
-\label{ch:qft-curved}
+\chapter{Spacetime Causal Structure}
+\label{ch:causal-structure}
 
+We work in units $\hbar = c = G = 1$ and use the mostly plus metric
+signature $g_{\mu\nu} = (-,+,+,+)$ throughout this part.
+
+\section{The Schwarzschild Metric and the Tortoise Coordinate}
+
+The Schwarzschild metric outside a spherically symmetric mass
+distribution is
+\begin{equation}
+	ds^2 = -\left(1-\frac{2M}{r}\right)dt^2
+	+ \frac{dr^2}{1-\frac{2M}{r}}
+	+ r^2\,d\Omega^2, \qquad r > 2M.
+\end{equation}
+There is an apparent singularity at $r = 2M$, but this is a coordinate
+artifact rather than a true curvature singularity. To see this, we
+introduce the tortoise coordinate $r_*$, defined by
+\begin{equation}
+	r_* = \int\frac{dr}{1-\frac{2M}{r}}
+	= r + 2M\ln\!\left(\frac{r}{2M}-1\right),
+	\qquad 2M < r < \infty,\quad
+	-\infty < r_* < +\infty.
+\end{equation}
+The name comes from the fact that an infinite coordinate interval
+$r_*\to-\infty$ corresponds to approaching the horizon $r\to 2M$,
+so the horizon recedes to minus infinity in this coordinate. In terms
+of $r_*$, the $t$-$r$ part of the metric becomes
+\begin{equation}
+	-\left(1-\frac{2M}{r}\right)dt^2
+	+ \frac{dr^2}{1-\frac{2M}{r}}
+	= \left(1-\frac{2M}{r}\right)(-dt^2 + dr_*^2),
+\end{equation}
+which is conformally flat, with an overall factor that vanishes at the
+horizon but leaves the conformal structure intact. Introducing null
+coordinates
+\begin{equation}
+	u = t - r_*, \qquad v = t + r_*,
+\end{equation}
+the metric takes the form
+\begin{equation}
+	ds^2 = -\left(1-\frac{2M}{r}\right)du\,dv + r^2\,d\Omega^2.
+\end{equation}
+
+\section{Kruskal Coordinates and the Maximal Extension}
+
+The singularity at $r=2M$ in the original coordinates is removed by
+a further change of coordinates. Any transformation of the form
+$\tilde u = f(u)$, $\tilde v = g(v)$ preserves the null structure of
+the metric. We choose
+\begin{equation}
+	\tilde u = -4M e^{-u/4M}, \qquad
+	\tilde v = 4M e^{v/4M},
+\end{equation}
+which maps $u\in(-\infty,+\infty)$ to $\tilde u\in(-\infty,0)$ and
+$v\in(-\infty,+\infty)$ to $\tilde v\in(0,+\infty)$. In these Kruskal
+coordinates the metric becomes
+\begin{equation}
+	ds^2 = -\frac{2M}{r(\tilde u,\tilde v)}
+	e^{-r(\tilde u,\tilde v)/2M}\,d\tilde u\,d\tilde v
+	+ r^2(\tilde u,\tilde v)\,d\Omega^2,
+\end{equation}
+where $r(\tilde u,\tilde v)$ is determined implicitly by
+\begin{equation}
+	\tilde u\,\tilde v = 4M^2\!\left(1-\frac{r}{2M}\right)
+	e^{-r/2M}.
+\end{equation}
+The metric is now manifestly regular at $r=2M$: when $r=2M$ either
+$\tilde u$ or $\tilde v$ vanishes, but the prefactor
+$e^{-r/2M}$ is finite. The true singularity at $r=0$ corresponds to
+$\tilde u\,\tilde v = 4M^2$, a hyperbola in the $(\tilde u,\tilde v)$
+plane. The singularity is genuine because the curvature invariants
+diverge there, and geodesics reach it in finite affine parameter.
+
+% [FIGURE: Kruskal diagram showing the four regions, the horizon at
+%  tilde{u}=0 or tilde{v}=0, and the singularity at tilde{u}tilde{v}=4M^2]
+
+The Kruskal extension reveals four distinct regions of the maximally
+extended Schwarzschild spacetime. Region I is the exterior of the black
+hole, $r > 2M$, where $t = \text{const}$ lines converge at spacelike
+infinity and $r = \text{const}$ lines are timelike surfaces. Region II
+is the black hole interior: once inside, the roles of $r$ and $t$ are
+exchanged, with $r = \text{const}$ becoming spacelike surfaces and an
+observer being unable to remain at constant $r$. Regions III and IV are
+the white hole interior and the second exterior region respectively;
+they are physically irrelevant for realistic gravitational collapse but
+are part of the maximal extension.
+
+\section{The Penrose Diagram}
+
+Compactifying the Kruskal coordinates via
+\begin{equation}
+	\bar u = \tan^{-1}\frac{\tilde u}{4M},
+	\qquad \bar v = \tan^{-1}\frac{\tilde v}{4M},
+\end{equation}
+maps the entire spacetime into a finite region. This choice is not
+unique; any monotonic functions would preserve the causal relations.
+The resulting Penrose diagram represents the full causal structure of
+the spacetime in a finite picture, with null rays propagating at
+$45°$ throughout.
+
+% [FIGURE: Penrose diagram of the Schwarzschild spacetime showing
+%  regions I-IV, the singularity, the horizon, and the asymptotic
+%  regions scri^+, scri^-, i^+, i^-, i^0]
+
+The causal structure encoded in the diagram is physically important.
+An observer in region I can receive signals from region I and from
+region IV, but cannot communicate with the interior (region II) or
+with another exterior observer in region III. The singularity at $r=0$
+is a spacelike surface in regions II, meaning it lies in the future of
+every observer who crosses the horizon, and cannot be avoided.
+
+The Penrose diagram for 2D Minkowski spacetime is obtained by a
+similar construction. In null coordinates $u = t-x$, $v = t+x$, the
+metric is $ds^2 = -du\,dv$. The compactification
+\begin{equation}
+	u' = 2\tan^{-1} u, \qquad v' = 2\tan^{-1} v,
+	\qquad -\pi \leq u', v' \leq \pi,
+\end{equation}
+maps the full Minkowski space to a finite diamond. The conformal factor
+is
+\begin{equation}
+	\Omega^2 = \frac{1}{4}\sec^2\!\frac{u'}{2}\sec^2\!\frac{v'}{2},
+\end{equation}
+and after a conformal rescaling $g_{\mu\nu}\to\Omega^{-2}g_{\mu\nu}$
+the metric takes the same form $d\tilde s^2 = du'\,dv'$ over the
+compact region. The boundaries of the diagram correspond to future and
+past null infinity $\mathscr{I}^\pm$, future and past timelike infinity
+$i^\pm$, and spacelike infinity $i^0$. Null rays terminate on
+$\mathscr{I}^\pm$ because $u = \tan(u'/2)\to\pm\infty$ as
+$u'\to\pm\pi$. In 4D the same construction applies, with each interior
+point representing a 2-sphere, except on the symmetry axis and at $i^0$.
+
+% [FIGURE: Penrose diagram for 2D and 4D Minkowski spacetime]
