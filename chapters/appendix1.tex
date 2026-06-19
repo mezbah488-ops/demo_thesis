@@ -1,86 +1,221 @@
+\appendix
+\chapter{Proof that \texorpdfstring{$Z(J) = e^{iW(J)}$}{Z(J) = exp(iW(J))}}
+\label{app:connected}
+
+The connection between $Z(J)$ and $W(J)$ follows from the combinatorics
+of Wick diagrams. The S-matrix is
+\begin{equation}
+	S = T\exp\left[-i\int_{-\infty}^{\infty}dt\,H_I(t)\right],
+\end{equation}
+where $H_I$ is the interaction picture Hamiltonian, which here includes
+a source term. Expanding $S$ in a Taylor series and applying Wick's
+theorem gives a sum over Wick diagrams,
+\begin{equation}
+	S = \sum\mathcal{W},
+\end{equation}
+where each $\mathcal{W}$ is a Wick graph. For example, for an interaction
+of the form $H_I(x) = \lambda\bar\psi(x)\psi(x)\varphi(x)$, one of the
+terms at order $\lambda^2$ looks like
+
+% [DIAGRAM: Wick diagram at order lambda^2 to be added here]
+
+Unlike Feynman diagrams, Wick diagrams are labelled. Taking the vacuum
+expectation value of $S$ selects only diagrams with no uncontracted
+external legs,
+\begin{equation}
+	Z(J) = \langle 0|S|0\rangle = \sum\mathcal{W}_u,
+\end{equation}
+where $\mathcal{W}_u$ denotes vacuum graphs. A vacuum graph is defined
+as a graph with no external legs, only internal lines forming closed
+loops,
+
+% [DIAGRAM: simple vacuum bubble diagram to be added here]
+
+Any collection of vacuum graphs combined into a single disconnected
+diagram is still a vacuum graph, since no external legs appear anywhere.
+Similarly, $iW(J) = \sum\mathcal{W}_{cu}$, where $\mathcal{W}_{cu}$ are
+the connected vacuum graphs. It then follows from the theorem proved in
+Appendix~\ref{app:wick-exponential} that
+\begin{equation}
+	Z(J) = \sum\mathcal{W}_u = \exp\sum\mathcal{W}_{cu} = e^{iW(J)},
+\end{equation}
+which completes the proof. \qed
+\chapter{The Sum of All Wick Diagrams is the Exponential of the Connected Ones}
+\label{app:wick-exponential}
+
+We prove that
+\begin{equation}
+	\sum\text{ all Wick diagrams} = \exp\!\left(\sum\text{ connected Wick diagrams}\right).
+\end{equation}
+
+Consider the case where $H_I$ contains a single interaction term. Two
+diagrams belong to the same pattern $P$ if they differ only by a
+permutation of vertices. Define $S(P)$ as the number of permutations
+that leave a diagram of pattern $P$ unchanged, and $n(P)$ as the number
+of vertices. Then the S-matrix is
+\begin{equation}
+	S = \sum_P\frac{:\mathcal{O}(P):}{S(P)},
+	\tag{1}
+\end{equation}
+where $:\mathcal{O}(P):$ is the normal-ordered operator represented by
+the Wick diagram. Now consider a pattern consisting of $n_i$ copies of
+the connected pattern $P_i$, with $i = 1,2,\ldots$ an ordering of all
+connected patterns. Then
+\begin{align}
+	\mathcal{O}(P) & = \prod_{i=1}^{\infty}\mathcal{O}(P_i)^{n_i},
+	\tag{2}                                                        \\
+	S(P)           & = \prod_{i=1}^{\infty}S(P_i)^{n_i}.
+	\tag{3}
+\end{align}
+Substituting into (1), the additional $n_i!$ in the denominator accounts
+for the fact that permuting graphs of a given connected pattern does not
+yield a new Wick graph,
+\begin{equation}
+	S = \sum_{\substack{n_i=0\\i=0}}^{\infty}
+	\frac{:\prod_{i=1}^{\infty}\mathcal{O}(P_i)^{n_i}:}
+	{\prod_{i=1}^{\infty}\left[S(P_i)^{n_i}\,n_i!\right]}.
+	\tag{4}
+\end{equation}
+Factoring the sum over each $n_i$ independently,
+\begin{align}
+	S & = \prod_{i=1}^{\infty}\sum_{n_i=0}^{\infty}
+	\frac{1}{n_i!}\left[\frac{:\mathcal{O}(P_i):}{S(P_i)}\right]^{n_i}
+	\notag                                                                 \\
+	  & = :\prod_{i=1}^{\infty}\exp\!\left(\frac{\mathcal{O}(P_i)}{S(P_i)}
+	\right): \notag                                                        \\
+	  & = :\exp\!\left(\sum_{i=1}^{\infty}
+	\frac{\mathcal{O}(P_i)}{S(P_i)}\right): \notag                         \\
+	  & = :\exp\sum\mathcal{W}_c:,
+	\tag{5}
+\end{align}
+where $\mathcal{W}_c$ denotes connected Wick graphs and we used (2) and
+(3) in the last step. This establishes that
+\begin{equation}
+	\sum\text{ all Wick diagrams} = e^{\sum\text{ connected Wick diagrams}}.
+	\tag{6}
+\end{equation}
+\qed
+
+The proof of $Z(J) = e^{iW(J)}$ in Appendix~\ref{app:connected} then
+follows immediately by taking the vacuum expectation value of (6).
+
+
+\chapter{Equivalence of the Loop Expansion and the \texorpdfstring{$\hbar$}{hbar} Expansion}
+\label{app:loop-hbar}
+
+We show that an $L$-loop graph carries a factor of $\hbar^{L-1}$, so
+that the loop expansion and the $\hbar$ expansion are equivalent. Starting
+from
+\begin{equation}
+	Z(J) = N\int[\mathcal{D}\varphi]
+	\exp\!\left[\frac{i}{\hbar}S(\varphi,J)\right],
+\end{equation}
+the vertex factors are the coefficients of the interaction terms in
+$\hbar^{-1}S(\varphi,J)$, so each vertex contributes a factor of
+$\hbar^{-1}$. The propagators are the inverses of the quadratic operators
+in the exponent, so each internal line contributes a factor of $\hbar$.
+A graph with $V$ vertices and $I$ internal lines therefore carries an
+overall factor of
+\begin{equation}
+	\hbar^{I-V}.
+\end{equation}
+For a connected graph, each vertex fixes one internal momentum except for
+one overall energy-momentum conservation constraint, so the number of
+independent loop momenta is
+\begin{equation}
+	L = I - V + 1.
+\end{equation}
+Hence the $\hbar$-dependence of a connected graph is
+\begin{equation}
+	\hbar^{I-V} = \hbar^{L-1},
+\end{equation}
+which shows that the loop expansion is precisely the expansion in powers
+of $\hbar$. \qed
+
+
 \chapter{Derivation of \texorpdfstring{$\delta W(J)/\delta J = \varphi$}{dW/dJ = phi}}
 \label{app:delta-W-delta-J}
 
 This appendix supplies the step used in the proof of Theorem~3, following
 Jackiw and Kerman (1979). The two equivalent expressions for $W(J)$ are
 \begin{align}
-    e^{\frac{i}{\hbar}W(J)} &= \langle-,t|+,t\rangle, \\
-    e^{\frac{i}{\hbar}W(J)} &= \langle 0|\,T\exp\!\left(\frac{i}{\hbar}
-    \int(dx)\,J(x)\,\Phi(x)\right)|0\rangle.
+	e^{\frac{i}{\hbar}W(J)} & = \langle-,t|+,t\rangle,                   \\
+	e^{\frac{i}{\hbar}W(J)} & = \langle 0|\,T\exp\!\left(\frac{i}{\hbar}
+	\int(dx)\,J(x)\,\Phi(x)\right)|0\rangle.
 \end{align}
 The states $|\pm,t\rangle$ solve the time-dependent Schr\"odinger equation
 \begin{equation}
-    i\hbar\,\partial_t|\pm,t\rangle
-    = H|\pm,t\rangle
-    - \int d\mathbf{x}\,J(t,\mathbf{x})\,\Phi(\mathbf{x})|\pm,t\rangle,
+	i\hbar\,\partial_t|\pm,t\rangle
+	= H|\pm,t\rangle
+	- \int d\mathbf{x}\,J(t,\mathbf{x})\,\Phi(\mathbf{x})|\pm,t\rangle,
 \end{equation}
 with boundary conditions $\lim_{t\to\mp\infty}|\pm,t\rangle = |0\rangle$,
 where $|0\rangle$ is the ground state of $H$ with $H|0\rangle = 0$. The
 states $|\psi_\pm,t\rangle$ are related to $|\pm,t\rangle$ by
 \begin{align}
-    |+,t\rangle &= \exp\frac{i}{\hbar}\!\left(\int_{-\infty}^{t}dt'\,w(t')\right)|\psi_+,t\rangle, \\
-    |-,t\rangle &= \exp\frac{i}{\hbar}\!\left(-\int_{t}^{\infty}dt'\,w^*(t')\right)|\psi_-,t\rangle,
+	|+,t\rangle & = \exp\frac{i}{\hbar}\!\left(\int_{-\infty}^{t}dt'\,w(t')\right)|\psi_+,t\rangle,   \\
+	|-,t\rangle & = \exp\frac{i}{\hbar}\!\left(-\int_{t}^{\infty}dt'\,w^*(t')\right)|\psi_-,t\rangle,
 \end{align}
 and satisfy $\left(i\hbar\,\partial_t - H + \int J\Phi\,dx\right)|\pm,t\rangle
-= 0$ with the same boundary conditions. Their overlap gives
+	= 0$ with the same boundary conditions. Their overlap gives
 \begin{equation}
-    \langle-,t|+,t\rangle = e^{\frac{i}{\hbar}W(J)}.
+	\langle-,t|+,t\rangle = e^{\frac{i}{\hbar}W(J)}.
 \end{equation}
 Expanding this explicitly,
 \begin{align}
-    &\langle\psi_-,t|\left[\exp\frac{i}{\hbar}\!\left(-\int_t^{\infty}dt'\,w^*(t')\right)\right]^*
-    \exp\frac{i}{\hbar}\!\left(\int_{-\infty}^{t}w(t')\,dt'\right)|\psi_+,t\rangle \notag\\
-    &= \langle\psi_-,t|\exp\frac{i}{\hbar}\!\left(\int_t^{\infty}dt'\,w(t')
-    + \int_{-\infty}^{t}dt'\,w(t')\right)|\psi_+,t\rangle \notag\\
-    &= \langle\psi_-,t|\exp\frac{i}{\hbar}\int_{-\infty}^{\infty}dt'\,w(t')\,|\psi_+,t\rangle \notag\\
-    &= \exp\frac{i}{\hbar}\int_{-\infty}^{\infty}dt'\,w(t')
-    \underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1} \notag\\
-    &= \exp\frac{i}{\hbar}\left(\int_{-\infty}^{\infty}dt'\,w(t')\right),
+	 & \langle\psi_-,t|\left[\exp\frac{i}{\hbar}\!\left(-\int_t^{\infty}dt'\,w^*(t')\right)\right]^*
+	\exp\frac{i}{\hbar}\!\left(\int_{-\infty}^{t}w(t')\,dt'\right)|\psi_+,t\rangle \notag              \\
+	 & = \langle\psi_-,t|\exp\frac{i}{\hbar}\!\left(\int_t^{\infty}dt'\,w(t')
+	+ \int_{-\infty}^{t}dt'\,w(t')\right)|\psi_+,t\rangle \notag                                       \\
+	 & = \langle\psi_-,t|\exp\frac{i}{\hbar}\int_{-\infty}^{\infty}dt'\,w(t')\,|\psi_+,t\rangle \notag \\
+	 & = \exp\frac{i}{\hbar}\int_{-\infty}^{\infty}dt'\,w(t')
+	\underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1} \notag                                            \\
+	 & = \exp\frac{i}{\hbar}\left(\int_{-\infty}^{\infty}dt'\,w(t')\right),
 \end{align}
 so that $W = \int_{-\infty}^{\infty}dt\,w(t)$. Using the eigenvalue
 equation for $|\psi_+,t\rangle$,
 \begin{equation}
-    \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
-    \left(i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\right)|\psi_+,t\rangle
-    = \int_{-\infty}^{\infty}dt\,w(t)
-    \underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1},
+	\int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
+	\left(i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\right)|\psi_+,t\rangle
+	= \int_{-\infty}^{\infty}dt\,w(t)
+	\underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1},
 \end{equation}
 which gives
 \begin{equation}
-    W(J) = \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|\,
-    i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\,|\psi_+,t\rangle.
+	W(J) = \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|\,
+	i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\,|\psi_+,t\rangle.
 \end{equation}
 Taking the functional derivative,
 \begin{align}
-    \frac{\delta W(J)}{\delta J} &=
-    \int_{-\infty}^{\infty}dt\,\frac{\delta\langle\psi_-,t|}{\delta J}
-    \underbrace{\left(i\hbar\,\partial_t - H + \int J\Phi\right)|\psi_+,t\rangle}_{w(t)|\psi_+,t\rangle} \notag\\
-    &+ \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
-    \frac{\delta}{\delta J}\left(i\hbar\,\partial_t - H
-    + \int d\mathbf{x}\,J\Phi\right)|\psi_+,t\rangle \notag\\
-    &+ \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
-    \left(i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\right)
-    \frac{\delta|\psi_+,t\rangle}{\delta J},
+	\frac{\delta W(J)}{\delta J} & =
+	\int_{-\infty}^{\infty}dt\,\frac{\delta\langle\psi_-,t|}{\delta J}
+	\underbrace{\left(i\hbar\,\partial_t - H + \int J\Phi\right)|\psi_+,t\rangle}_{w(t)|\psi_+,t\rangle} \notag \\
+	                             & + \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
+	\frac{\delta}{\delta J}\left(i\hbar\,\partial_t - H
+	+ \int d\mathbf{x}\,J\Phi\right)|\psi_+,t\rangle \notag                                                     \\
+	                             & + \int_{-\infty}^{\infty}dt\,\langle\psi_-,t|
+	\left(i\hbar\,\partial_t - H + \int d\mathbf{x}\,J\Phi\right)
+	\frac{\delta|\psi_+,t\rangle}{\delta J},
 \end{align}
 where the constraint $\langle\psi_-,t|\Phi(\mathbf{x})|\psi_+,t\rangle =
-\phi(t,\mathbf{x})$ was used for the second term. Integrating the third
+	\phi(t,\mathbf{x})$ was used for the second term. Integrating the third
 term by parts,
 \begin{equation}
-    i\hbar\left\langle\psi_-,t\Big|\frac{\delta|\psi_+,t\rangle}{\delta J}
-    \right\rangle\bigg|_{-\infty}^{\infty}
-    + \left\langle\psi_-,t\left|
-    \underbrace{\left(-i\hbar\,\partial_t - H
-    + \int d\mathbf{x}\,J\Phi\right)}_{\langle\psi_-,t|w(t)}
-    \frac{\delta|\psi_+,t\rangle}{\delta J}\right.\right\rangle,
+	i\hbar\left\langle\psi_-,t\Big|\frac{\delta|\psi_+,t\rangle}{\delta J}
+	\right\rangle\bigg|_{-\infty}^{\infty}
+	+ \left\langle\psi_-,t\left|
+	\underbrace{\left(-i\hbar\,\partial_t - H
+		+ \int d\mathbf{x}\,J\Phi\right)}_{\langle\psi_-,t|w(t)}
+	\frac{\delta|\psi_+,t\rangle}{\delta J}\right.\right\rangle,
 \end{equation}
 so that
 \begin{align}
-    \frac{\delta W(J)}{\delta J} &= \phi
-    + i\hbar\left\langle\psi_-,t\Big|
-    \frac{\delta}{\delta J}|\psi_+,t\rangle\right\rangle\bigg|_{-\infty}^{\infty} \notag\\
-    &+ \int_{-\infty}^{\infty}dt\,w(t)\left[
-    \frac{\delta\langle\psi_-,t|}{\delta J}|\psi_+,t\rangle
-    + \langle\psi_-,t|\frac{\delta}{\delta J}|\psi_+,t\rangle\right],
+	\frac{\delta W(J)}{\delta J} & = \phi
+	+ i\hbar\left\langle\psi_-,t\Big|
+	\frac{\delta}{\delta J}|\psi_+,t\rangle\right\rangle\bigg|_{-\infty}^{\infty} \notag                                               \\
+	                             & + \int_{-\infty}^{\infty}dt\,w(t)\left[
+		                                                                \frac{\delta\langle\psi_-,t|}{\delta J}|\psi_+,t\rangle
+		                                                                + \langle\psi_-,t|\frac{\delta}{\delta J}|\psi_+,t\rangle\right],
 \end{align}
 where the expression inside the brackets vanishes upon differentiating the
 normalization constraint $\langle\psi_-,t|\psi_+,t\rangle = 1$. It
@@ -89,13 +224,117 @@ $|\psi_+,t\rangle\to|0\rangle$ independently of $J$, so
 $\delta|\psi_+,t\rangle/\delta J = 0$ at the lower limit. For the upper
 limit, rewrite it as
 \begin{equation}
-    i\hbar\,\frac{\delta}{\delta J}
-    \underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1}
-    - i\hbar\left(\frac{\delta\langle\psi_-,t|}{\delta J}\right)|\psi_+,t\rangle,
+	i\hbar\,\frac{\delta}{\delta J}
+	\underbrace{\langle\psi_-,t|\psi_+,t\rangle}_{1}
+	- i\hbar\left(\frac{\delta\langle\psi_-,t|}{\delta J}\right)|\psi_+,t\rangle,
 \end{equation}
 where the second term vanishes because at $t\to\infty$,
 $\langle\psi_-,t|\to\langle 0|$, also independently of $J$. The boundary
 term therefore vanishes at both limits, and
 \begin{equation}
-    \therefore\quad\boxed{\frac{\delta W(J)}{\delta J} = \phi.}
+	\therefore\quad\boxed{\frac{\delta W(J)}{\delta J} = \phi.}
 \end{equation}
+
+
+\chapter{Matrix Element of the Inverse Propagator}
+\label{app:matrix-element}
+
+We evaluate $\langle k'|\,i\Delta^{-1}[\rho]\,|k\rangle$ using
+$\langle x|k\rangle = e^{ikx}$,
+\begin{multline}
+	\langle k'|\,i\Delta^{-1}[\rho]\,|k\rangle
+	= \int d^4x\,d^4y\;\langle k'|x\rangle
+	\langle x|\,i\Delta^{-1}[\rho]\,|y\rangle\langle y|k\rangle \\
+	= \int d^4x\,d^4y\;e^{ik'x}
+	\left[-\left(\Box+V''(\rho)\right)\right]
+	\delta^4(x-y)\,e^{iky} \\
+	= \int d^4x\;e^{-i(k-k')x}
+	\left[-(- k^2+V''(\rho))\right] \\
+	= \left[k^2-V''(\rho)\right](2\pi)^4\delta^4(k-k').
+\end{multline}
+Setting $k=k'$ and dividing by $\Omega = (2\pi)^4\delta^4(0)$,
+\begin{equation}
+	\langle k|\,i\Delta^{-1}(\rho)\,|k\rangle
+	= \left[k^2-V''(\rho)\right]\Omega,
+\end{equation}
+\begin{equation}
+	\Rightarrow\quad
+	\Omega^{-1}\langle k|\,i\Delta^{-1}(\rho)\,|k\rangle
+	= k^2-V''(\rho).
+\end{equation}
+
+
+\chapter{Evaluation of the One-Loop Momentum Integral}
+\label{app:oneloop-integral}
+
+We evaluate
+\begin{equation}
+	I = \int\frac{d^4k_E}{(2\pi)^4}\ln(k_E^2+V'')
+	= \frac{1}{8\pi^2}\int_0^{\Lambda}dk_E\;k_E^3\ln(k_E^2+V''),
+\end{equation}
+where the angular integration in four-dimensional Euclidean space gives
+a factor $2\pi^2$. Substituting $u=k_E^2$, $du=2k_E\,dk_E$,
+\begin{equation}
+	I = \frac{1}{16\pi^2}\int_0^{\Lambda^2}u\,du\ln(u+V'').
+\end{equation}
+Integrating by parts with $f=\ln(u+V'')$, $dg=u\,du$,
+\begin{equation}
+	I = \frac{1}{16\pi^2}\left\{
+	\left[\frac{u^2}{2}\ln(u+V'')\right]_0^{\Lambda^2}
+	- \int_0^{\Lambda^2}\frac{u^2}{2}\cdot\frac{1}{u+V''}\,du
+	\right\},
+\end{equation}
+where the boundary term evaluates to
+$\dfrac{\Lambda^4}{2}\ln(\Lambda^2+V'')$. Using the partial fraction
+decomposition $\dfrac{u^2}{u+V''} = u-V''+\dfrac{(V'')^2}{u+V''}$,
+\begin{multline}
+	\frac{1}{2}\int_0^{\Lambda^2}\frac{u^2}{u+V''}\,du
+	= \frac{1}{2}\int_0^{\Lambda^2}
+	\left(u-V''+\frac{(V'')^2}{u+V''}\right)du \\
+	= \frac{1}{2}\left[
+		\frac{\Lambda^4}{2} - \Lambda^2 V''
+		+ (V'')^2\ln(\Lambda^2+V'') - (V'')^2\ln V''
+		\right].
+\end{multline}
+Assembling the pieces,
+\begin{equation}
+	I = \frac{1}{16\pi^2}\left\{
+	\frac{\Lambda^4}{2}\ln(\Lambda^2+V'')
+	- \frac{1}{2}\left[
+		\frac{\Lambda^4}{2} - \Lambda^2 V''
+		+ (V'')^2\ln\!\left(\frac{\Lambda^2+V''}{V''}\right)
+		\right]
+	\right\}.
+\end{equation}
+Expanding $\ln(\Lambda^2+V'') = \ln\Lambda^2+\ln(1+V''/\Lambda^2)
+	\simeq \ln\Lambda^2 + V''/\Lambda^2 - (V'')^2/\Lambda^4 + \cdots$, the
+leading terms are
+\begin{align}
+	\frac{\Lambda^4}{2}\ln(\Lambda^2+V'')
+	 & \simeq \Lambda^4\ln\Lambda + \frac{\Lambda^2 V''}{2}
+	- \frac{(V'')^2}{2},                                    \\
+	\frac{(V'')^2}{2}\ln(\Lambda^2+V'')
+	 & \simeq \frac{(V'')^2}{2}\ln\Lambda^2
+	+ \mathcal{O}(1/\Lambda^2).
+\end{align}
+Collecting all terms,
+\begin{multline}
+	I = \frac{1}{16\pi^2}\left\{
+	\Lambda^4\!\left(\ln\Lambda-\frac{1}{4}\right)
+	+ \Lambda^2 V''
+	+ \frac{(V'')^2}{2}\left(\ln\frac{\Lambda^2}{V''}-\frac{1}{2}\right)
+	\right\}
+	+ \mathcal{O}\!\left(\frac{1}{\Lambda^2}\right).
+\end{multline}
+Dropping the $\Lambda^n\ln\Lambda$ terms, which are field-independent and
+do not affect the location of the minimum of $U(\rho)$, the one-loop
+integral contributing to \eqref{eq:U_euclidean} is
+\begin{multline}
+	\frac{\hbar}{2}I
+	= \hbar\left[
+		\frac{\Lambda^2}{32\pi^2}V''(\rho)
+		+ \frac{[V''(\rho)]^2}{64\pi^2}
+		\left(-\frac{1}{2}+\ln\frac{V''(\rho)}{\Lambda^2}\right)
+		+ \mathcal{O}\!\left(\frac{1}{\Lambda^2}\right)
+		\right].
+\end{multline}

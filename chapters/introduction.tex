@@ -1,3 +1,116 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
+The central theme of this thesis is the interplay between quantum field
+theory and cosmology during the early universe. The key observation is
+this: if matter is described by a quantum field with a nonvanishing
+potential, there is a natural mechanism for generating an effective
+cosmological constant in the early universe, which drives a phase of
+exponential expansion known as inflation. This in turn provides an
+elegant explanation for the homogeneity and flatness of the observed
+universe.
+
+We work within the framework of grand unified theories (GUTs), where
+gravity is described classically by a Friedmann-Robertson-Walker (FRW)
+metric and matter is described by quantum field theory. At $T=0$, the
+gauge symmetry of the GUT is spontaneously broken by a nonzero vacuum
+expectation value of a scalar Higgs field. At high temperature the
+symmetry is restored, but at the cost of generating a large cosmological
+constant. As the universe cools, it passes through one or more phase
+transitions.
+
+The reason for describing matter using quantum fields is well-motivated:
+for times earlier than $10^{-6}$ s after the Big Bang, the thermal energy
+of particles exceeds $1$ GeV, and at these energy scales particle
+interactions are correctly described by QFT, as confirmed by particle
+accelerator experiments. An ideal gas approximation is simply inadequate
+at such temperatures.
+
+
+The central tool of this thesis is the \emph{effective potential}
+$V_{\text{eff}}(\bar\varphi)$. To understand why it is the right object,
+consider a scalar field $\varphi$ coupled to other fields $A_\mu$. The
+classical potential $V(\varphi)$ gives the energy of a homogeneous
+stationary state with $\varphi(x) = \varphi$ and $A_\mu = 0$. The
+effective potential $V_{\text{eff}}(\bar\varphi)$ is the minimum
+expectation value of the energy density in the class of all homogeneous
+stationary states with expectation value $\bar\varphi$. This is the main
+reason it is of interest: the value of $\bar\varphi$ in the quantum state
+at any given time minimizes $V_{\text{eff}}(\bar\varphi)$ at that time.
+
+A large positive potential $V(\phi)$ in some range of field values, with
+a quantum state that is homogeneous and stationary in that range, causes
+the potential contribution to the energy-momentum tensor to dominate,
+acting as an effective cosmological constant in Einstein's equations.
+Finding the state of the quantum field as the universe evolves therefore
+reduces to finding the minimum of the effective potential.
+
+The effective potential also governs the equation of motion of the
+expectation value $\bar\varphi$,
+\begin{equation}
+	\frac{\partial^2\bar\varphi}{\partial t^2} - \nabla^2\bar\varphi
+	= -\frac{\partial}{\partial\bar\varphi}V_{\text{eff}}(\bar\varphi),
+\end{equation}
+which is the leading contribution in an expansion about a homogeneous
+and stationary state. The effective potential thus replaces the classical
+potential in the quantum equation of motion, as we will show explicitly.
+
+
+Two reasons motivate the use of grand unified gauge field theories in
+this context. First, particle accelerator experiments suggest that
+fundamental interactions are described by gauge theories at high energies.
+Second, the cosmological constant $\Lambda$ vanishes today,
+$\Lambda/m_{\text{Pl}}^2 < 10^{-110}$, so for $\Lambda$ to have been
+large in the early universe, a phase transition from
+$\langle V(\phi)\rangle \neq 0$ to $\langle V(\phi)\rangle = 0$ must
+have occurred. GUTs have such phase transitions built in.
+
+The temperature dependence of the effective potential is crucial here.
+Since the effective action is the free energy of the quantum state, the
+effective potential is the free energy density for homogeneous states,
+and statistical mechanics tells us that the free energy is temperature
+dependent. Concretely, finite-temperature corrections generate a mass
+term proportional to $\varphi^2 T^2$, which restores the symmetry at
+high temperature: even if $\varphi = 0$ is not the minimum at $T=0$, it
+becomes so at sufficiently high $T$. The high-$T$ and low-$T$ ground
+states are therefore different.
+
+In GUT models with a Higgs mechanism, the gauge symmetry is broken by a
+nonvanishing VEV of $\varphi$. Finite-temperature corrections to the
+effective potential restore the symmetry above a critical temperature
+$T_c$, set by the scale of symmetry breaking. As the universe cools below
+$T_c$, a new absolute minimum of $V_{\text{eff}}(\varphi)$ appears at
+$\varphi = \sigma \neq 0$ and a phase transition occurs. Since $\Lambda$
+must be fine-tuned to zero today, $V_{\text{eff}}(\sigma) = 0$, it
+follows that $V_{\text{eff}}(0) > 0$ in the high-$T$ phase. GUTs with
+Higgs symmetry breaking therefore automatically generate a period of
+inflation preceding the phase transition.
+
+
+In the semiclassical approximation, the decay of the false vacuum proceeds
+via \emph{bubble nucleation}: the true stable phase, with vanishing
+$\Lambda$, nucleates as a bubble and expands at the speed of light into
+the surrounding sea of false vacuum. The analysis of this process is one
+of the main topics of this thesis.
+
+In curved spacetime, new effects arise. Unlike flat spacetime, where the
+Poincar\'e-invariant Minkowski vacuum is agreed upon by all inertial
+observers, general relativity is diffeomorphism invariant and no frame
+is globally preferred. As a consequence, there is no unique vacuum state
+in a general curved spacetime. The most celebrated manifestation of this
+is Hawking radiation: an observer with a particle detector in certain
+spacetimes will, at late times, measure a nonvanishing thermal flux of
+particles in a state that was initially empty. We discuss these effects
+in the final part of the thesis.
+
+
+The thesis is organized as follows. Part~I develops the effective action
+formalism at zero temperature, building from the generating functionals
+to the one-loop effective potential and its application to gauge theories.
+Part~II extends this to finite temperature using the imaginary-time
+formalism. Part~III treats cosmological phase transitions, including the
+thermal history of the early universe and the parameters characterizing
+a first-order transition. Part~IV analyzes false vacuum decay and bubble
+nucleation via the bounce solution. Part~V discusses quantum field theory
+in curved spacetime, culminating in Hawking radiation.
+'@
