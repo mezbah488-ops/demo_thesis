@@ -1,0 +1,288 @@
+\chapter{Hawking Radiation}
+\label{ch:hawking-radiation}
+
+\section{Particle Production in Gravitational Collapse}
+
+We now derive the most important consequence of quantum field theory
+in curved spacetime: the thermal radiation emitted by a black hole,
+discovered by Hawking in 1974. We model the gravitational collapse by
+a thin spherical shell of mass $M$ collapsing to form a black hole.
+By Birkhoff's theorem, the metric outside the shell is the
+Schwarzschild metric,
+\begin{equation}
+    ds^2_{\text{out}} = -f(r)\,du\,dv,
+    \qquad f(r) = 1 - \frac{2M}{r},
+    \qquad u,v = t\mp r_*,
+\end{equation}
+and the metric inside the shell is flat,
+\begin{equation}
+    ds^2_{\text{in}} = -d\tilde u\,d\tilde v,
+    \qquad \tilde u,\tilde v = \tilde t\mp r.
+\end{equation}
+
+% [FIGURE: Penrose diagram of gravitational collapse with thin shell,
+%  showing past null infinity, future null infinity, the horizon,
+%  and the singularity]
+
+The history of the collapsing matter does not affect the particle
+production; what matters is the relationship between the coordinates
+on either side of the shell near the moment of horizon crossing.
+
+\subsection*{The 2D Model}
+
+We work in the 2D reduction, suppressing the angular coordinates. The
+shell trajectory is $r = r_s(\tilde t)$, and matching the metrics
+across the shell gives
+\begin{align}
+    \frac{du}{d\tilde u}
+    &= \frac{\sqrt{(1-\dot r_s^2)f(r_s)+\dot r_s^2}-\dot r_s}
+    {f(r_s)(1-\dot r_s)}, \\
+    \frac{dv}{d\tilde v}
+    &= \frac{\sqrt{(1-\dot r_s^2)f(r_s)+\dot r_s^2}+\dot r_s}
+    {f(r_s)(1+\dot r_s)},
+\end{align}
+where $\dot r_s = dr_s/d\tilde t$. As the shell crosses the horizon,
+$f(r_s)\to 0$. Writing $r_s(\tilde t) = r_h + A(\tilde t - \tilde t_h)
++ \cdots$ with $0 > A > -1$ and $f(r) \simeq (r-r_h)/\kappa_h$ near
+the horizon, one finds that $dv/d\tilde v$ remains regular at horizon
+crossing,
+\begin{equation}
+    v = \text{const} + \alpha\tilde v\big|_{\text{horizon crossing}},
+\end{equation}
+so $v$ is a smooth function of $\tilde v$ there. By contrast,
+$du/d\tilde u$ diverges logarithmically,
+\begin{equation}
+    u = -\kappa_h\ln|\tilde u - \tilde u_h| + \text{const},
+\end{equation}
+where $\kappa_h = f'(r_h)/2$ is the surface gravity. This logarithmic
+relation is the key to the thermal spectrum.
+
+The natural in-modes on past null infinity $\mathscr{I}^-$ are
+\begin{equation}
+    \varphi^{\text{in}}_\omega
+    = \frac{1}{\sqrt{4\pi\omega}}
+    \left(e^{-i\omega v} - e^{-i\omega u}\right),
+\end{equation}
+and the natural out-modes for an asymptotic observer on future null
+infinity $\mathscr{I}^+$ are
+\begin{equation}
+    \varphi^{\text{out}}_{\tilde\omega}
+    = \frac{1}{\sqrt{4\pi\tilde\omega}}
+    \left(e^{-i\tilde\omega u}
+    - e^{-i\tilde\omega u_0(v)}\right),
+\end{equation}
+where $u_0(v)$ is the image of the out-ray under reflection from the
+center. Using the logarithmic relation,
+\begin{equation}
+    u_0 = -\kappa_h\ln|v - v_h| + \text{const},
+\end{equation}
+so the out-modes contain the same logarithmic phase as the accelerating
+mirror. The computation of the Bogoliubov coefficients therefore
+proceeds identically to the mirror case with the identification
+$K\to\kappa_h$, giving a thermal flux at temperature
+\begin{equation}
+    \boxed{T_H = \frac{\kappa_h}{2\pi}
+    = \frac{f'(r_h)}{4\pi}
+    = \frac{1}{8\pi M}.}
+\end{equation}
+This is the Hawking temperature. The particle production rate per unit
+retarded time is
+\begin{equation}
+    \frac{dN}{d\tilde\omega\,du}
+    = \frac{1}{2\pi}\cdot\frac{1}{e^{\tilde\omega/T_H}-1},
+\end{equation}
+a steady thermal flux that persists as long as the black hole exists.
+An observer at $\mathscr{I}^+$ will keep receiving this radiation even
+though no signal can escape from inside the horizon; the radiation
+originates from quantum fluctuations just outside the horizon, not
+from inside it.
+
+\subsection*{The 4D Model}
+
+In four dimensions the analysis is more involved due to the angular
+structure. The field modes take the form
+\begin{equation}
+    \varphi_{\omega lm}
+    = \frac{Y_{lm}(\theta,\phi)}{r}\,R_{\omega l}(r)\,e^{-i\omega t},
+\end{equation}
+where the radial function satisfies a Schr\"{o}dinger-like equation,
+\begin{equation}
+    -\frac{d^2R_{\omega l}}{dr_*^2}
+    + V_{\text{eff}}(r_*)\,R_{\omega l} = \omega^2 R_{\omega l},
+    \qquad
+    V_{\text{eff}}(r_*) = \left(\frac{l(l+1)}{r^2}
+    + \frac{2M}{r^3}\right)\left(1-\frac{2M}{r}\right).
+\end{equation}
+
+% [FIGURE: effective potential V_eff(r_*) showing the barrier between
+%  the horizon and infinity]
+
+The potential vanishes both at the horizon ($r_*\to-\infty$) and at
+infinity ($r_*\to+\infty$), so the modes are free waves in both
+asymptotic regions. A wave incident from infinity partially reflects
+off the potential barrier and partially transmits through to the
+horizon. The transmission coefficient $\Gamma_{\tilde\omega l}$,
+called the greybody factor, modifies the thermal flux,
+\begin{equation}
+    \frac{dN}{d\tilde\omega\,dt}
+    = \frac{\Gamma_{\tilde\omega l}}{2\pi}
+    \cdot\frac{1}{e^{\tilde\omega/T_H}-1}.
+\end{equation}
+The greybody factor satisfies $\Gamma_{\tilde\omega l}\to 0$ as
+$l\to\infty$ or as $\tilde\omega\to 0$ at fixed $l$, so low-frequency
+and high-angular-momentum modes are suppressed. The radiation is
+therefore not exactly thermal, but it is in detailed balance with a
+thermal bath at temperature $T_H$: the emission and absorption
+coefficients are equal by time-reversal symmetry, so a black hole in
+a thermal bath at $T_H$ would be in equilibrium.
+
+\section{The Eternal Black Hole and the Choice of Vacuum}
+
+For the eternal (maximally extended) Schwarzschild black hole, the
+metric in Kruskal coordinates is
+\begin{equation}
+    ds^2 = -\frac{2M}{r}e^{-r/2M}\,d\bar u\,d\bar v,
+    \qquad
+    \bar u = -4Me^{-u/4M},\quad
+    \bar v = 4Me^{v/4M}.
+\end{equation}
+The physical content of the theory depends crucially on the choice of
+quantum vacuum state, and there are three natural choices.
+
+\subsection*{The Boulware Vacuum}
+
+The Boulware vacuum $|0\rangle_B$ is defined by the modes
+\begin{equation}
+    \varphi^B_{\omega,R} = \frac{1}{\sqrt{4\pi\omega}}e^{-i\omega u},
+    \qquad
+    \varphi^B_{\omega,L} = \frac{1}{\sqrt{4\pi\omega}}e^{-i\omega v},
+\end{equation}
+which are plane waves for an asymptotically distant observer and
+correspond to the natural vacuum seen by a static observer far from
+the black hole. However, these modes are defined only in region I of
+the Kruskal diagram and are singular at the horizon. The Wightman
+function in the Boulware vacuum is
+\begin{equation}
+    G^+_B = -\frac{1}{4\pi}\ln\left[
+    (u-u'-i\varepsilon)(v-v'-i\varepsilon)\right],
+\end{equation}
+which has no poles in the lower half plane. A static detector at fixed
+$r$ therefore measures zero particle flux in the Boulware vacuum,
+$F_B(\Delta E) = 0$.
+
+\subsection*{The Hartle-Hawking Vacuum}
+
+The Hartle-Hawking vacuum $|0\rangle_H$ is defined by modes that are
+regular everywhere except at the singularity,
+\begin{equation}
+    \varphi^H_{\omega,R} = \frac{1}{\sqrt{4\pi\omega}}e^{-i\omega\bar u},
+    \qquad
+    \varphi^H_{\omega,L} = \frac{1}{\sqrt{4\pi\omega}}e^{-i\omega\bar v}.
+\end{equation}
+These modes are smooth across the horizon and provide a regular
+quantization for the full extended spacetime. The Bogoliubov
+coefficients between the Hartle-Hawking and Boulware modes are
+\begin{equation}
+    \beta_{\tilde\omega\omega,RR}
+    = -\langle\varphi^B_{\tilde\omega R},
+    (\varphi^H_{\omega,R})^*\rangle
+    = \frac{-i}{2\pi\sqrt{\omega\tilde\omega}}
+    \left(\frac{i}{4M\omega}\right)^{i4M\tilde\omega}
+    \Gamma(1+i4M\tilde\omega),
+\end{equation}
+which are nonzero and describe a thermal flux between the black hole
+and its environment. The Wightman function is
+\begin{equation}
+    G^+_H(t,r,t',r')
+    = -\frac{1}{4\pi}\ln\left[
+    (\bar u-\bar u'-i\varepsilon)
+    (\bar v-\bar v'-i\varepsilon)\right].
+\end{equation}
+For a static detector at fixed $r$, substituting the trajectory gives
+\begin{align}
+    G^+_H(t,r,t',r)
+    &= -\frac{1}{4\pi}\ln\!\left[
+    \cosh\!\left(\frac{t-t'-i\varepsilon}{4M}\right) - 1\right]
+    + \tilde G(r) \notag\\
+    &= -\frac{1}{4\pi}\ln\!\left[
+    \cosh\!\left(\frac{\tau-\tau'-i\varepsilon}
+    {4M\sqrt{1-\frac{2M}{r}}}\right) - 1\right]
+    + \tilde G(r),
+\end{align}
+where we used $d\tau = \sqrt{1-2M/r}\,dt$. The Wightman function has
+periodic poles in the imaginary time direction with period
+\begin{equation}
+    \Delta\tau = i\cdot 8\pi M\sqrt{1-\frac{2M}{r}},
+\end{equation}
+so the detector measures a temperature
+\begin{equation}
+    T = \frac{1}{8\pi M\sqrt{1-\frac{2M}{r}}}.
+\end{equation}
+An observer closer to the horizon measures a higher temperature due to
+the blueshift factor $\sqrt{1-2M/r}^{-1}$, diverging at the horizon
+itself. This is consistent with the Unruh effect: a static observer in
+Schwarzschild spacetime is accelerated with respect to a freely falling
+frame, and the acceleration grows without bound as the observer
+approaches the horizon.
+
+For a freely falling observer crossing the horizon at fixed Kruskal
+coordinate $\bar r = (\bar v - \bar u)/2$, the Wightman function is
+\begin{equation}
+    G^+_H(\bar t,\bar r,\bar t',\bar r)
+    = -\frac{1}{2\pi}\ln(\bar t-\bar t'-i\varepsilon),
+\end{equation}
+which has no poles in the lower half plane, so the freely falling
+observer's detector measures nothing. The Hartle-Hawking vacuum is
+regular from the perspective of a freely falling observer crossing the
+horizon. This state physically describes a black hole in thermal
+equilibrium with its own radiation.
+
+\subsection*{The Unruh Vacuum}
+
+For a realistic gravitational collapse, there is no incoming radiation
+from past null infinity, only outgoing Hawking radiation. The
+appropriate state is the Unruh vacuum $|0\rangle_U$, defined by
+\begin{equation}
+    \varphi^U_{\omega,R}
+    = \frac{1}{\sqrt{4\pi\omega}}e^{-i\omega\bar u},
+    \qquad
+    \varphi^U_{\omega,L}
+    = \frac{1}{\sqrt{4\pi\omega}}e^{-i\omega v}.
+\end{equation}
+This state uses the Kruskal mode for the right-movers (regular at the
+future horizon) and the Boulware mode for the left-movers (no incoming
+flux from the past). It is regular at the future horizon but singular
+at the past horizon, which is not physically relevant for a collapsing
+star. A static detector at fixed $r$ in the Unruh vacuum sees a
+one-sided thermal flux of outgoing radiation at the Hawking temperature
+$T_H = 1/8\pi M$, with no incoming flux from infinity. This is the
+state that correctly describes the endpoint of gravitational collapse.
+
+\section{Hawking Radiation in the Bigger Picture}
+
+The three results we have obtained, the Unruh effect, the thermal
+spectrum from the accelerating mirror, and Hawking radiation from a
+black hole, are all manifestations of the same underlying physics: the
+observer-dependence of the vacuum state in the presence of a causal
+horizon. In each case, a state that appears to be the vacuum for one
+class of observers contains a thermal distribution of particles for
+another class.
+
+For the black hole, the connection is made precise by the
+identification of the surface gravity $\kappa_h$ with the acceleration
+of a static observer near the horizon. As $r\to r_h$, the proper
+acceleration required to remain stationary diverges as
+$a\sim 1/(4M\sqrt{1-2M/r})$, and the local Unruh temperature
+$T = a/2\pi$ coincides with the blueshifted Hawking temperature
+$T_H/\sqrt{1-2M/r}$. The Hawking effect and the Unruh effect are
+therefore the same phenomenon seen from different perspectives: global
+versus local.
+
+The Hawking temperature $T_H = 1/8\pi M$ implies that black holes
+evaporate by radiating energy, causing $M$ to decrease and $T_H$ to
+increase. This leads to the information paradox: if the radiation is
+exactly thermal, then no information about the initial state that
+formed the black hole is encoded in the outgoing radiation, apparently
+violating unitarity. The resolution of this paradox remains one of the
+central open problems in theoretical physics, at the intersection of
+quantum mechanics, general relativity, and thermodynamics.

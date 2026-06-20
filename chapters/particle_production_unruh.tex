@@ -1,0 +1,298 @@
+\chapter{Particle Production and the Unruh Effect}
+\label{ch:particle-production-unruh}
+
+\section{The Moving Mirror}
+
+We now consider a concrete example of particle production in flat
+spacetime, where the non-trivial physics comes not from curvature but
+from boundary conditions. Consider a massless scalar field in 2D flat
+spacetime with metric
+\begin{equation}
+    ds^2 = -dt^2 + dx^2 = -\,du\,dv,
+    \qquad u = t-x,\quad v = t+x.
+\end{equation}
+Half the space is bounded by a mirror with trajectory $x = z(t)$. The
+field satisfies a Dirichlet boundary condition at the mirror,
+\begin{equation}
+    \phi\big|_{x=z(t)} = 0,
+\end{equation}
+and the field equation $\partial^2\phi/\partial u\,\partial v = 0$
+has the general solution $\phi = f(u) + g(v)$, a sum of left-moving
+and right-moving waves. The boundary condition enforces a relation
+between $f$ and $g$, so that the motion of the mirror mixes the two.
+
+% [FIGURE: moving mirror with incoming and reflected modes]
+
+We choose in-modes that in the past were standing waves,
+\begin{equation}
+    \phi^{\text{in}}_\omega
+    = \frac{1}{\sqrt{4\pi\omega}}
+    \left(e^{-i\omega v} - e^{-i\omega u}\right),
+    \qquad t < 0,
+\end{equation}
+where $e^{-i\omega v}$ is the incoming wave and $e^{-i\omega u}$ is
+the reflected wave. On the boundary $u = v$ and the two terms cancel,
+satisfying the Dirichlet condition. For $t > 0$, the mirror has moved
+and the reflected wave acquires a phase,
+\begin{equation}
+    \phi^{\text{in}}_\omega
+    = \frac{1}{\sqrt{4\pi\omega}}
+    \left(e^{-i\omega v} - e^{-i\omega v_0(u)}\right),
+    \qquad t > 0,
+\end{equation}
+where $v_0(u)$ is determined by the mirror trajectory. If $\tau_u$ is
+the proper time at which the mirror is at position $u = \tau_u -
+z(\tau_u)$, then $v_0 = \tau_u + z(\tau_u) = 2\tau_u - u$, giving
+\begin{equation}
+    \phi^{\text{in}}_\omega
+    = \frac{1}{\sqrt{4\pi\omega}}
+    \left(e^{-i\omega v} - e^{-i\omega(2\tau_u - u)}\right).
+\end{equation}
+This mode is natural for an observer in the past (simple $e^{-i\omega v}$
+dependence) but complicated for an observer in the future. We therefore
+also define out-modes natural for the future observer,
+\begin{equation}
+    \phi^{\text{out}}_{\tilde\omega}
+    = \frac{1}{\sqrt{4\pi\tilde\omega}}
+    \left(e^{-i\tilde\omega u}
+    - e^{-i\tilde\omega(2\tau_v - v)}\right),
+\end{equation}
+where $\tau_v + z(\tau_v) = v$. The Bogoliubov coefficient $\beta$ is
+computed on the surface $t = 0$ where the in-modes are still simple,
+\begin{equation}
+    \beta_{\tilde\omega\omega}
+    = -\langle\phi^{\text{out}}_{\tilde\omega},
+    (\phi^{\text{in}}_\omega)^*\rangle
+    = -i\int_0^\infty dx\left(
+    \phi^{\text{out}}_{\tilde\omega}\,
+    \dot\phi^{\text{in}*}_\omega
+    - \dot\phi^{\text{out}}_{\tilde\omega}\,
+    \phi^{\text{in}*}_\omega\right)\bigg|_{t=0}.
+\end{equation}
+On this surface $u = -x$ and $v = x$, giving
+\begin{equation}
+    \beta_{\tilde\omega\omega}
+    = -\int_0^\infty\frac{dx}{2\pi}
+    \sqrt{\frac{\omega}{\tilde\omega}}
+    \left(e^{i(\tilde\omega+\omega)x}
+    + e^{i(\tilde\omega-\omega)x - 2i\tilde\omega\tau_x}\right),
+    \label{eq:beta-mirror}
+\end{equation}
+where $\tau_x + z(\tau_x) = x$. The number of produced particles is
+\begin{equation}
+    \frac{dN}{d\tilde\omega}
+    = \int_0^\infty|\beta_{\tilde\omega\omega}|^2\,d\omega.
+\end{equation}
+
+\subsection*{Constant Velocity Mirror}
+
+When the mirror moves with constant velocity $z = -\alpha t$,
+$|\alpha| < 1$, we have $\tau_v = v/(1-\alpha)$ and so
+$\tau_x = x/(1-\alpha)$. Substituting into \eqref{eq:beta-mirror} and
+regularizing the oscillating integrals by $e^{-\epsilon x}$,
+\begin{equation}
+    \beta_{\tilde\omega\omega}
+    = \frac{\sqrt{\tilde\omega\omega}}{2\pi}
+    \left(\frac{2\alpha}{1-\alpha}\right)
+    \frac{1}{(\tilde\omega+\omega)}
+    \frac{1}{\left(\frac{1+\alpha}{1-\alpha}\tilde\omega
+    +\omega\right)},
+\end{equation}
+where we used $\int_0^\infty dx\,e^{iAx-\epsilon x} = i/A$. Integrating
+$|\beta_{\tilde\omega\omega}|^2$ over $\omega$,
+\begin{equation}
+    \boxed{\frac{dN}{d\tilde\omega}
+    = \frac{1}{\pi^2\tilde\omega}\left(
+    \frac{1}{4\alpha}\ln\frac{1+\alpha}{1-\alpha}
+    - \frac{1}{2}\right).}
+\end{equation}
+This result is finite but non-thermal, reflecting the fact that a
+uniformly moving mirror produces particles but not a thermal spectrum.
+
+\subsection*{Accelerating Mirror}
+
+Consider now a mirror that starts at rest, accelerates, and
+asymptotically approaches a null ray, with trajectory
+\begin{equation}
+    z = B - t - Ae^{-2Kt}, \qquad t\to\infty.
+\end{equation}
+Tracing out-modes backward in time, the reflected waves never go beyond
+the point $v = B$. The relation $\tau_v = -(1/2K)\ln((B-v)/A)$ for
+$v < B$ gives
+\begin{equation}
+    \beta_{\tilde\omega\omega}
+    \simeq -\frac{1}{2\pi}\sqrt{\frac{\omega}{\tilde\omega}}
+    \int_0^\infty dy\,
+    e^{i(\tilde\omega-\omega)(B-y)}
+    \left(\frac{y}{A}\right)^{i\tilde\omega/K},
+\end{equation}
+where we substituted $y = B - x$ and extended the upper limit to
+infinity since only the behavior near $y = 0$ matters. Using the
+Gamma function integral $\Gamma(z) = \int_0^\infty dy\,y^{z-1}e^{-y}$,
+\begin{equation}
+    |\beta_{\tilde\omega\omega}|^2
+    = \frac{1}{(K\pi)^2}\frac{\omega}{\tilde\omega}
+    \,e^{-\pi\tilde\omega/2K}
+    \,\Gamma\!\left(1+\frac{i\tilde\omega}{K}\right)
+    \Gamma\!\left(1-\frac{i\tilde\omega}{K}\right).
+\end{equation}
+Using $\Gamma(z)\Gamma(1-z) = \pi/\sin\pi z$ and
+$(-i)^{-i\tilde\omega/K} = e^{-\pi\tilde\omega/2K}$,
+\begin{equation}
+    |\beta_{\tilde\omega\omega}|^2
+    = \frac{1}{2\pi K}\frac{\omega}{(\omega-\tilde\omega)^2}
+    \frac{1}{e^{2\pi\tilde\omega/K}-1}.
+\end{equation}
+Integrating over $\omega$ and isolating the divergence at high
+frequency,
+\begin{equation}
+    \frac{dN}{d\tilde\omega}
+    = \frac{1}{2\pi K}\frac{1}{e^{2\pi\tilde\omega/K}-1}
+    \int\frac{d\omega}{\omega}.
+\end{equation}
+The prefactor is a Bose-Einstein distribution with temperature
+\begin{equation}
+    T = \frac{K}{2\pi}.
+\end{equation}
+The integral diverges, but this represents a continuous flux rather
+than a divergent total number. If the mirror stops after retarded time
+$u_f$, the integral cuts off at $\omega_{\max}\sim e^{Ku_f}/A$ and
+\begin{equation}
+    \frac{dN}{d\tilde\omega\,du_f}
+    = \frac{1}{2\pi}\cdot\frac{1}{e^{2\pi\tilde\omega/K}-1},
+\end{equation}
+a steady thermal flux at temperature $T = K/2\pi$. This is the
+prototype of Hawking radiation, as we shall see in the next chapter.
+
+\section{The Unruh-DeWitt Detector}
+
+We now set up a general framework for understanding what a moving
+observer actually measures. Consider a detector with internal
+Hamiltonian $H_D$, following a worldline $x^\mu(\tau)$ and coupled to
+a scalar field $\varphi(x)$ via the interaction
+\begin{equation}
+    S_{\text{int}} = \lambda\int_{-\infty}^{\infty}d\tau\,
+    \varphi(x(\tau))\,\hat D(\tau),
+\end{equation}
+where $\hat D(\tau) = e^{iH_D\tau}\hat D(0)e^{-iH_D\tau}$ is the
+detector operator in the interaction picture and $\lambda$ is the
+coupling strength. To first order in perturbation theory, the
+transition amplitude from the ground state $|E_0,0\rangle$ to an
+excited state $|E,\psi\rangle$ is
+\begin{equation}
+    \mathcal{A} = i\lambda\int_{-\infty}^{\infty}d\tau\,
+    \langle E|\hat D(\tau)|E_0\rangle\,
+    \langle\psi|\varphi(x(\tau))|0\rangle.
+\end{equation}
+Summing $|\mathcal{A}|^2$ over all final field states $|\psi\rangle$
+and using completeness,
+\begin{equation}
+    \sum_\psi\langle 0|\varphi(x(\tau_1))|\psi\rangle
+    \langle\psi|\varphi(x(\tau_2))|0\rangle
+    = \langle 0|\varphi(x(\tau_1))\varphi(x(\tau_2))|0\rangle
+    \equiv G^+(x(\tau_1),x(\tau_2)),
+\end{equation}
+the total transition probability is
+\begin{equation}
+    P_{EE_0} = \lambda^2
+    \left|\langle E|\hat D(0)|E_0\rangle\right|^2
+    \int_{-\infty}^{\infty}d\tau_1\int_{-\infty}^{\infty}d\tau_2\,
+    e^{-i\Delta E(\tau_1-\tau_2)}\,
+    G^+(x(\tau_1),x(\tau_2)),
+\end{equation}
+where $\Delta E = E - E_0$. The detector response function is defined
+as
+\begin{equation}
+    F(\Delta E) = \int_{-\infty}^{\infty}d\tau_1
+    \int_{-\infty}^{\infty}d\tau_2\,
+    e^{-i\Delta E(\tau_1-\tau_2)}\,
+    G^+(x(\tau_1),x(\tau_2)).
+\end{equation}
+For stationary trajectories, $G^+$ depends only on the proper time
+difference $\tau = \tau_1 - \tau_2$, and changing variables to
+$\tau = \tau_1 - \tau_2$ and $T = (\tau_1+\tau_2)/2$ shows that the
+transition rate per unit proper time is
+\begin{equation}
+    \frac{dP_{EE_0}}{d\tau}
+    = \lambda^2\left|\langle E|\hat D(0)|E_0\rangle\right|^2
+    \int_{-\infty}^{\infty}d\tau\,e^{-i\Delta E\tau}\,g(\tau),
+\end{equation}
+where $g(\tau) = G^+(x(\tau_1),x(\tau_2))$ depends only on
+$\tau_1-\tau_2$. The response function $F(\Delta E)$ is therefore the
+Fourier transform of the Wightman function evaluated along the
+detector's worldline.
+
+\section{The Accelerating Detector and the Unruh Effect}
+
+We now apply the detector formalism to a uniformly accelerating
+observer in 4D Minkowski spacetime. The trajectory is
+\begin{equation}
+    x = y = 0, \qquad z = \sqrt{t^2+B^2},
+\end{equation}
+with parametric form
+\begin{equation}
+    t = B\sinh\frac{\tau}{B}, \qquad z = B\cosh\frac{\tau}{B},
+\end{equation}
+and constant proper acceleration $a^\mu a_\mu = 1/B^2$.
+
+% [FIGURE: Rindler wedge with accelerating observer trajectory]
+
+The Wightman function in the Minkowski vacuum is
+\begin{equation}
+    G^+(x,x') = \langle 0|\varphi(x)\varphi(x')|0\rangle
+    = \frac{1}{4\pi^2}
+    \frac{1}{(t-t'-i\varepsilon)^2 - |\mathbf{x}-\mathbf{x}'|^2}.
+\end{equation}
+Substituting the accelerating trajectory, one finds
+\begin{equation}
+    G^+(x(\tau),x(\tau'))
+    = -\frac{1}{16\pi^2 B^2}
+    \frac{1}{\sinh^2\!\left(\dfrac{\tau-\tau'}{2B}
+    - i\varepsilon\right)}.
+\end{equation}
+The detector response function is therefore
+\begin{equation}
+    F(\Delta E) = \int_{-\infty}^{\infty}
+    \left(-\frac{d\tau}{16\pi^2 B^2}\right)
+    \frac{e^{-i\Delta E\tau}}
+    {\sinh^2\!\left(\dfrac{\tau}{2B}-i\varepsilon\right)}.
+\end{equation}
+We evaluate this by contour integration. The poles of
+$1/\sinh^2(\tau/2B)$ occur at $\tau/2B = i\pi n$, i.e.\
+$\tau = 2\pi i Bn$ for integer $n$. For $\Delta E > 0$ we close the
+contour in the lower half plane, picking up poles at
+$\tau = -2\pi iBn$ for $n = 1, 2, \ldots$ (the $i\varepsilon$
+prescription shifts the poles away from $n=0$),
+\begin{equation}
+    F(\Delta E) = -\frac{1}{16\pi^2 B^2}
+    \sum_{n=1}^{\infty}(-2\pi i)\,
+    \underset{\tau=-2\pi iBn}{\mathrm{Res}}\,
+    \frac{e^{-i\Delta E\tau}}
+    {\sinh^2\!\left(\dfrac{\tau}{2B}\right)}.
+\end{equation}
+Computing the residues and summing the geometric series,
+\begin{equation}
+    F(\Delta E) = \frac{\Delta E}{2\pi}
+    \sum_{n=1}^{\infty}e^{-2\pi B\Delta E\,n}
+    = \boxed{\frac{\Delta E}{2\pi}
+    \cdot\frac{1}{e^{2\pi B\Delta E}-1},}
+\end{equation}
+which is a Planck distribution with temperature
+\begin{equation}
+    T_U = \frac{1}{2\pi B} = \frac{a}{2\pi},
+\end{equation}
+where $a = 1/B$ is the proper acceleration. This is the Unruh effect:
+a uniformly accelerating observer in the Minkowski vacuum measures a
+thermal bath at temperature $T_U = a/2\pi$. An inertial observer in
+the same state sees no particles at all; the thermal nature of the
+state is entirely an effect of the acceleration.
+
+% [FIGURE: Rindler wedge showing the causal horizon of the accelerating
+%  observer]
+
+The Unruh effect has a deep connection to the existence of a causal
+horizon for the accelerating observer. The observer in the right
+Rindler wedge cannot receive signals from the left wedge, and this
+causal inaccessibility is responsible for the thermal character of
+the state, in exact analogy with the Hawking effect for black holes,
+to which we turn in the next chapter.
