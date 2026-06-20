@@ -1,4 +1,4 @@
-\chapter{Massless Scalar Electrodynamics and Dimensional Transmutation}
+\chapter{Massless Scalar Electrodynamics}
 \label{ch:massless-scalar-ed}
 
 In renormalized massless scalar electrodynamics, the scalar field acquires
@@ -13,10 +13,10 @@ mass scale develops a preferred mass scale through radiative corrections.
 
 The Lagrangian of massless scalar electrodynamics is
 \begin{equation}
-    \mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-    + \left[(\partial_\mu - ieA_\mu)\phi^*\right]
-    \left[(\partial^\mu + ieA^\mu)\phi\right]
-    - \frac{\lambda_0}{6}(\phi^*\phi)^2,
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+	+ \left[(\partial_\mu - ieA_\mu)\phi^*\right]
+	\left[(\partial^\mu + ieA^\mu)\phi\right]
+	- \frac{\lambda_0}{6}(\phi^*\phi)^2,
 \end{equation}
 where $e$ is the renormalized coupling constant and $\lambda_0$ is the
 bare scalar coupling, necessary to renormalize the scalar-scalar
@@ -24,18 +24,18 @@ scattering amplitude. Transforming away the phase of $\phi$ by going to
 unitary gauge and rescaling $\phi\to\phi/\sqrt{2}$, the Lagrangian
 becomes
 \begin{equation}
-    \mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
-    + \frac{1}{2}e^2A_\mu A^\mu\phi^2
-    + \frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi
-    - \frac{\lambda_0}{4!}\phi^4,
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+	+ \frac{1}{2}e^2A_\mu A^\mu\phi^2
+	+ \frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi
+	- \frac{\lambda_0}{4!}\phi^4,
 \end{equation}
 subject to the Lorenz condition $\partial_\mu A^\mu = 0$. The
 corresponding action is
 \begin{equation}
-    S[A,\phi] = \int d^4x\left[\frac{1}{2}A^\mu
-    (\partial^2 + e^2\phi^2)A_\mu
-    - \frac{1}{2}\phi\,\partial^2\phi
-    - \frac{\lambda_0}{4!}\phi^4\right].
+	S[A,\phi] = \int d^4x\left[\frac{1}{2}A^\mu
+		(\partial^2 + e^2\phi^2)A_\mu
+		- \frac{1}{2}\phi\,\partial^2\phi
+		- \frac{\lambda_0}{4!}\phi^4\right].
 \end{equation}
 
 \section{Integrating Out the Vector Field}
@@ -43,31 +43,31 @@ corresponding action is
 To obtain an effective action for $\phi$ alone, we integrate out the
 vector field,
 \begin{equation}
-    \exp iS[\phi] = \mathcal{N}\int(\mathcal{D}A)\,
-    \delta[\partial_\mu A^\mu]\exp iS[A,\phi],
+	\exp iS[\phi] = \mathcal{N}\int(\mathcal{D}A)\,
+	\delta[\partial_\mu A^\mu]\exp iS[A,\phi],
 \end{equation}
 where $\delta[\partial_\mu A^\mu]$ enforces the Lorenz constraint. Each
 transverse component of $A_\mu$ contributes a Gaussian determinant,
 \begin{align}
-    \left[\det(\partial^2 + e^2\phi^2)\right]^{-\frac{1}{2}}
-    &= \exp\left[-\frac{1}{2}\ln\det(\partial^2 + e^2\phi^2)\right]
-    \notag\\
-    &= \exp\left[-\frac{1}{2}\mathrm{Tr}\ln(\partial^2
-    + e^2\phi^2)\right].
+	\left[\det(\partial^2 + e^2\phi^2)\right]^{-\frac{1}{2}}
+	 & = \exp\left[-\frac{1}{2}\ln\det(\partial^2 + e^2\phi^2)\right]
+	\notag                                                            \\
+	 & = \exp\left[-\frac{1}{2}\mathrm{Tr}\ln(\partial^2
+		         + e^2\phi^2)\right].
 \end{align}
 There are three such transverse components, so the effective action
 becomes
 \begin{equation}
-    S[\phi] = -\int d^4x\left(\frac{1}{2}\phi\,\partial^2\phi
-    + \frac{\lambda_0}{4!}\phi^4\right)
-    - \frac{3}{2}\mathrm{Tr}\ln(\partial^2 + e^2\phi^2).
+	S[\phi] = -\int d^4x\left(\frac{1}{2}\phi\,\partial^2\phi
+	+ \frac{\lambda_0}{4!}\phi^4\right)
+	- \frac{3}{2}\mathrm{Tr}\ln(\partial^2 + e^2\phi^2).
 \end{equation}
 The one-loop effective potential for $\phi$, to lowest order in
 $\lambda_0$, is then
 \begin{equation}
-    U(\rho) = \frac{\lambda_0}{4!}\rho^4
-    + \frac{3}{2}\int\frac{d^4k_E}{(2\pi)^4}
-    \ln(k_E^2 + e^2\rho^2),
+	U(\rho) = \frac{\lambda_0}{4!}\rho^4
+	+ \frac{3}{2}\int\frac{d^4k_E}{(2\pi)^4}
+	\ln(k_E^2 + e^2\rho^2),
 \end{equation}
 where the second term sums all one-loop graphs with external $\phi$ lines
 and vector boson running in the loop, since we integrated out $A_\mu$.
@@ -79,10 +79,10 @@ Using the machinery developed in the previous chapter, specifically
 Eq.\eqref{eq:effective_potential}, the renormalized effective potential
 in this case takes the form
 \begin{equation}
-    U(\rho) = \rho^4\left[\frac{\lambda}{4!}
-    + \frac{3e^4}{64\pi^2}\left(-\frac{1}{2}
-    + \ln\frac{e^2\rho^2}{\mu^2}\right)\right],
-    \label{eq:renormalized_eff_potential}
+	U(\rho) = \rho^4\left[\frac{\lambda}{4!}
+		+ \frac{3e^4}{64\pi^2}\left(-\frac{1}{2}
+		+ \ln\frac{e^2\rho^2}{\mu^2}\right)\right],
+	\label{eq:renormalized_eff_potential}
 \end{equation}
 where $\lambda$ is the running coupling constant at the renormalization
 point $\mu$. Note that $e^4$ is a one-loop result and $\lambda$ is a
@@ -90,33 +90,31 @@ tree-level result, but they can be comparable since they are independent
 coupling constants. This is what allows the cancellation that was
 impossible in the pure scalar case.
 
-\section{Spontaneous Symmetry Breaking and Particle Masses}
-
 Differentiating \eqref{eq:renormalized_eff_potential},
 \begin{align}
-    U'(\rho) &= 4\rho^3\left[\cdots\right]
-    + \rho^4\cdot\frac{3e^4}{64\pi^2}\cdot
-    \frac{1}{\frac{e^2\rho^2}{\mu^2}}\cdot\frac{2\rho e^2}{\mu^2}
-    \notag\\
-    &= 4\rho^3\left[\cdots\right]
-    + \frac{3e^4}{64\pi^2}\rho^3\cdot 2 \notag\\
-    &= \rho^3\left[4\cdot\frac{\lambda}{4!}
-    + 4\cdot\frac{3e^4}{64\pi^2}\left(-\frac{1}{2}\right)
-    + 4\cdot\frac{3e^4}{64\pi^2}\ln\frac{e^2\rho^2}{\mu^2}
-    + \frac{3e^4}{64\pi^2}\cdot 2\right],
+	U'(\rho) & = 4\rho^3\left[\cdots\right]
+	+ \rho^4\cdot\frac{3e^4}{64\pi^2}\cdot
+	\frac{1}{\frac{e^2\rho^2}{\mu^2}}\cdot\frac{2\rho e^2}{\mu^2}
+	\notag                                                                    \\
+	         & = 4\rho^3\left[\cdots\right]
+	+ \frac{3e^4}{64\pi^2}\rho^3\cdot 2 \notag                                \\
+	         & = \rho^3\left[4\cdot\frac{\lambda}{4!}
+		                   + 4\cdot\frac{3e^4}{64\pi^2}\left(-\frac{1}{2}\right)
+		                   + 4\cdot\frac{3e^4}{64\pi^2}\ln\frac{e^2\rho^2}{\mu^2}
+		                   + \frac{3e^4}{64\pi^2}\cdot 2\right],
 \end{align}
 \begin{equation}
-    \Rightarrow U'(\rho) = 4\rho^3\left[\frac{\lambda}{4!}
-    + \frac{3e^4}{64\pi^2}\ln\frac{e^2\rho^2}{\mu^2}\right].
+	\Rightarrow U'(\rho) = 4\rho^3\left[\frac{\lambda}{4!}
+		+ \frac{3e^4}{64\pi^2}\ln\frac{e^2\rho^2}{\mu^2}\right].
 \end{equation}
 Setting $U'(\langle\phi\rangle) = 0$ for a nontrivial root,
 \begin{align}
-    \frac{\lambda}{4!}
-    + \frac{3e^4}{64\pi^2}\ln\frac{e^2\langle\phi\rangle^2}{\mu^2}
-    &= 0 \notag\\
-    \Rightarrow\quad
-    \frac{3e^4}{64\pi^2}\ln\frac{e^2\langle\phi\rangle^2}{\mu^2}
-    &= -\frac{\lambda}{4!}.
+	\frac{\lambda}{4!}
+	+ \frac{3e^4}{64\pi^2}\ln\frac{e^2\langle\phi\rangle^2}{\mu^2}
+	 & = 0 \notag             \\
+	\Rightarrow\quad
+	\frac{3e^4}{64\pi^2}\ln\frac{e^2\langle\phi\rangle^2}{\mu^2}
+	 & = -\frac{\lambda}{4!}.
 \end{align}
 Unlike the pure scalar case, this root is within the domain of validity
 of the approximation since $\lambda$ and $e^4$ are independent and can
@@ -124,48 +122,48 @@ be chosen to make the two terms comparable without requiring the
 logarithm to be large. Using this condition to eliminate $\mu$ from
 \eqref{eq:renormalized_eff_potential},
 \begin{align}
-    U(\rho) &= \rho^4\left[-\frac{3e^4}{64\pi^2}
-    \ln\frac{e^2\langle\phi\rangle^2}{\mu^2}
-    + \frac{3e^4}{64\pi^2}\left(-\frac{1}{2}\right)
-    + \frac{3e^4}{64\pi^2}\ln\frac{e^2\rho^2}{\mu^2}\right]
-    \notag\\
-    &= \frac{3e^4\rho^4}{64\pi^2}\left[-\frac{1}{2}
-    + \ln\frac{\rho^2}{\langle\phi\rangle^2}\right].
+	U(\rho) & = \rho^4\left[-\frac{3e^4}{64\pi^2}
+		                  \ln\frac{e^2\langle\phi\rangle^2}{\mu^2}
+		                  + \frac{3e^4}{64\pi^2}\left(-\frac{1}{2}\right)
+		                  + \frac{3e^4}{64\pi^2}\ln\frac{e^2\rho^2}{\mu^2}\right]
+	\notag                                                                                  \\
+	        & = \frac{3e^4\rho^4}{64\pi^2}\left[-\frac{1}{2}
+		                                      + \ln\frac{\rho^2}{\langle\phi\rangle^2}\right].
 \end{align}
 The scalar particle mass follows from $m_S^2 \equiv U''(\langle\phi\rangle)$.
 Setting $a\equiv 3e^4/(64\pi^2)$ for brevity, we differentiate
 $U(\rho) = a\rho^4\left[-\frac{1}{2}+\ln\frac{\rho^2}{\langle\phi\rangle^2}\right]$,
 \begin{align}
-    U'(\rho) &= a\cdot 4\rho^3\left[-\frac{1}{2}
-    + \ln\frac{\rho^2}{\langle\phi\rangle^2}\right]
-    + a\rho^4\cdot\frac{\langle\phi\rangle^2}{\rho^2}
-    \cdot\frac{2\rho}{\langle\phi\rangle^2} \notag\\
-    &= 2a\rho^3\left[2\left(-\frac{1}{2}
-    + \ln\frac{\rho^2}{\langle\phi\rangle^2}\right) + 1\right]
-    \notag\\
-    &= 4a\rho^3\ln\frac{\rho^2}{\langle\phi\rangle^2}.
+	U'(\rho) & = a\cdot 4\rho^3\left[-\frac{1}{2}
+		                           + \ln\frac{\rho^2}{\langle\phi\rangle^2}\right]
+	+ a\rho^4\cdot\frac{\langle\phi\rangle^2}{\rho^2}
+	\cdot\frac{2\rho}{\langle\phi\rangle^2} \notag                                   \\
+	         & = 2a\rho^3\left[2\left(-\frac{1}{2}
+		                     + \ln\frac{\rho^2}{\langle\phi\rangle^2}\right) + 1\right]
+	\notag                                                                           \\
+	         & = 4a\rho^3\ln\frac{\rho^2}{\langle\phi\rangle^2}.
 \end{align}
 Differentiating once more,
 \begin{align}
-    U''(\rho) &= 12a\rho^2\ln\frac{\rho^2}{\langle\phi\rangle^2}
-    + 4a\rho^3\cdot\frac{\langle\phi\rangle^2}{\rho^2}
-    \cdot\frac{2\rho}{\langle\phi\rangle^2} \notag\\
-    &= 12a\rho^2\ln\frac{\rho^2}{\langle\phi\rangle^2} + 8a\rho^2.
+	U''(\rho) & = 12a\rho^2\ln\frac{\rho^2}{\langle\phi\rangle^2}
+	+ 4a\rho^3\cdot\frac{\langle\phi\rangle^2}{\rho^2}
+	\cdot\frac{2\rho}{\langle\phi\rangle^2} \notag                            \\
+	          & = 12a\rho^2\ln\frac{\rho^2}{\langle\phi\rangle^2} + 8a\rho^2.
 \end{align}
 Evaluating at $\rho = \langle\phi\rangle$,
 \begin{align}
-    U''(\langle\phi\rangle)
-    &= 12a\langle\phi\rangle^2\ln\frac{\langle\phi\rangle^2}
-    {\langle\phi\rangle^2} + 8a\langle\phi\rangle^2 \notag\\
-    &= 8\cdot\frac{3e^4}{64\pi^2}\langle\phi\rangle^2,
+	U''(\langle\phi\rangle)
+	 & = 12a\langle\phi\rangle^2\ln\frac{\langle\phi\rangle^2}
+	                               {\langle\phi\rangle^2} + 8a\langle\phi\rangle^2 \notag \\
+	 & = 8\cdot\frac{3e^4}{64\pi^2}\langle\phi\rangle^2,
 \end{align}
 \begin{equation}
-    \Rightarrow\quad\boxed{m_S^2 = \frac{3e^4}{8\pi^2}
-    \langle\phi\rangle^2.}
+	\Rightarrow\quad\boxed{m_S^2 = \frac{3e^4}{8\pi^2}
+		\langle\phi\rangle^2.}
 \end{equation}
 The vector field acquires mass through the Higgs mechanism,
 \begin{equation}
-    m_V^2 = e^2\langle\phi\rangle^2.
+	m_V^2 = e^2\langle\phi\rangle^2.
 \end{equation}
 Both masses are proportional to $\langle\phi\rangle$, confirming that
 the dynamically generated VEV sets the mass scale of the theory.

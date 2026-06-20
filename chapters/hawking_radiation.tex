@@ -18,6 +18,115 @@ responsible for the Gibbons-Hawking temperature of de Sitter space and
 ultimately for the primordial density perturbations seeded during
 inflation.
 
+\section{The Thermal Spectrum from Bogoliubov Coefficients}
+
+The thermal character of Hawking radiation can be derived more directly
+from the general Bogoliubov transformation formalism of
+Chapter~\ref{ch:qft-curved}, without going through the detailed mode
+calculation. We sketch this argument here.
+
+In Minkowski spacetime, the second quantization of a free scalar field
+is based on a distinguished inertial frame, which determines the
+spacetime slicing and the decomposition into positive and negative
+frequency modes. The most general classical solution is
+\begin{equation}
+    \varphi^{\text{cl}}(\mathbf{x},t)
+    = \sum_{i,\omega}\left[a_{\omega i}\,f_{\omega i}(\mathbf{x},t)
+    + a_{\omega i}^*\,f_{\omega i}^*(\mathbf{x},t)\right],
+    \qquad
+    f_{\omega i}(\mathbf{x},t) = e^{i\omega t}\varphi_{\omega i}(\mathbf{x}),
+\end{equation}
+and in the quantum theory the coefficients $a_{\omega i}$ are promoted
+to operators with vacuum $a_{\omega i}|0\rangle = 0$.
+
+In curved spacetime, general coordinate invariance means there is no
+distinguished Lorentz frame and hence no unique vacuum state. Two
+observers $\mathcal{O}_1$ and $\mathcal{O}_2$ at different points will
+in general have different notions of positive frequency, and the vacuum
+of $\mathcal{O}_1$ will contain particles from the point of view of
+$\mathcal{O}_2$. This is Parker particle production. Concretely, the
+field can be expanded in the modes of either observer,
+\begin{align}
+    \varphi(\mathbf{x},t)
+    &= \sum_k\left(a_k\,f_k(\mathbf{x},t)
+    + a_k^\dagger\,f_k^*(\mathbf{x},t)\right), \\
+    \varphi(\mathbf{x},t)
+    &= \sum_\ell\left(b_\ell\,g_\ell(\mathbf{x},t)
+    + b_\ell^\dagger\,g_\ell^*(\mathbf{x},t)\right),
+\end{align}
+where the inner product is
+\begin{equation}
+    \langle f, g\rangle
+    = \frac{1}{2i}\int_{t=\text{const}}d^3x
+    \left(\bar f\,\dot g - \dot{\bar f}\,g\right).
+\end{equation}
+The modes $g_\ell$ are in general non-trivial linear combinations of
+$f_k$ and $f_k^*$,
+\begin{equation}
+    g_\ell = \sum_k\left(\alpha_{\ell k}\,f_k
+    + \beta_{\ell k}\,f_k^*\right),
+\end{equation}
+with Bogoliubov coefficients
+\begin{equation}
+    \alpha_{\ell k} = \langle f_k, g_\ell\rangle,
+    \qquad
+    \beta_{\ell k} = -\langle f_k^*, g_\ell\rangle.
+\end{equation}
+The matrix $M = \begin{pmatrix}\alpha & \beta \\ \beta^* &
+\alpha^*\end{pmatrix}$ is unitary, giving the constraint
+$\alpha\alpha^* - \beta\beta^* = 1$. Expanding the field in both bases
+and comparing coefficients,
+\begin{align}
+    a_k &= \sum_\ell\left(b_\ell\,\alpha_{\ell k}
+    + b_\ell^\dagger\,\beta_{\ell k}^*\right), \\
+    b_\ell &= \sum_k\left(a_k\,\alpha_{\ell k}^*
+    - a_k^\dagger\,\beta_{\ell k}^*\right).
+\end{align}
+The expectation value of the number operator $N_k = b_k^\dagger b_k$
+in the vacuum $|0\rangle$ of $\mathcal{O}_1$ is
+\begin{align}
+    \langle 0|N_k|0\rangle
+    &= \langle 0|b_k^\dagger\,b_k|0\rangle \notag\\
+    &= \langle 0|\sum_\ell\left(-a_\ell\,\beta_{\ell k}
+    + a_\ell^\dagger\,\alpha_{\ell k}\right)
+    \sum_{\ell'}\left(a_{\ell'}\,\alpha_{\ell' k}^*
+    - a_{\ell'}^\dagger\,\beta_{\ell' k}^*\right)|0\rangle \notag\\
+    &= \sum_{\ell,\ell'}\beta_{\ell k}\,\beta_{\ell' k}^*\,
+    \langle 0|a_\ell\,a_{\ell'}^\dagger|0\rangle \notag\\
+    &= \sum_{\ell,\ell'}\beta_{\ell k}\,\beta_{\ell' k}^*\,
+    \langle 0|\left(\delta_{\ell\ell'}
+    + a_{\ell'}^\dagger\,a_\ell\right)|0\rangle \notag\\
+    &= \sum_\ell|\beta_{\ell k}|^2,
+\end{align}
+where only the term involving $[a_\ell, a_{\ell'}^\dagger]
+= \delta_{\ell\ell'}$ survives. The vacuum of $\mathcal{O}_1$
+therefore contains $\sum_\ell|\beta_{\ell k}|^2$ particles of type
+$b_k$.
+
+The thermal nature of Hawking radiation follows from a special property
+of the Bogoliubov coefficients near a black hole horizon. As shown in
+Hawking's original derivation, the logarithmic relation between the
+in and out coordinates near the horizon implies
+\begin{equation}
+    |\alpha_{k\ell}|^2 = e^{\omega_k/T_H}|\beta_{k\ell}|^2,
+    \quad \forall\, k,\ell,
+\end{equation}
+where $\omega_k$ is the energy of mode $k$ and $T_H$ is the Hawking
+temperature. Using the unitarity constraint
+$\sum_\ell(|\alpha_{k\ell}|^2 - |\beta_{k\ell}|^2) = 1$,
+\begin{equation}
+    \sum_\ell|\beta_{k\ell}|^2\left(e^{\omega_k/T_H} - 1\right) = 1,
+\end{equation}
+and therefore
+\begin{equation}
+    \boxed{\langle 0|N_k|0\rangle
+    = \sum_\ell|\beta_{k\ell}|^2
+    = \frac{1}{e^{\omega_k/T_H}-1},}
+\end{equation}
+a Planck distribution at the Hawking temperature $T_H$. The black hole
+vacuum, as seen by an asymptotic observer, contains a thermal
+distribution of particles at every frequency.
+
 \section{Particle Production in Gravitational Collapse}
 
 We now derive the most important consequence of quantum field theory
