@@ -1,0 +1,154 @@
+\chapter{Parameters Characterizing a First-Order Phase Transition}
+\label{ch:phase-transition-parameters}
+
+A first-order cosmological phase transition is characterized by several
+parameters that determine both its dynamics and its observable
+signatures. Before defining them, we recall the relevant cosmological
+background. The Robertson-Walker metric is
+\begin{equation}
+	ds^2 = dt^2 - a^2(t)\,d\mathbf{x}^2,
+\end{equation}
+with Hubble rate $H = \dot a/a$ satisfying the Friedmann equation
+\begin{equation}
+	H^2 = \frac{8\pi G}{3}\rho_{\text{total}},
+	\qquad
+	\rho_{\text{total}} = \frac{\pi^2}{30}g_* T^4 + \Delta\rho,
+\end{equation}
+where $g_*$ counts the relativistic degrees of freedom and $\Delta\rho$
+is the contribution from vacuum energy. The temperature evolves as
+\begin{equation}
+	\frac{dT}{dt} = -HT,
+	\label{eq:reference_temperature}
+\end{equation}
+which follows from entropy conservation in the expanding universe.
+
+\section{Critical Temperature}
+
+The critical temperature $T_c$ is the temperature at which the two
+phases have equal free energy density, so the effective potential has
+two degenerate minima. Above $T_c$ the symmetric phase is the global
+minimum; below $T_c$ the broken phase becomes energetically preferred.
+The universe does not transition instantaneously at $T_c$, however,
+because the transition requires nucleation of bubbles of the true
+vacuum, which is a tunneling process suppressed by $e^{-S_3/T}$.
+
+% [FIGURE: effective potential at T > T_c, T = T_c, and T < T_c
+%  showing the evolution of the two minima]
+
+\section{Nucleation Temperature}
+
+The number of bubbles nucleated per Hubble volume up to time $t$ is
+\begin{equation}
+	N(t) = \int_{-\infty}^{t}d\tilde t\,
+	\Gamma(\tilde t)\,H^{-3}(\tilde t).
+\end{equation}
+Using \eqref{eq:reference_temperature} to change variables from $t$
+to $T$,
+\begin{equation}
+	N(T) = \int_T^{\infty}\frac{d\tilde T}{\tilde T}\,
+	\Gamma(\tilde T)\,H^{-4}(\tilde T).
+\end{equation}
+The nucleation temperature $T_n$ is defined by $N(T_n) = 1$, the
+condition that on average one bubble has nucleated per Hubble volume,
+\begin{equation}
+	\Gamma(T_n)\,H^{-4}(T_n) \sim 1.
+\end{equation}
+For $O(3)$-symmetric instantons at finite temperature,
+$\Gamma(T) \sim T^4 e^{-S_3/T}$, which gives the approximate condition
+\begin{equation}
+	\frac{S_3(T_n)}{T_n} \approx 145
+	- 4\ln\!\left(\frac{T_n}{100\,\text{GeV}}\right).
+\end{equation}
+This determines $T_n$ once $S_3(T)$ is known from the bounce
+calculation.
+
+\section{The Parameter \texorpdfstring{$\tilde\beta$}{beta}}
+
+The parameter $\tilde\beta$ characterizes how fast the nucleation rate
+grows near $T_n$,
+\begin{equation}
+	\tilde\beta = \frac{1}{\Gamma}\frac{d\Gamma}{dt}
+	\bigg|_{N=1},
+\end{equation}
+so that $\tilde\beta^{-1}$ gives the characteristic duration of the
+phase transition. Using \eqref{eq:reference_temperature},
+\begin{equation}
+	\tilde\beta = -HT\frac{d\ln\Gamma}{dT}\bigg|_{T=T_n}.
+\end{equation}
+Writing $\Gamma = A(T)e^{-S_E(T)}$ and neglecting the slowly varying
+prefactor $A(T)$,
+\begin{equation}
+	\boxed{\frac{\tilde\beta}{H}\bigg|_{T_n}
+		= T_n\frac{dS_E}{dT}\bigg|_{T=T_n}.}
+\end{equation}
+This is a dimensionless number. When $\tilde\beta/H \gg 1$ the phase
+transition completes in a time much shorter than a Hubble time, so
+the universe can be treated as approximately static during the
+transition and the temperature does not change appreciably.
+
+\section{The Parameter \texorpdfstring{$\alpha$}{alpha}}
+
+The latent heat released during the transition is the energy density
+difference between the two phases,
+\begin{equation}
+	\Delta\rho = \left(\Delta V - T\frac{\partial\Delta V}{\partial T}
+	\right)_{T=T_n}
+	\approx \Delta V\big|_{T=T_n},
+\end{equation}
+where $\Delta V$ is the free energy difference and the derivative term
+is subleading. The parameter $\alpha$ is defined as the ratio of this
+energy density to the radiation energy density,
+\begin{equation}
+	\alpha = \frac{\Delta\rho}{\rho_{\text{rad}}}\bigg|_{T=T_n},
+	\label{eq:alpha}
+\end{equation}
+where $\rho_{\text{rad}} = \pi^2 g_* T_n^4/30$. The parameter $\alpha$
+measures the strength of the transition: $\alpha \ll 1$ corresponds to
+a weak transition in which the latent heat is a small perturbation on
+the radiation bath, while $\alpha \gg 1$ corresponds to a strongly
+supercooled transition.
+
+% [FIGURE: effective potential showing Delta V, the energy gap between
+%  the two phases at T = T_n]
+
+\section{Reheating Temperature}
+
+In the supercooled case $\alpha \gg 1$, the latent heat released by
+the transition dominates over the radiation energy density. The plasma
+is reheated to a temperature $T_{\text{rh}} \gg T_n$ determined by
+energy conservation,
+\begin{equation}
+	\left(\Delta\rho + \rho_{\text{rad}}\right)_{T=T_n}
+	= \frac{\pi^2}{30}g_* T_{\text{rh}}^4.
+\end{equation}
+This reheating can have important consequences for baryogenesis and
+other processes that are sensitive to the thermal history of the
+universe.
+
+\section{Bubble Wall Velocity}
+
+The bubble wall velocity $v_w$ is determined by the balance between
+the pressure difference driving the wall outward and the friction
+from particles in the plasma acquiring mass as they cross the wall.
+It is intrinsically a non-equilibrium quantity and difficult to
+calculate from first principles. Three regimes are distinguished.
+
+In the non-relativistic deflagration regime, $v_w \ll 1$, the wall
+moves slowly and the plasma in front of the wall has time to
+equilibrate. In the relativistic but non-runaway regime, $v_w \to 1$
+but the Lorentz factor $\gamma = (1-v_w^2)^{-1/2}$ approaches a
+finite constant, as the friction force grows to balance the driving
+pressure. In the runaway regime, $v_w \approx 1$ and $\gamma$
+grows without bound throughout the transition.
+
+In theories with a Higgs boson, the Higgs acquires a mass as it
+crosses the bubble wall, going from zero mass in the false vacuum to
+a finite mass in the true vacuum. The resulting friction force is
+generically large enough to prevent the runaway regime from being
+reached, so the bubbles at most attain relativistic but finite
+velocities (Bodeker and Moore, arXiv:1703.08215).
+
+The parameters $\alpha$, $\tilde\beta$, and $v_w$ together determine
+the spectrum of gravitational waves produced by the phase transition,
+through the three production mechanisms of bubble wall collisions,
+sound waves in the plasma, and magnetohydrodynamic turbulence.

@@ -1,0 +1,205 @@
+\chapter{Gravitational Wave Signatures from a First-Order Phase Transition}
+\label{ch:gw-signatures}
+
+A first-order cosmological phase transition produces a stochastic
+background of gravitational waves, whose spectrum encodes information
+about the transition that is inaccessible to any other observational
+channel. The parameters $\alpha$, $\tilde\beta$, and $v_w$ introduced
+in the previous chapter determine both the amplitude and the peak
+frequency of this spectrum. For an electroweak-scale transition, the
+predicted signal falls precisely in the millihertz band targeted by
+the LISA space-based detector, making first-order phase transitions
+one of the primary science cases for next-generation gravitational
+wave astronomy.
+
+\section{Production Mechanisms}
+
+There are three main sources of gravitational waves in a first-order
+phase transition.
+
+The first is the collision of bubble walls. As bubbles of the true
+vacuum expand, their walls carry kinetic energy proportional to the
+wall surface area. When two walls collide, this energy is converted
+into gravitational radiation. In the envelope approximation, only the
+uncollided portions of the walls contribute, and the signal is
+concentrated at frequencies $f \sim \tilde\beta$.
+
+The second and dominant mechanism in the non-runaway regime is the
+generation of sound waves in the primordial plasma. As the bubble wall
+expands, it pushes the plasma ahead of it, creating acoustic
+perturbations that persist long after the bubble walls have collided
+and dissipated. Since the energy in sound waves grows with the volume
+of the bubble rather than its surface area, this mechanism dominates
+over bubble wall collisions when $v_w < 1$.
+
+The third mechanism is magnetohydrodynamic turbulence, generated when
+the acoustic motion in the plasma becomes turbulent. Its contribution
+is generally subdominant, at the ten percent level or less, and is
+also the least well understood theoretically. We focus on the first
+two mechanisms here.
+
+\section{The Linearized Einstein Equations and the Quadrupole Formula}
+
+We work in the weak-field limit, treating the metric as a small
+perturbation about flat spacetime,
+\begin{equation}
+	g_{\mu\nu} = \eta_{\mu\nu} + \tilde h_{\mu\nu},
+	\qquad |\tilde h_{\mu\nu}| \ll 1.
+\end{equation}
+Neglecting the expansion of the universe is justified because the
+phase transition completes in a time $\tilde\beta^{-1} \ll H^{-1}$
+much shorter than a Hubble time. Defining the trace-reversed
+perturbation
+\begin{equation}
+	h_{\mu\nu} = \tilde h_{\mu\nu}
+	- \frac{1}{2}\eta_{\mu\nu}\tilde h_{\rho\sigma}\eta^{\rho\sigma},
+\end{equation}
+the linearized Einstein equations in Lorenz gauge
+$\partial_\mu h^{\mu\nu} = 0$ become
+\begin{equation}
+	\partial_\alpha\partial^\alpha h_{\mu\nu}
+	= -16\pi G\,T_{\mu\nu}.
+	\label{eq:linear-gw}
+\end{equation}
+This is a wave equation sourced by the stress-energy of the plasma and
+the scalar field. It is solved by the retarded Green's function,
+\begin{equation}
+	G(x^\mu - y^\mu) = \frac{1}{4\pi}
+	\frac{\delta(x^0 - y^0 - |\mathbf{x}-\mathbf{y}|)}
+	{|\mathbf{x}-\mathbf{y}|},
+\end{equation}
+giving the retarded solution
+\begin{equation}
+	h_{\mu\nu}(t,\mathbf{x}) = -4G\int d^3y\,
+	\frac{T_{\mu\nu}(t-|\mathbf{x}-\mathbf{y}|,\mathbf{y})}
+	{|\mathbf{x}-\mathbf{y}|}.
+\end{equation}
+In the far-field limit $|\mathbf{x}-\mathbf{y}| \approx r$, using
+stress-energy conservation $\partial^\mu T_{\mu\nu} = 0$ and
+defining the quadrupole moment tensor
+\begin{equation}
+	I_{ij}(t) = \int d^3y\,T_{00}(t,\mathbf{y})\,y^i y^j,
+	\label{eq:quadrupole}
+\end{equation}
+one can show that the gravitational wave metric perturbation is
+\begin{equation}
+	\boxed{h_{ij}(t,\mathbf{x})
+		= -\frac{2G}{r}\frac{d^2 I_{ij}}{dt^2}(t-r).}
+	\label{eq:hij}
+\end{equation}
+This is the gravitational analogue of the electromagnetic result that
+a time-varying dipole moment sources radiation: here it is a
+time-varying quadrupole moment that sources gravitational waves, which
+is why spherically symmetric processes such as a star collapsing
+symmetrically produce no gravitational radiation. The power radiated
+is given by the quadrupole formula,
+\begin{equation}
+	\boxed{\frac{dE_{GW}}{dt}
+		= \frac{G}{5}\frac{d^3 I_{ij}^T}{dt^3}
+		\frac{d^3 I_{ij}^T}{dt^3},}
+	\label{eq:quad_formula}
+\end{equation}
+where $I_{ij}^T$ is the traceless part of $I_{ij}$. The bubble
+collisions and sound waves both produce anisotropic stress-energy that
+sources a non-vanishing quadrupole moment, and hence gravitational
+radiation.
+
+\section{Order of Magnitude Estimate}
+
+To estimate the gravitational wave signal, consider a region of size
+$\sim v_w\tilde\beta^{-1}$ containing a small number of colliding
+bubbles. The characteristic timescale is $\tilde\beta^{-1}$ and the
+length scale is $v_w\tilde\beta^{-1}$. The kinetic energy in the
+region is set by the fraction of the latent heat converted into bulk
+motion,
+\begin{equation}
+	E_{\text{kin}} \sim \Delta\rho\,(v_w\tilde\beta^{-1})^3
+	= \alpha\,\rho_{\text{rad}}\,(v_w\tilde\beta^{-1})^3.
+\end{equation}
+The third time derivative of the quadrupole scales as
+\begin{equation}
+	\frac{d^3 I_{ij}^T}{dt^3}
+	\sim \frac{E_{\text{kin}}}{\tilde\beta^{-1}}
+	= \alpha\,\rho_{\text{rad}}\,v_w^3\,\tilde\beta^{-2},
+\end{equation}
+and substituting into \eqref{eq:quad_formula},
+\begin{equation}
+	\frac{dE_{GW}}{dt}
+	\sim G\,\alpha^2\,\rho_{\text{rad}}^2\,
+	v_w^6\,\tilde\beta^{-4}.
+\end{equation}
+Using $G \sim H^2(T_n)/\rho_{\text{rad}}(T_n)$ from the Friedmann
+equation and converting to the fractional energy density in
+gravitational waves $\mathcal{S}_{GW} = \rho_{GW}/\rho_{\text{tot}}$
+with $\rho_{\text{tot}} = (1+\alpha)\rho_{\text{rad}}$,
+\begin{equation}
+	\mathcal{S}_{GW} \sim k^2\,v_w^3\,
+	\frac{\alpha^2}{(1+\alpha)^2}
+	\left(\frac{H(T_n)}{\tilde\beta}\right)^2,
+	\label{eq:Sgw}
+\end{equation}
+where $k$ is an efficiency factor, of order unity for runaway bubbles
+and $\sim \alpha/(1+\alpha)$ for non-runaway cases, encoding the
+fraction of latent heat that goes into bulk kinetic energy rather than
+reheating the plasma. The characteristic frequency of the signal at
+production is $f_{GW} \sim \tilde\beta$, set by the inverse duration
+of the transition.
+
+Several features of \eqref{eq:Sgw} deserve comment. The signal is
+enhanced by large $\alpha$, a strongly supercooled transition, and
+suppressed by large $\tilde\beta/H$, a short transition. The
+dependence on $v_w$ reflects the fact that faster walls convert more
+latent heat into kinetic energy before the walls collide. The
+prefactor $(H/\tilde\beta)^2 \ll 1$ generically suppresses the signal,
+which is why only the strongest transitions produce a detectable
+signal.
+
+\section{The Spectrum Today}
+
+The gravitational wave spectrum observed today is obtained by
+redshifting from the time of the transition at temperature $T_n$ to
+the present. Using entropy conservation,
+\begin{equation}
+	g_{*s,n}\,T_n^3\,a_n^3 = g_{*s,0}\,T_0^3\,a_0^3,
+\end{equation}
+together with the Friedmann equation
+$H^2 = \rho_{\text{tot}}/3M_{\text{pl}}^2$ with
+$M_{\text{pl}} = 2.435\times 10^{18}\,\text{GeV}$, and the
+present-day values $H_0 = h\cdot 2.13\times 10^{-42}\,\text{GeV}$,
+$T_0 = 2.43\times 10^{-13}\,\text{GeV}$, and $g_{*s,0} = 3.97$,
+the present-day fractional gravitational wave energy density is
+\begin{equation}
+	\Omega_{GW,0}\,h^2 \sim 1.89\times 10^{-5}\,k^2\,v_w^3\,
+	\frac{\alpha^2}{(1+\alpha)^2}
+	\left(\frac{H(T_n)}{\tilde\beta}\right)^2
+	\left(\frac{g_{*s,n}}{100}\right)^{-1/3},
+	\label{eq:Omega_gw}
+\end{equation}
+and the peak frequency today is
+\begin{equation}
+	f_{GW,0} \sim 1.7\times 10^{-5}\,\text{Hz}\,
+	\left(\frac{\tilde\beta}{H(T_n)}\right)
+	\frac{T_n}{100\,\text{GeV}}
+	\left(\frac{g_{*s,n}}{100}\right)^{1/6}.
+	\label{eq:f_gw}
+\end{equation}
+For an electroweak-scale transition with $T_n \sim 100\,\text{GeV}$
+and $\tilde\beta/H \sim 10^2$, equation \eqref{eq:f_gw} gives a peak
+frequency of order $10^{-3}\,\text{Hz}$, which falls squarely in the
+sensitivity band of the LISA space interferometer, planned for launch
+in the 2030s. The amplitude \eqref{eq:Omega_gw} for a moderately
+strong transition with $\alpha \sim 0.1$ and $k \sim 0.1$ is of order
+$\Omega_{GW,0}h^2 \sim 10^{-12}$, at the edge of LISA's sensitivity.
+Stronger transitions with larger $\alpha$ or smaller $\tilde\beta/H$
+produce correspondingly larger signals.
+
+These results illustrate the power of gravitational wave astronomy as
+a probe of the early universe. The spectrum \eqref{eq:Omega_gw} is
+determined entirely by the thermodynamic parameters of the phase
+transition, which in turn are calculable from the finite-temperature
+effective potential developed in the preceding chapters. A detection
+by LISA would not only confirm the occurrence of a first-order
+electroweak phase transition but would also constrain the parameters
+of the underlying particle physics model, providing information about
+physics at the electroweak scale that is complementary to and in some
+respects beyond what is accessible at the LHC.

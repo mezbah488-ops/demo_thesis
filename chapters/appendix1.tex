@@ -236,32 +236,6 @@ term therefore vanishes at both limits, and
 \end{equation}
 
 
-\chapter{Matrix Element of the Inverse Propagator}
-\label{app:matrix-element}
-
-We evaluate $\langle k'|\,i\Delta^{-1}[\rho]\,|k\rangle$ using
-$\langle x|k\rangle = e^{ikx}$,
-\begin{multline}
-	\langle k'|\,i\Delta^{-1}[\rho]\,|k\rangle
-	= \int d^4x\,d^4y\;\langle k'|x\rangle
-	\langle x|\,i\Delta^{-1}[\rho]\,|y\rangle\langle y|k\rangle \\
-	= \int d^4x\,d^4y\;e^{ik'x}
-	\left[-\left(\Box+V''(\rho)\right)\right]
-	\delta^4(x-y)\,e^{iky} \\
-	= \int d^4x\;e^{-i(k-k')x}
-	\left[-(- k^2+V''(\rho))\right] \\
-	= \left[k^2-V''(\rho)\right](2\pi)^4\delta^4(k-k').
-\end{multline}
-Setting $k=k'$ and dividing by $\Omega = (2\pi)^4\delta^4(0)$,
-\begin{equation}
-	\langle k|\,i\Delta^{-1}(\rho)\,|k\rangle
-	= \left[k^2-V''(\rho)\right]\Omega,
-\end{equation}
-\begin{equation}
-	\Rightarrow\quad
-	\Omega^{-1}\langle k|\,i\Delta^{-1}(\rho)\,|k\rangle
-	= k^2-V''(\rho).
-\end{equation}
 
 
 \chapter{Evaluation of the One-Loop Momentum Integral}

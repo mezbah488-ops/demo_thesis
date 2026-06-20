@@ -1,0 +1,394 @@
+\chapter{Fate of the False Vacuum: Semiclassical Theory}
+\label{ch:semiclassical_theory}
+
+\section{Introduction}
+
+Consider a classical field theory of a single scalar field $\phi$ in four-dimensional spacetime, with nonderivative self-interactions, described by the Lagrangian density
+\begin{equation}
+\mathcal{L} = \frac{1}{2}\partial_\mu \phi \, \partial^\mu \phi - U(\phi).
+\label{eq:lagrangian}
+\end{equation}
+Suppose the potential $U(\phi)$ has two relative minima, $\phi_+$ and $\phi_-$, with $U(\phi_-) < U(\phi_+)$, so that $\phi_-$ is the absolute minimum and $\phi_+$ is only a local minimum.
+
+% DIAGRAM: U(phi) with two unequal minima phi_- (global) and phi_+ (local), separated by a barrier
+
+Classically, the field configuration $\phi \equiv \phi_+$, uniform over all space, is a perfectly stable equilibrium: it sits at a local minimum of the potential, and nothing in the classical equations of motion drives it away. Perturbatively, the same is true in the quantum theory: small fluctuations around $\phi_+$ are well described by ordinary perturbation theory, and $\phi_+$ looks like a perfectly good vacuum state to any finite order in perturbation theory.
+
+Nonperturbatively, however, this is false. Quantum mechanically, the state built on $\phi_+$ is unstable: it can decay via barrier penetration, exactly as a particle in a metastable potential well can tunnel out. The state $\phi_+$ is therefore called a \emph{false vacuum}, and $\phi_-$ the \emph{true vacuum}.
+
+The qualitative picture of this decay is the field-theoretic analogue of nucleation phenomena in statistical mechanics: the crystallization of a supersaturated solution, or the boiling of a superheated fluid. In the fluid analogy, $U(\phi)$ plays the role of a free energy as a function of density; the false vacuum is the superheated liquid phase, and the true vacuum is the vapor phase. Thermodynamic fluctuations continually nucleate small bubbles of vapor inside the liquid. A bubble below some critical size shrinks back to nothing, because the surface energy cost of maintaining its boundary outweighs the volume energy gained by converting to the lower-energy phase. A bubble above the critical size, however, finds it energetically favourable to keep growing, and once such a bubble forms, it expands and converts the surrounding liquid to vapor.
+
+The decay of the false vacuum proceeds by exactly the same mechanism, with \emph{quantum} fluctuations replacing thermodynamic ones. Occasionally a bubble of true vacuum nucleates, of just the right size that it is classically favourable for it to grow; once nucleated, the bubble wall expands outward, converting false vacuum to true vacuum as it goes.
+
+The object to compute is therefore the decay probability of the false vacuum per unit time per unit volume, $\Gamma/V$. This quantity is directly relevant to cosmology: an infinitely old universe sitting in a false vacuum must eventually have decayed, no matter how small $\Gamma/V$ is, simply because an infinite amount of time has elapsed. But the universe is not infinitely old, and the question of whether (and when) a false vacuum decays on cosmological timescales is a genuine, falsifiable question about the history and future of the universe. This point is taken up again in Section~\ref{sec:cosmological-relevance}.
+
+The remainder of this chapter develops the semiclassical formalism for computing $\Gamma/V$, following \cite{Coleman1977}. The exposition proceeds in stages: first reviewing ordinary quantum-mechanical barrier penetration in one dimension (Section~\ref{sec:1d-barrier}), then generalizing to many degrees of freedom (Section~\ref{sec:many-dim-barrier}), then specializing to field theory (Section~\ref{sec:field-theory-barrier}), working out the thin-wall approximation in closed form (Section~\ref{sec:thin-wall}), and finally following the classical evolution of a bubble after it nucleates (Section~\ref{sec:bubble-evolution}).
+
+It should be emphasized at the outset what this chapter does \emph{not} cover. The 1977 paper computes only the exponential suppression factor in $\Gamma/V$; the one-loop prefactor multiplying it is the subject of the companion paper by Callan and Coleman, and is not treated here. The present chapter is concerned entirely with the leading semiclassical exponent.
+
+\section{Barrier Penetration in One Dimension}
+\label{sec:1d-barrier}
+
+Before attacking the field theory problem, it is worth carefully rederiving the much simpler quantum-mechanical analogue: a single particle of unit mass tunnelling out of a metastable potential well. This fixes the language and the key result, $\Gamma \sim e^{-B/\hbar}$, that will be generalized step by step.
+
+\subsection{Setting up the problem}
+
+Consider a particle of unit mass moving in one dimension with Lagrangian
+\begin{equation}
+L = \frac{1}{2}\dot q^2 - V(q),
+\label{eq:1d-lagrangian}
+\end{equation}
+where $V(q)$ has a local minimum at $q_0$, with the zero of energy chosen so that $V(q_0) = 0$. Let $\sigma$ denote the other zero of $V$, i.e.\ the point where the particle, released from rest at $q_0$ with zero total energy, would classically just reach the far side of the barrier.
+
+% DIAGRAM: V(q) potential with local minimum at q_0 and the barrier extending out to the point sigma where V(sigma)=0 again
+
+Classically there is no instability: a particle placed at rest at $q_0$ stays there forever, since $q_0$ is a genuine local minimum. Quantum mechanically, however, there is no exactly stable bound state corresponding to this classical equilibrium, because the particle can tunnel through the barrier separating $q_0$ from the region beyond $\sigma$, where it is free to propagate off to infinity (or to some other, lower-energy region of configuration space).
+
+\subsection{The WKB exponent}
+
+The decay rate associated with this barrier penetration takes the semiclassical form
+\begin{equation}
+\Gamma = A\, e^{-B/\hbar}\big[1+O(\hbar)\big],
+\label{eq:gamma-semiclassical}
+\end{equation}
+where $B$ is computed below and $A$ is a prefactor arising from quantum fluctuations around the dominant tunnelling trajectory. The goal of this section is to derive the exponent $B$ and to show that it is naturally interpreted as a classical action.
+
+The cleanest derivation proceeds by an $\hbar$-expansion of the Schr\"odinger equation directly. Write the (energy eigenstate) wavefunction as
+\begin{equation}
+\psi(q) = e^{if(q)/\hbar},
+\label{eq:wkb-ansatz}
+\end{equation}
+where $f$ is in general complex; this is no loss of generality, since any nonvanishing function can be written this way. Substituting into the time-independent Schr\"odinger equation
+\begin{equation}
+-\frac{\hbar^2}{2}\psi''(q) + V(q)\psi(q) = E\,\psi(q)
+\label{eq:schrodinger}
+\end{equation}
+and using
+\begin{equation}
+\psi' = \frac{if'}{\hbar}\psi, \qquad \psi'' = \left[\frac{if''}{\hbar} - \frac{(f')^2}{\hbar^2}\right]\psi,
+\label{eq:psi-derivatives}
+\end{equation}
+gives, after multiplying through by $-2/\psi$ and rearranging,
+\begin{equation}
+i\hbar f'' - (f')^2 + p(q)^2 = 0, \qquad p(q) \equiv \sqrt{2[E-V(q)]}.
+\label{eq:f-equation}
+\end{equation}
+
+Now expand $f$ in powers of $\hbar$,
+\begin{equation}
+f(q) = f_0(q) + \hbar f_1(q) + \hbar^2 f_2(q) + \cdots,
+\label{eq:f-expansion}
+\end{equation}
+and collect \eqref{eq:f-equation} order by order. Writing out $(f')^2$ and $f''$ to the needed order,
+\begin{equation}
+(f')^2 = (f_0')^2 + 2\hbar f_0' f_1' + O(\hbar^2), \qquad f'' = f_0'' + \hbar f_1'' + O(\hbar^2),
+\label{eq:expansion-pieces}
+\end{equation}
+equation \eqref{eq:f-equation} becomes
+\begin{equation}
+i\hbar f_0'' + i\hbar^2 f_1'' - (f_0')^2 - 2\hbar f_0' f_1' + p^2 + O(\hbar^2) = 0.
+\label{eq:f-equation-expanded}
+\end{equation}
+Matching powers of $\hbar$:
+\begin{equation}
+O(\hbar^0): \qquad (f_0')^2 = p^2,
+\label{eq:order-h0}
+\end{equation}
+\begin{equation}
+O(\hbar^1): \qquad i f_0'' = 2 f_0' f_1'.
+\label{eq:order-h1}
+\end{equation}
+
+Equation \eqref{eq:order-h0} gives
+\begin{equation}
+f_0'(q) = \pm p(q) \quad\Longrightarrow\quad f_0(q) = \pm\int^q p(q')\,dq'.
+\label{eq:f0-solution}
+\end{equation}
+Equation \eqref{eq:order-h1} then gives
+\begin{equation}
+f_1' = \frac{i f_0''}{2 f_0'} = \frac{i}{2}\frac{d}{dq}\ln(f_0'),
+\label{eq:f1-prime}
+\end{equation}
+which integrates to
+\begin{equation}
+f_1(q) = \frac{i}{2}\ln\big[\pm p(q)\big] + \text{const}.
+\label{eq:f1-solution}
+\end{equation}
+
+Assembling $\psi = \exp[i(f_0+\hbar f_1)/\hbar]$ to this order,
+\begin{equation}
+\exp(if_1) = \exp\!\left[-\tfrac{1}{2}\ln(\pm p)\right] = \frac{1}{\sqrt{\pm p(q)}},
+\label{eq:exp-if1}
+\end{equation}
+so that
+\begin{equation}
+\psi(q) \approx \frac{C_\pm}{\sqrt{p(q)}}\exp\!\left[\pm\frac{i}{\hbar}\int^q p(q')\,dq'\right]
+\label{eq:wkb-allowed}
+\end{equation}
+in a classically allowed region, where $p(q)$ is real. This is the standard WKB wavefunction.
+
+\subsection{The forbidden region and the tunnelling exponent}
+
+In the region under the barrier, $E < V(q)$, so $p(q)^2 = 2[E-V(q)] < 0$ and $p$ is pure imaginary. Write
+\begin{equation}
+p(q) = i\,\kappa(q), \qquad \kappa(q) \equiv \sqrt{2[V(q)-E]} \quad (\text{real, positive}).
+\label{eq:kappa-def}
+\end{equation}
+Equation \eqref{eq:wkb-allowed} then becomes, after the same bookkeeping with $\ln$ of an imaginary argument,
+\begin{equation}
+\psi(q) \approx \frac{C_\pm}{\sqrt{\kappa(q)}}\exp\!\left[\pm\frac{1}{\hbar}\int^q \kappa(q')\,dq'\right],
+\label{eq:wkb-forbidden}
+\end{equation}
+i.e.\ a real, exponentially growing or decaying solution under the barrier, rather than an oscillating one. This is the expected behaviour: in a classically forbidden region the wavefunction cannot oscillate, since there is no real classical momentum, but it need not vanish either.
+
+The decaying branch of \eqref{eq:wkb-forbidden}, continued from just inside $q_0$ to the far edge of the barrier at $\sigma$, picks up a suppression factor
+\begin{equation}
+\left|\frac{\psi(\sigma)}{\psi(q_0)}\right| \sim \exp\!\left[-\frac{1}{\hbar}\int_{q_0}^{\sigma}\kappa(q)\,dq\right] = \exp\!\left[-\frac{1}{\hbar}\int_{q_0}^{\sigma}\sqrt{2V(q)}\,dq\right],
+\label{eq:suppression-factor}
+\end{equation}
+having set $E=0$ so that the energy is measured from the bottom of the well. The transmission probability is the square of this amplitude ratio, giving an exponential suppression $e^{-B/\hbar}$ with
+\begin{equation}
+B = 2\int_{q_0}^{\sigma} dq\,\big[2V(q)\big]^{1/2}.
+\label{eq:B-definition}
+\end{equation}
+The decay rate $\Gamma$ inherits the same exponential suppression, since the rate-limiting step in the decay process is precisely this barrier-penetration probability; any remaining, non-exponential dependence on the parameters of the potential is absorbed into the prefactor $A$, recovering \eqref{eq:gamma-semiclassical}.
+
+\subsection{$B$ as a Euclidean action}
+
+The exponent $B$ in \eqref{eq:B-definition} is not merely a convenient integral; it has a direct interpretation as a classical action, and this interpretation is what makes the generalization to many degrees of freedom and to field theory tractable.
+
+Consider the analytic continuation of time to imaginary values, $t \to -i\tau$ (so $\tau$ is real). Under this continuation, $\dot q = dq/dt \to i\, dq/d\tau$, and the Lagrangian becomes
+\begin{equation}
+L = \frac{1}{2}\dot q^2 - V(q) \;\longrightarrow\; -\frac{1}{2}\left(\frac{dq}{d\tau}\right)^2 - V(q) \equiv -L_E,
+\label{eq:wick-rotation}
+\end{equation}
+where
+\begin{equation}
+L_E = \frac{1}{2}\left(\frac{dq}{d\tau}\right)^2 + V(q)
+\label{eq:euclidean-lagrangian}
+\end{equation}
+is the \emph{Euclidean} Lagrangian: a particle moving in imaginary time experiences the \emph{inverted} potential $-V(q)$ relative to the original problem, since the sign of the potential term flips relative to the kinetic term. Equivalently, motion under the original barrier in real time becomes motion in the (now classically allowed) inverted-potential problem in imaginary time.
+
+The Euclidean equations of motion following from \eqref{eq:euclidean-lagrangian}, via Hamilton's principle $\delta\int d\tau\, L_E = 0$, are
+\begin{equation}
+\frac{d^2 q}{d\tau^2} = \frac{\partial V}{\partial q},
+\label{eq:euclidean-eom}
+\end{equation}
+with first integral (Euclidean energy conservation)
+\begin{equation}
+\frac{1}{2}\left(\frac{dq}{d\tau}\right)^2 - V(q) = 0
+\label{eq:euclidean-energy-conservation}
+\end{equation}
+for the trajectory of interest, namely the one with zero total energy, released from rest. From \eqref{eq:euclidean-energy-conservation},
+\begin{equation}
+\frac{dq}{d\tau} = \sqrt{2V(q)} \quad\Longrightarrow\quad d\tau = \frac{dq}{\sqrt{2V(q)}},
+\label{eq:euclidean-velocity}
+\end{equation}
+and the Euclidean action evaluated on this classical trajectory is
+\begin{equation}
+S_E = \int d\tau\, L_E = \int d\tau\left[\frac{1}{2}\left(\frac{dq}{d\tau}\right)^2 + V(q)\right] = \int d\tau\, \left(\frac{dq}{d\tau}\right)^2 = \int dq\,\frac{dq}{d\tau} = \int_{q_0}^{\sigma} dq\,\sqrt{2V(q)},
+\label{eq:euclidean-action-onshell}
+\end{equation}
+using \eqref{eq:euclidean-energy-conservation} twice (once to replace $\tfrac12(dq/d\tau)^2$ by $V$ in $L_E$, giving $L_E = (dq/d\tau)^2$, and once to replace $dq/d\tau$ itself). Comparing \eqref{eq:euclidean-action-onshell} with \eqref{eq:B-definition},
+\begin{equation}
+B = 2\int_{q_0}^{\sigma}dq\,\sqrt{2V(q)} = 2\,S_E.
+\label{eq:B-equals-2SE}
+\end{equation}
+This trajectory --- starting at rest at $q_0$ at $\tau \to -\infty$, moving under the inverted potential out to $\sigma$ at some finite $\tau$ (taken to be $\tau=0$ by time-translation invariance), and by time-reversal symmetry of \eqref{eq:euclidean-eom}--\eqref{eq:euclidean-energy-conservation} bouncing back and returning to $q_0$ as $\tau\to+\infty$ --- is called \emph{the bounce}. The full round trip out to $\sigma$ and back doubles the one-way action, which is exactly the origin of the factor of 2 in \eqref{eq:B-definition}: $B$ is the \emph{total} Euclidean action of the complete bounce trajectory,
+\begin{equation}
+	B = S_E[\text{bounce}] = \int_{-\infty}^{\infty} d\tau\, L_E.
+\label{eq:B-total-action}
+\end{equation}
+
+This reformulation, $\Gamma \sim e^{-S_E[\text{bounce}]/\hbar}$, is the form in which the result generalizes. Sections~\ref{sec:many-dim-barrier} and~\ref{sec:field-theory-barrier} promote this one-dimensional bounce to, respectively, a trajectory in many-dimensional configuration space and a classical solution of the Euclidean field equations.
+
+\section{Barrier Penetration in Field Theory}
+
+Having established the semiclassical formalism for barrier penetration in
+quantum mechanics, we now translate the prescription to the field-theory
+problem of false vacuum decay. The central object is the \textit{bounce},
+the field configuration that dominates the path integral in the classically
+forbidden region.
+
+The starting point is the Euclidean (imaginary-time) equation of motion,
+obtained from the Minkowskian field equation by the formal substitution
+$t \to -i\tau$,
+\begin{equation}
+    \left(\frac{\partial^{2}}{\partial\tau^{2}}+\nabla^{2}\right)\phi
+    =U'(\phi),
+    \label{eq:euclidean_eom}
+\end{equation}
+where a prime denotes differentiation with respect to $\phi$. The passage
+from real to imaginary time takes us from Minkowski space to Euclidean
+space, and it is in this Euclidean setting that barrier penetration
+processes are naturally described.
+
+The bounce solution $\phi(\tau,\mathbf{x})$ must satisfy two boundary
+conditions. The first requires that the field returns to the false vacuum
+$\phi_{+}$ as imaginary time runs to $\pm\infty$,
+\begin{equation}
+    \lim_{\tau\to\pm\infty}\phi(\tau,\mathbf{x})=\phi_{+}.
+    \label{eq:bc_tau}
+\end{equation}
+This is the field-theoretic counterpart of the particle starting and
+ending at the classical equilibrium point $q_{0}$ as $\tau\to\pm\infty$,
+as established in the previous section. Physically, it expresses the fact
+that far in imaginary time the field sits undisturbed in the false vacuum.
+The second boundary condition is
+\begin{equation}
+    \frac{\partial\phi}{\partial\tau}(0,\mathbf{x})=0,
+    \label{eq:bc_dtau}
+\end{equation}
+which is the field-theoretic analogue of the vanishing of the particle's
+velocity at the turning point $\tau=0$. It reflects the time-reversal
+symmetry of the bounce: the field configuration for positive $\tau$ is
+simply the mirror image of that for negative $\tau$.
+
+The tunneling amplitude is controlled by the coefficient $B$, which is
+the Euclidean action evaluated on the bounce solution,
+\begin{equation}
+    B = S_{E} = \int d\tau\, d^{3}x
+    \left[
+        \frac{1}{2}\left(\frac{\partial\phi}{\partial\tau}\right)^{2}
+        +\frac{1}{2}(\boldsymbol{\nabla}\phi)^{2}
+        +U(\phi)
+    \right].
+    \label{eq:B_action}
+\end{equation}
+The decay rate per unit volume then takes the semiclassical form
+$\Gamma/V \sim A e^{-B/\hbar}$, so a larger $B$ corresponds to a more
+suppressed tunneling rate.
+
+For the expression in \eqref{eq:B_action} to yield a finite value of
+$B$, the integrand must fall off sufficiently fast in all directions.
+Consider the behaviour of the field at large spatial separation from the
+bubble, $|\mathbf{x}|\to\infty$. There the field approaches some
+constant value $\phi_{\infty}$, so the gradient terms
+$(\partial\phi/\partial\tau)^{2}$ and $(\boldsymbol{\nabla}\phi)^{2}$
+both vanish. The integrand then reduces to $U(\phi_{\infty})$, and the
+spatial integral becomes
+\begin{equation}
+    \int d^{3}x\; U(\phi_{\infty})\;\sim\; U(\phi_{\infty})\cdot
+    |\mathbf{x}|^{3}\;\longrightarrow\;\infty,
+\end{equation}
+unless $U(\phi_{\infty})=0$. The potential $U$ has been normalised so
+that $U(\phi_{+})=0$ at the false vacuum; the true vacuum satisfies
+$U(\phi_{-})<0$ and so does not give a zero. Therefore finiteness of $B$
+forces
+\begin{equation}
+    \lim_{|\mathbf{x}|\to\infty}\phi(\tau,\mathbf{x})=\phi_{+}.
+    \label{eq:bc_spatial}
+\end{equation}
+This is not an independent physical assumption but a derived condition:
+it follows directly from requiring that the tunneling exponent be finite,
+which is the minimal consistency requirement for the semiclassical
+approximation. It also has a clear physical meaning: far from the
+nucleated bubble, the field remains undisturbed in the false vacuum.
+
+The three boundary conditions \eqref{eq:bc_tau}, \eqref{eq:bc_dtau},
+and \eqref{eq:bc_spatial} are all consistent with the assumption that the
+bounce possesses full $O(4)$ invariance, that is, that $\phi$ depends on
+$\tau$ and $\mathbf{x}$ only through the $O(4)$-invariant combination
+\begin{equation}
+    \rho = \left(\tau^{2}+|\mathbf{x}|^{2}\right)^{1/2}.
+    \label{eq:rho_def}
+\end{equation}
+If $O(4)$-non-invariant bounces exist, they carry a higher Euclidean
+action than the $O(4)$-invariant one and may therefore be safely ignored.
+We thus restrict attention to solutions of the form $\phi=\phi(\rho)$.
+
+Under the $O(4)$ symmetry assumption, the field equation
+\eqref{eq:euclidean_eom} reduces to a single nonlinear ordinary
+differential equation, which we now derive explicitly. Since $\phi$
+depends on $(\tau,\mathbf{x})$ only through
+$\rho=(\tau^{2}+|\mathbf{x}|^{2})^{1/2}$, we compute each term in the
+wave operator separately. For the imaginary-time part, the chain rule
+gives
+\begin{equation}
+    \frac{\partial\phi}{\partial\tau}
+    =\phi'(\rho)\,\frac{\partial\rho}{\partial\tau}
+    =\phi'(\rho)\,\frac{\tau}{\rho},
+\end{equation}
+where a prime now denotes $d/d\rho$. Differentiating once more,
+\begin{equation}
+    \frac{\partial^{2}\phi}{\partial\tau^{2}}
+    =\phi''(\rho)\,\frac{\tau^{2}}{\rho^{2}}
+    +\phi'(\rho)\,\frac{\partial}{\partial\tau}
+    \!\left(\frac{\tau}{\rho}\right).
+\end{equation}
+The remaining derivative is
+\begin{equation}
+    \frac{\partial}{\partial\tau}\!\left(\frac{\tau}{\rho}\right)
+    =\frac{1}{\rho}-\frac{\tau^{2}}{\rho^{3}}
+    =\frac{|\mathbf{x}|^{2}}{\rho^{3}},
+\end{equation}
+so that
+\begin{equation}
+    \frac{\partial^{2}\phi}{\partial\tau^{2}}
+    =\phi''\frac{\tau^{2}}{\rho^{2}}
+    +\phi'\frac{|\mathbf{x}|^{2}}{\rho^{3}}.
+    \label{eq:d2phi_dtau2}
+\end{equation}
+For the spatial part, by the same reasoning applied to each Cartesian
+component $x^{i}$,
+\begin{equation}
+    \frac{\partial^{2}\phi}{\partial(x^{i})^{2}}
+    =\phi''\frac{(x^{i})^{2}}{\rho^{2}}
+    +\phi'\frac{\rho^{2}-(x^{i})^{2}}{\rho^{3}}.
+\end{equation}
+Summing over $i=1,2,3$,
+\begin{equation}
+    \nabla^{2}\phi
+    =\phi''\frac{|\mathbf{x}|^{2}}{\rho^{2}}
+    +\phi'\frac{3\rho^{2}-|\mathbf{x}|^{2}}{\rho^{3}}.
+    \label{eq:laplacian}
+\end{equation}
+Adding \eqref{eq:d2phi_dtau2} and \eqref{eq:laplacian},
+\begin{equation}
+    \frac{\partial^{2}\phi}{\partial\tau^{2}}+\nabla^{2}\phi
+    =\phi''\!\left(\frac{\tau^{2}+|\mathbf{x}|^{2}}{\rho^{2}}\right)
+    +\phi'\!\left(\frac{|\mathbf{x}|^{2}+3\rho^{2}-|\mathbf{x}|^{2}}
+    {\rho^{3}}\right).
+\end{equation}
+Using $\tau^{2}+|\mathbf{x}|^{2}=\rho^{2}$ in the first bracket and
+cancelling $|\mathbf{x}|^{2}$ in the second,
+\begin{equation}
+    \frac{\partial^{2}\phi}{\partial\tau^{2}}+\nabla^{2}\phi
+    =\phi''+\frac{3}{\rho}\,\phi'.
+\end{equation}
+Substituting into \eqref{eq:euclidean_eom} yields the reduced equation,
+\begin{equation}
+    \frac{d^{2}\phi}{d\rho^{2}}+\frac{3}{\rho}\,\frac{d\phi}{d\rho}
+    =U'(\phi).
+    \label{eq:reduced_ode}
+\end{equation}
+
+The coefficient $3/\rho$ in \eqref{eq:reduced_ode} is the contribution
+of the angular degrees of freedom of four-dimensional Euclidean space to
+the radial Laplacian; more generally, for an $O(n)$-invariant field in
+$n$ dimensions it would be $(n-1)/\rho$. Here $n=4$, one imaginary-time
+direction and three spatial directions, giving the factor of $3$. There
+is a useful mechanical analogy: if one interprets $\phi$ as the position
+of a particle and $\rho$ as time, equation \eqref{eq:reduced_ode}
+describes a particle moving in the inverted potential $-U(\phi)$ and
+subject to a $\rho$-dependent viscous damping force with coefficient
+$3/\rho$, which weakens as $\rho$ increases. This analogy will be used
+subsequently to establish the existence of the bounce and to understand
+its qualitative properties.
+
+Finally, the boundary conditions \eqref{eq:bc_tau} and
+\eqref{eq:bc_spatial} both collapse under $O(4)$ symmetry to the single
+condition
+\begin{equation}
+    \lim_{\rho\to\infty}\phi(\rho)=\phi_{+},
+    \label{eq:bc_rho_inf}
+\end{equation}
+and condition \eqref{eq:bc_dtau} becomes
+\begin{equation}
+    \left.\frac{d\phi}{d\rho}\right|_{\rho=0}=0,
+    \label{eq:bc_rho_0}
+\end{equation}
+which is also required for regularity of the solution at the origin.
+Together, \eqref{eq:bc_rho_inf} and \eqref{eq:bc_rho_0} furnish the two
+boundary conditions for the ordinary differential equation
+\eqref{eq:reduced_ode}.
